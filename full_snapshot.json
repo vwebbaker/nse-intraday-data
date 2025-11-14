@@ -1,0 +1,337 @@
+{
+  "tick": {
+    "8600": {
+      "last_ts": "nan",
+      "last_price": NaN,
+      "vwap": NaN,
+      "oi_delta_last": 0,
+      "orh": NaN,
+      "orl": NaN,
+      "qty_spike_count": 0
+    },
+    "ANPAINT": {
+      "last_ts": "2025-11-14 10:31:57.281698",
+      "last_price": 2894.3,
+      "vwap": 2894.3,
+      "oi_delta_last": 0,
+      "orh": 2894.3,
+      "orl": 2894.3,
+      "qty_spike_count": 1
+    },
+    "ASIANPAINT": {
+      "last_ts": "2025-11-14 15:29:59.763769",
+      "last_price": 2900.1,
+      "vwap": 2898.6006009615385,
+      "oi_delta_last": 24000,
+      "orh": 2901.1,
+      "orl": 2897.1,
+      "qty_spike_count": 2
+    },
+    "ICICIBANK": {
+      "last_ts": "2025-11-14 15:29:59.709458",
+      "last_price": 1374.6,
+      "vwap": 1375.6636686390532,
+      "oi_delta_last": 0,
+      "orh": 1376.2,
+      "orl": 1374.6,
+      "qty_spike_count": 0
+    },
+    "UNKNOWN": {
+      "last_ts": "2025-11-14 09:45:27.839092",
+      "last_price": 2890.7,
+      "vwap": 2412.625831564048,
+      "oi_delta_last": 0,
+      "orh": 2892.6,
+      "orl": 1382.0,
+      "qty_spike_count": 13
+    }
+  },
+  "preopen": {
+    "Symbol": [
+      "ICICIBANK ",
+      "INFY      ",
+      "ASIANPAINT",
+      "TATASTEEL ",
+      "HDFCBANK  ",
+      "INDUSINDBK",
+      "MOTHERSON ",
+      "ETERNAL   ",
+      "RELIANCE  ",
+      "VEDL      "
+    ],
+    "Prev_Close": [
+      1385.9,
+      1541.8,
+      2879.4,
+      176.65,
+      986.65,
+      863.45,
+      109.13,
+      297.75,
+      1510.9,
+      529.6
+    ],
+    "IEP": [
+      1374.0,
+      1520.0,
+      2865.1,
+      177.52,
+      976.05,
+      864.0,
+      111.31,
+      295.0,
+      1505.5,
+      528.0
+    ],
+    "Gap": [
+      -11.9,
+      -21.8,
+      -14.3,
+      0.87,
+      -10.6,
+      0.55,
+      2.18,
+      -2.75,
+      -5.4,
+      -1.6
+    ],
+    "Gap_Pct": [
+      -0.86,
+      -1.41,
+      -0.5,
+      0.49,
+      -1.07,
+      0.06,
+      2.0,
+      -0.92,
+      -0.36,
+      -0.3
+    ],
+    "PreOpen_Vol": [
+      191602,
+      77768,
+      7421,
+      132773,
+      780471,
+      7185,
+      320492,
+      8918,
+      62713,
+      26181
+    ],
+    "Nifty_Adv": [
+      12.0,
+      NaN,
+      NaN,
+      NaN,
+      NaN,
+      NaN,
+      NaN,
+      NaN,
+      NaN,
+      NaN
+    ],
+    "Nifty_Dec ": [
+      33.0,
+      NaN,
+      NaN,
+      NaN,
+      NaN,
+      NaN,
+      NaN,
+      NaN,
+      NaN,
+      NaN
+    ]
+  },
+  "global": {
+    "Date": [
+      "2025-11-14",
+      "2025-11-14",
+      "2025-11-14",
+      "2025-11-14",
+      "2025-11-14"
+    ],
+    "Time": [
+      "08:30:00 AM",
+      "08:30:00 AM",
+      "08:30:00 AM",
+      "08:30:00 AM",
+      "08:30:00 AM"
+    ],
+    "Index": [
+      "GIFT_Nifty",
+      "Dow_Fut",
+      "SP500",
+      "Nikkei",
+      "Hang_Seng"
+    ],
+    "Current": [
+      25885.0,
+      47528.0,
+      6784.25,
+      50434.54,
+      26780.5
+    ],
+    "Changes": [
+      78.0,
+      -170.5,
+      23.2,
+      -905.3,
+      -500.57
+    ],
+    "Change Percent": [
+      0.3,
+      -0.36,
+      0.34,
+      -1.77,
+      -1.85
+    ]
+  },
+  "fiidii_participant": {
+    "fii_dii": {
+      "Date ": [
+        "11/13/25"
+      ],
+      "DII_Net ": [
+        2868.12
+      ],
+      "FII_Net ": [
+        -259.31
+      ],
+      "Combined_Net ": [
+        2608.81
+      ]
+    },
+    "participant": {
+      "Participant wise Open Interest (no. of contracts) in Equity Derivatives as on Nov 13": [
+        "Client Type",
+        "Client",
+        "DII",
+        "FII",
+        "Pro",
+        "TOTAL"
+      ],
+      " 2025\"\"": [
+        "Future Index Long",
+        "182923",
+        "87514",
+        "24542",
+        "48432",
+        "343411"
+      ],
+      "Unnamed: 2": [
+        "Future Index Short",
+        "86004",
+        "37594",
+        "184489",
+        "35324",
+        "343411"
+      ],
+      "Unnamed: 3": [
+        "Future Stock Long",
+        "2918992",
+        "207957",
+        "3642001",
+        "877252",
+        "7646202"
+      ],
+      "Unnamed: 4": [
+        "Future Stock Short       ",
+        "332776",
+        "4661903",
+        "2317666",
+        "333857",
+        "7646202"
+      ],
+      "Unnamed: 5": [
+        "Option Index Call Long",
+        "2148790",
+        "2381",
+        "448538",
+        "744600",
+        "3344308"
+      ],
+      "Unnamed: 6": [
+        "Option Index Put Long",
+        "2018049",
+        "39127",
+        "615249",
+        "950395",
+        "3622820"
+      ],
+      "Unnamed: 7": [
+        "Option Index Call Short",
+        "2099259",
+        "0",
+        "433371",
+        "811678",
+        "3344308"
+      ],
+      "Unnamed: 8": [
+        "Option Index Put Short",
+        "2279910",
+        "0",
+        "395362",
+        "947547",
+        "3622820"
+      ],
+      "Unnamed: 9": [
+        "Option Stock Call Long",
+        "2450335",
+        "1697",
+        "110601",
+        "985873",
+        "3548506"
+      ],
+      "Unnamed: 10": [
+        "Option Stock Put Long",
+        "951843",
+        "13273",
+        "146407",
+        "1046193",
+        "2157716"
+      ],
+      "Unnamed: 11": [
+        "Option Stock Call Short",
+        "1522109",
+        "191258",
+        "152612",
+        "1682527",
+        "3548506"
+      ],
+      "Unnamed: 12": [
+        "Option Stock Put Short",
+        "1208401",
+        "419",
+        "104239",
+        "844657",
+        "2157716"
+      ],
+      "Unnamed: 13": [
+        "Total Long Contracts      ",
+        "10670932",
+        "351949",
+        "4987338",
+        "4652744",
+        "20662963"
+      ],
+      "Unnamed: 14": [
+        "Total Short Contracts",
+        "7528460",
+        "4891174",
+        "3587739",
+        "4655590",
+        "20662963"
+      ],
+      "Unnamed: 15": [
+        NaN,
+        NaN,
+        NaN,
+        NaN,
+        NaN,
+        NaN
+      ]
+    }
+  }
+}
