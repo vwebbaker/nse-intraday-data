@@ -1,0 +1,47 @@
+{
+  "8600": {
+    "last_ts": "nan",
+    "last_price": NaN,
+    "vwap": NaN,
+    "oi_delta_last": 0,
+    "orh": NaN,
+    "orl": NaN,
+    "qty_spike_count": 0
+  },
+  "ANPAINT": {
+    "last_ts": "2025-11-14 10:31:57.281698",
+    "last_price": 2894.3,
+    "vwap": 2894.3,
+    "oi_delta_last": 0,
+    "orh": 2894.3,
+    "orl": 2894.3,
+    "qty_spike_count": 1
+  },
+  "ASIANPAINT": {
+    "last_ts": "2025-11-14 15:29:59.763769",
+    "last_price": 2900.1,
+    "vwap": 2898.6006009615385,
+    "oi_delta_last": 24000,
+    "orh": 2901.1,
+    "orl": 2897.1,
+    "qty_spike_count": 2
+  },
+  "ICICIBANK": {
+    "last_ts": "2025-11-14 15:29:59.709458",
+    "last_price": 1374.6,
+    "vwap": 1375.6636686390532,
+    "oi_delta_last": 0,
+    "orh": 1376.2,
+    "orl": 1374.6,
+    "qty_spike_count": 0
+  },
+  "UNKNOWN": {
+    "last_ts": "2025-11-14 09:45:27.839092",
+    "last_price": 2890.7,
+    "vwap": 2412.625831564048,
+    "oi_delta_last": 0,
+    "orh": 2892.6,
+    "orl": 1382.0,
+    "qty_spike_count": 13
+  }
+}
