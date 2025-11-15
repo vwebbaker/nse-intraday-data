@@ -145,19 +145,23 @@ def main():
         print("✗ Pipeline failed at snapshot creation")
         return
     
-    # Step 3: Read the latest snapshot URL
-    url_file = Path("snapshots/latest_snapshot_url.txt")
+    # Step 3: Find the latest snapshot file and update prompt
+    snapshots_dir = Path("snapshots")
     
-    if url_file.exists():
-        with open(url_file, 'r') as f:
-            snapshot_url = f.read().strip()
+    # Find the latest snapshot JSON file
+    snapshot_files = sorted(snapshots_dir.glob("nse_snapshot_*.json"))
+    
+    if snapshot_files:
+        latest_snapshot = snapshot_files[-1]  # Get the most recent
+        snapshot_filename = latest_snapshot.name
         
-        # Extract snapshot filename from URL
-        snapshot_filename = snapshot_url.split('/')[-1]
+        # Build GitHub raw URL
+        snapshot_url = f"https://raw.githubusercontent.com/vwebbaker/nse-intraday-data/refs/heads/main/snapshots/{snapshot_filename}"
         
         print("\n" + "="*70)
         print("✓ Published to GitHub!")
         print("="*70)
+        print(f"\nLatest Snapshot: {snapshot_filename}")
         
         # NEW CODE: Update analysis prompt automatically
         update_analysis_prompt_url(snapshot_filename)
@@ -187,19 +191,22 @@ def main():
         print("3. Get your TOP 5 intraday stock recommendations!\n")
         print("="*70 + "\n")
         
-    else:
-        # Verify Git push by checking git status
+        # Verify Git push
         result = subprocess.run(
             ["git", "status", "--porcelain"], 
             capture_output=True, 
             text=True
         )
         if result.stdout.strip() == "":
-            print("\n✓ All changes pushed to GitHub successfully\n")
+            print("✓ All changes committed and pushed to GitHub\n")
         else:
-            print("\n⚠ Uncommitted changes remain:")
+            print("⚠ Note: Some uncommitted changes detected:")
             print(result.stdout)
             print()
+        
+    else:
+        print("\n✗ No snapshot files found in snapshots/ directory")
+        print("  Check if snapshot creation was successful\n")
 
 if __name__ == "__main__":
     main()
