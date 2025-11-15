@@ -2,6 +2,8 @@
 
 import subprocess
 import sys
+import os
+import re
 from pathlib import Path
 from datetime import datetime
 
@@ -20,6 +22,47 @@ def run_script(script_name, description):
         print(f"\n✗ {description} - FAILED\n")
     
     return success
+
+# ============================================================
+# AUTOMATIC ANALYSIS PROMPT URL UPDATE
+# ============================================================
+def update_analysis_prompt_url(snapshot_filename):
+    """
+    Automatically update the analysis_prompt.txt file with latest snapshot URL
+    """
+    try:
+        github_raw_url = f"https://raw.githubusercontent.com/vwebbaker/nse-intraday-data/refs/heads/main/snapshots/{snapshot_filename}"
+        
+        prompt_file = "analysis_prompt.txt"
+        
+        if not os.path.exists(prompt_file):
+            print(f"⚠ Analysis prompt file not found: {prompt_file}")
+            return False
+        
+        # Read current prompt
+        with open(prompt_file, "r", encoding="utf-8") as f:
+            prompt_content = f.read()
+        
+        # Replace old URL with new URL using regex
+        updated_prompt = re.sub(
+            r'https://raw\.githubusercontent\.com/vwebbaker/nse-intraday-data/refs/heads/main/snapshots/nse_snapshot_\d{8}_\d{6}\.json',
+            github_raw_url,
+            prompt_content
+        )
+        
+        # Write updated prompt
+        with open(prompt_file, "w", encoding="utf-8") as f:
+            f.write(updated_prompt)
+        
+        print(f"\n✓ Updated analysis prompt with latest snapshot URL")
+        print(f"  File: {prompt_file}")
+        print(f"  URL: {github_raw_url}")
+        
+        return True
+        
+    except Exception as e:
+        print(f"\n✗ Error updating analysis prompt: {e}")
+        return False
 
 def generate_analysis_prompt(snapshot_url):
     """Generate analysis prompt with snapshot URL"""
@@ -108,6 +151,16 @@ def main():
     if url_file.exists():
         with open(url_file, 'r') as f:
             snapshot_url = f.read().strip()
+        
+        # Extract snapshot filename from URL
+        snapshot_filename = snapshot_url.split('/')[-1]
+        
+        print("\n" + "="*70)
+        print("✓ Published to GitHub!")
+        print("="*70)
+        
+        # NEW CODE: Update analysis prompt automatically
+        update_analysis_prompt_url(snapshot_filename)
         
         print("\n" + "="*70)
         print("📋 ANALYSIS PROMPT GENERATED")
