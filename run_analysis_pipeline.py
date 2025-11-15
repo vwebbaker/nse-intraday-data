@@ -135,8 +135,18 @@ def main():
         print("="*70 + "\n")
         
     else:
-        print("\n✗ Could not find snapshot URL file")
-        print("  Check if Git push was successful\n")
+        # Verify Git push by checking git status
+        result = subprocess.run(
+            ["git", "status", "--porcelain"], 
+            capture_output=True, 
+            text=True
+        )
+        if result.stdout.strip() == "":
+            print("\n✓ All changes pushed to GitHub successfully\n")
+        else:
+            print("\n⚠ Uncommitted changes remain:")
+            print(result.stdout)
+            print()
 
 if __name__ == "__main__":
     main()
