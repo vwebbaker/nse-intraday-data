@@ -7,7 +7,7 @@ OPTIMIZED MULTI-STOCK FUTURES TICK MONITOR
 - Multi-stock support from watchlist
 """
 
-from breezepy import BreezeConnect
+from breeze_connect import BreezeConnect
 import pandas as pd
 from datetime import datetime, time
 import time as time_module

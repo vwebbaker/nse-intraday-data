@@ -43,6 +43,8 @@ SYMBOL_MAP = {
     'INDUSINDBK': 'INDBA',
     'BSE': 'BSE',
     'BSEIND': 'BSE',
+    'HAL': 'HINAER',
+    'HINDUSTAN AERONAUTICS': 'HINAER',
     'HEROMOTOCO': 'HERMOT',
     'HERO MOTOCORP': 'HERMOT',
     'HERO': 'HERMOT',
@@ -102,12 +104,12 @@ def extract_symbols_from_text(text):
         symbols = [s.strip() for s in match.split(',') if s.strip()]
         matches0a.extend(symbols)
     
-    # Pattern 0b: SYMBOL: TATASTEEL (with colon)
-    pattern0b = r'SYMBOL:\s+([A-Z][A-Z0-9]+)'
-    matches0b = re.findall(pattern0b, text)
+    # Pattern 0b: SYMBOL: TATASTEEL (with colon, not in table headers)
+    pattern0b = r'^SYMBOL:\s+([A-Z][A-Z0-9]+)\s*$'
+    matches0b = re.findall(pattern0b, text, re.MULTILINE)
     
-    # Pattern 0c: SYMBOL TATASTEEL (without colon)
-    pattern0c = r'^\s*SYMBOL\s+([A-Z][A-Z0-9]+)\s*$'
+    # Pattern 0c: SYMBOL TATASTEEL (without colon, standalone line)
+    pattern0c = r'^SYMBOL\s+([A-Z][A-Z0-9]+)\s*$'
     matches0c = re.findall(pattern0c, text, re.MULTILINE)
     
     # Combine all SYMBOL patterns (highest priority)
@@ -142,11 +144,29 @@ def extract_symbols_from_text(text):
     
     # Normalize symbols
     normalized = []
+    skip_words = {'ENTRY', 'ZONE', 'STOP', 'LOSS', 'TARGET', 'POSITION', 'SIZE',
+                  'SYMBOL', 'STOCK', 'DIRECTION', 'CONTRACT', 'LOT', 'PARAMETER',
+                  'VALUE', 'REASONING', 'RISK', 'REWARD'}
+    
     for s in all_symbols:
         s = s.strip()
+        
+        # Skip if contains newlines (malformed match)
+        if '\n' in s:
+            continue
+        
         # Remove common suffixes
         s = s.replace(' Ltd', '').replace(' LIMITED', '').replace(' LTD', '')
         s = s.strip()
+        
+        # Skip table headers (check if string contains any skip word)
+        s_upper = s.upper()
+        if any(word in s_upper for word in skip_words):
+            continue
+        
+        # Skip if contains numbers (like "TARGET 1", "STOCK #1")
+        if any(char.isdigit() for char in s):
+            continue
         
         if s and len(s) > 1:  # Must have at least 2 chars
             normalized.append(normalize_symbol(s))
