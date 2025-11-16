@@ -1,7 +1,7 @@
 {
-  "timestamp": "2025-11-16T23:58:24.731913",
-  "date": "2025-11-16",
-  "time": "23:58:24 IST",
+  "timestamp": "2025-11-17T00:25:39.797088",
+  "date": "2025-11-17",
+  "time": "00:25:39 IST",
   "indices": {
     "US": {
       "Dow Jones": {
@@ -95,8 +95,8 @@
     },
     "INDIA": {
       "Gift Nifty": {
-        "current": 26000.0,
-        "change_pct": 0.15,
+        "current": 25962.0,
+        "change_pct": null,
         "source": "Groww.in"
       },
       "Nifty 50": {
@@ -138,10 +138,10 @@
         "day_low": 4032.6
       },
       "Bitcoin": {
-        "current": 94835.19,
-        "change_pct": -0.75,
+        "current": 93851.06,
+        "change_pct": -1.78,
         "day_high": 96553.16,
-        "day_low": 93969.2
+        "day_low": 93851.06
       }
     }
   },
@@ -149,7 +149,7 @@
     "US": -0.24,
     "EUROPE": -0.85,
     "ASIA": -2.04,
-    "INDIA": -0.09,
-    "COMMODITIES": -0.19
+    "INDIA": -0.15,
+    "COMMODITIES": -0.53
   }
 }

@@ -1,8 +1,5 @@
 # Generated Watchlist - Futures Tokens
-# Date: 2025-11-17 00:08:39
+# Date: 2025-11-17 00:30:39
 
-48898:MCX
-49078:RELIND
-49119:TCS
 48599:BSE
-48644:HINAER
+48898:MCX

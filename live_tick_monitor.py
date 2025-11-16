@@ -14,7 +14,7 @@ import time as time_module
 import os
 import json
 from pathlib import Path
-import config
+import trading_config as config
 
 
 # ============================================================================
