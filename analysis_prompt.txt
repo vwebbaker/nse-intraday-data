@@ -4,6 +4,9 @@ I have NSE derivatives market data from the previous trading day. Please analyze
 
 ## Data Available:
 
+
+### Global Market Data:
+{https://raw.githubusercontent.com/vwebbaker/nse-intraday-data/refs/heads/main/global/global_indices_20251116_215845.json}
 ### NSE Snapshot:
 {URL will be automatically updated when you run: python run_analysis_pipeline.py}
 
