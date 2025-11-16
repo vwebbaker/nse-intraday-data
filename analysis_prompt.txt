@@ -5,13 +5,13 @@ I have NSE derivatives market data from the previous trading day. Please analyze
 ## Data Available:
 
 ### NSE Snapshot:
-{https://raw.githubusercontent.com/vwebbaker/nse-intraday-data/refs/heads/main/snapshots/nse_snapshot_20251116_124523.json}
+{URL will be automatically updated when you run: python run_analysis_pipeline.py}
 
 ### Global Market Data:
-{https://raw.githubusercontent.com/vwebbaker/nse-intraday-data/refs/heads/main/global/global_indices_20251116_121418.json}
+{URL will be automatically updated when you run: python run_analysis_pipeline.py}
 
 ### Pre-open Market Data (9:00-9:08 AM):
-{https://raw.githubusercontent.com/vwebbaker/nse-intraday-data/refs/heads/main/preopen/preopen_20251116_124550.json}
+{URL will be automatically updated when you run: python run_analysis_pipeline.py}
 
 ## Analysis Criteria:
 
