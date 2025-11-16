@@ -72,6 +72,66 @@ def update_analysis_prompt_url(snapshot_filename):
         print(f"\n✗ Error updating analysis prompt: {e}")
         return False
 
+def update_preopen_url_in_prompt(preopen_filename):
+    """
+    Update analysis_prompt.txt with latest pre-open data URL
+    """
+    try:
+        github_raw_url = f"https://raw.githubusercontent.com/vwebbaker/nse-intraday-data/refs/heads/main/preopen/{preopen_filename}"
+        
+        prompt_file = "analysis_prompt.txt"
+        
+        if not os.path.exists(prompt_file):
+            print(f"⚠ Analysis prompt file not found: {prompt_file}")
+            return False
+        
+        # Read current prompt
+        with open(prompt_file, "r", encoding="utf-8") as f:
+            lines = f.readlines()
+        
+        # Find and replace old pre-open URL
+        updated = False
+        for i, line in enumerate(lines):
+            # Check if line contains old pre-open URL
+            if 'raw.githubusercontent.com/vwebbaker/nse-intraday-data/refs/heads/main/preopen/preopen_' in line or \
+               'raw.githubusercontent.com/vwebbaker/nse-intraday-data/main/preopen/latest_preopen_snapshot.json' in line:
+                # Keep brackets format
+                lines[i] = '{' + github_raw_url + '}\n'
+                updated = True
+                break
+        
+        # If no URL found, add it after Global Market Data
+        if not updated:
+            for i, line in enumerate(lines):
+                if 'Global Market Data:' in line:
+                    # Find the next URL line
+                    j = i + 1
+                    while j < len(lines) and lines[j].strip().startswith('{'):
+                        j += 1
+                    
+                    # Insert pre-open section
+                    lines.insert(j, '\n')
+                    lines.insert(j + 1, '### Pre-open Market Data (9:00-9:08 AM):\n')
+                    lines.insert(j + 2, '{' + github_raw_url + '}\n')
+                    updated = True
+                    break
+        
+        if updated:
+            # Write updated prompt
+            with open(prompt_file, "w", encoding="utf-8") as f:
+                f.writelines(lines)
+            
+            print(f"  ✓ Updated Pre-open URL")
+            print(f"    URL: {github_raw_url}")
+            return True
+        else:
+            print(f"  ⚠ Could not update pre-open URL")
+            return False
+        
+    except Exception as e:
+        print(f"\n✗ Error updating pre-open URL: {e}")
+        return False
+
 def generate_analysis_prompt(snapshot_url):
     """Generate analysis prompt with snapshot URL"""
     
@@ -170,13 +230,33 @@ def main():
     if not run_script("global_indices_fetcher.py", "Fetch Global Indices & Publish"):
         print("⚠ Global indices fetch failed, but continuing...")
     
-    # Step 4: Find the latest snapshot files
+    # Step 4: Run Pre-open Market Fetcher (9:00-9:08 AM)
+    print("\n" + "="*70)
+    print("🕐 FETCHING PRE-OPEN MARKET DATA")
+    print("="*70 + "\n")
+    
+    if not run_script("preopen_fetcher.py", "Fetch Pre-open Market Data"):
+        print("⚠ Pre-open data fetch failed (may be outside 9:00-9:08 AM window)")
+        print("  This is normal if running outside pre-open hours")
+    
+    # Step 4.5: Update Pre-open URL in analysis_prompt.txt
+    preopen_dir = Path("preopen")
+    preopen_files = sorted(preopen_dir.glob("preopen_*.json"))
+    if preopen_files:
+        latest_preopen = preopen_files[-1]
+        preopen_filename = latest_preopen.name
+        print(f"\n✓ Updating Pre-open URL: {preopen_filename}")
+        update_preopen_url_in_prompt(preopen_filename)
+    
+    # Step 5: Find the latest snapshot files
     snapshots_dir = Path("snapshots")
     global_dir = Path("global")
+    preopen_dir = Path("preopen")
     
     # Find the latest snapshot JSON files
     snapshot_files = sorted(snapshots_dir.glob("nse_snapshot_*.json"))
     global_files = sorted(global_dir.glob("global_indices_*.json"))
+    preopen_files = sorted(preopen_dir.glob("preopen_*.json"))
     
     print("\n" + "="*70)
     print("✅ PIPELINE COMPLETE!")
@@ -200,10 +280,25 @@ def main():
         print(f"   File: {global_filename}")
         print(f"   URL: {global_url}\n")
     
+    if preopen_files:
+        latest_preopen = preopen_files[-1]
+        preopen_filename = latest_preopen.name
+        preopen_url = f"https://raw.githubusercontent.com/vwebbaker/nse-intraday-data/refs/heads/main/preopen/{preopen_filename}"
+        
+        print("🕐 Pre-open Market:")
+        print(f"   File: {preopen_filename}")
+        print(f"   URL: {preopen_url}\n")
+    else:
+        print("🕐 Pre-open Market:")
+        print(f"   ⚠️  No data (run during 9:00-9:08 AM for live data)\n")
+    
     print("="*70)
     print("📋 FILES UPDATED:")
     print("="*70)
-    print("\n✓ analysis_prompt.txt - Updated with both URLs")
+    print("\n✓ analysis_prompt.txt - Updated with all market data URLs:")
+    print("   • NSE Snapshot (derivatives, FII/DII data)")
+    print("   • Global Indices (market sentiment)")
+    print("   • Pre-open Data (gap up/down stocks)")
     print("✓ All data published to GitHub")
     print()
     
@@ -211,8 +306,9 @@ def main():
     print("💡 NEXT STEPS:")
     print("="*70)
     print("\n1. Check analysis_prompt.txt for complete market data")
-    print("2. Both NSE + Global market data are ready")
-    print("3. Send analysis_prompt.txt to AI for recommendations!\n")
+    print("2. NSE + Global + Pre-open data are ready")
+    print("3. Send all URLs to AI for comprehensive analysis!")
+    print("\n⏰ Note: Pre-open data is most valuable when run at 9:00-9:08 AM IST\n")
     print("="*70 + "\n")
     
     # Verify Git push
