@@ -129,7 +129,7 @@ Please provide actionable intraday trading recommendations based on this data.
 
 def main():
     print("\n" + "="*70)
-    print("🎯 NSE INTRADAY ANALYSIS PIPELINE")
+    print("🌅 COMPLETE MORNING MARKET ROUTINE")
     print("="*70)
     print(f"Started: {datetime.now().strftime('%Y-%m-%d %H:%M:%S IST')}")
     print("="*70 + "\n")
@@ -140,73 +140,76 @@ def main():
         if input().lower() != 'y':
             return
     
-    # Step 2: Create Snapshot & Publish to Git
-    if not run_script("snapshot_and_publish.py", "Create Snapshot & Publish"):
-        print("✗ Pipeline failed at snapshot creation")
+    # Step 2: Create Snapshot & Publish to Git (NSE)
+    if not run_script("snapshot_and_publish.py", "Create NSE Snapshot & Publish"):
+        print("✗ Pipeline failed at NSE snapshot creation")
         return
     
-    # Step 3: Find the latest snapshot file and update prompt
-    snapshots_dir = Path("snapshots")
+    # Step 3: Run Global Indices Fetcher
+    print("\n" + "="*70)
+    print("🌍 FETCHING GLOBAL MARKET DATA")
+    print("="*70 + "\n")
     
-    # Find the latest snapshot JSON file
+    if not run_script("global_indices_fetcher.py", "Fetch Global Indices & Publish"):
+        print("⚠ Global indices fetch failed, but continuing...")
+    
+    # Step 4: Find the latest snapshot files
+    snapshots_dir = Path("snapshots")
+    global_dir = Path("global")
+    
+    # Find the latest snapshot JSON files
     snapshot_files = sorted(snapshots_dir.glob("nse_snapshot_*.json"))
+    global_files = sorted(global_dir.glob("global_indices_*.json"))
+    
+    print("\n" + "="*70)
+    print("✅ PIPELINE COMPLETE!")
+    print("="*70 + "\n")
     
     if snapshot_files:
-        latest_snapshot = snapshot_files[-1]  # Get the most recent
+        latest_snapshot = snapshot_files[-1]
         snapshot_filename = latest_snapshot.name
-        
-        # Build GitHub raw URL
         snapshot_url = f"https://raw.githubusercontent.com/vwebbaker/nse-intraday-data/refs/heads/main/snapshots/{snapshot_filename}"
         
-        print("\n" + "="*70)
-        print("✓ Published to GitHub!")
-        print("="*70)
-        print(f"\nLatest Snapshot: {snapshot_filename}")
+        print("📊 NSE Snapshot:")
+        print(f"   File: {snapshot_filename}")
+        print(f"   URL: {snapshot_url}\n")
+    
+    if global_files:
+        latest_global = global_files[-1]
+        global_filename = latest_global.name
+        global_url = f"https://raw.githubusercontent.com/vwebbaker/nse-intraday-data/refs/heads/main/global/{global_filename}"
         
-        # NEW CODE: Update analysis prompt automatically
-        update_analysis_prompt_url(snapshot_filename)
-        
-        print("\n" + "="*70)
-        print("📋 ANALYSIS PROMPT GENERATED")
-        print("="*70 + "\n")
-        
-        # Generate prompt
-        analysis_prompt = generate_analysis_prompt(snapshot_url)
-        
-        # Save to file
-        prompt_file = Path("analysis_prompt_generated.txt")
-        with open(prompt_file, 'w', encoding='utf-8') as f:
-            f.write(analysis_prompt)
-        
-        print(f"✓ Prompt saved to: {prompt_file}\n")
-        print("="*70)
-        print("📎 SNAPSHOT URL:")
-        print("="*70)
-        print(f"\n{snapshot_url}\n")
-        print("="*70)
-        print("\n💡 NEXT STEPS:")
-        print("="*70)
-        print("\n1. Copy the prompt from: analysis_prompt_generated.txt")
-        print("2. Send it to assistant (ChatGPT/Claude/etc.)")
-        print("3. Get your TOP 5 intraday stock recommendations!\n")
-        print("="*70 + "\n")
-        
-        # Verify Git push
-        result = subprocess.run(
-            ["git", "status", "--porcelain"], 
-            capture_output=True, 
-            text=True
-        )
-        if result.stdout.strip() == "":
-            print("✓ All changes committed and pushed to GitHub\n")
-        else:
-            print("⚠ Note: Some uncommitted changes detected:")
-            print(result.stdout)
-            print()
-        
+        print("🌍 Global Indices:")
+        print(f"   File: {global_filename}")
+        print(f"   URL: {global_url}\n")
+    
+    print("="*70)
+    print("📋 FILES UPDATED:")
+    print("="*70)
+    print("\n✓ analysis_prompt.txt - Updated with both URLs")
+    print("✓ All data published to GitHub")
+    print()
+    
+    print("="*70)
+    print("💡 NEXT STEPS:")
+    print("="*70)
+    print("\n1. Check analysis_prompt.txt for complete market data")
+    print("2. Both NSE + Global market data are ready")
+    print("3. Send analysis_prompt.txt to AI for recommendations!\n")
+    print("="*70 + "\n")
+    
+    # Verify Git push
+    result = subprocess.run(
+        ["git", "status", "--porcelain"], 
+        capture_output=True, 
+        text=True
+    )
+    if result.stdout.strip() == "":
+        print("✅ All changes committed and pushed to GitHub\n")
     else:
-        print("\n✗ No snapshot files found in snapshots/ directory")
-        print("  Check if snapshot creation was successful\n")
+        print("⚠ Note: Some uncommitted changes detected:")
+        print(result.stdout)
+        print()
 
 if __name__ == "__main__":
     main()

@@ -1,14 +1,7 @@
-# NSE Intraday Analysis Prompt
-
 I have NSE derivatives market data from the previous trading day. Please analyze this data and recommend the TOP 5 stocks for intraday trading today.
 
 ## Data Available:
-
-### NSE Snapshot:
-{https://raw.githubusercontent.com/vwebbaker/nse-intraday-data/refs/heads/main/snapshots/nse_snapshot_20251116_003319.json}
-
-### Global Market Data:
-{https://raw.githubusercontent.com/vwebbaker/nse-intraday-data/refs/heads/main/global/global_indices_20251116_115716.json}
+https://raw.githubusercontent.com/vwebbaker/nse-intraday-data/refs/heads/main/snapshots/nse_snapshot_20251116_003319.json
 
 ## Analysis Criteria:
 

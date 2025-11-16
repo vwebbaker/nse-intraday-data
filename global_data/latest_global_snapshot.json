@@ -1,0 +1,50 @@
+{
+    "timestamp": "2025-11-16 01:00:02",
+    "sentiment": "\ud83d\udd34 BEARISH",
+    "sentiment_score": -0.8,
+    "top_gainers": [
+        {
+            "name": "Crude Oil",
+            "change_pct": 2.39
+        },
+        {
+            "name": "Bitcoin",
+            "change_pct": 1.63
+        },
+        {
+            "name": "Bank Nifty",
+            "change_pct": 0.23
+        },
+        {
+            "name": "Russell 2000",
+            "change_pct": 0.22
+        },
+        {
+            "name": "NASDAQ",
+            "change_pct": 0.13
+        }
+    ],
+    "top_losers": [
+        {
+            "name": "KOSPI",
+            "change_pct": -3.81
+        },
+        {
+            "name": "Gold",
+            "change_pct": -2.37
+        },
+        {
+            "name": "Hang Seng",
+            "change_pct": -1.85
+        },
+        {
+            "name": "Taiwan",
+            "change_pct": -1.81
+        },
+        {
+            "name": "Nikkei 225",
+            "change_pct": -1.77
+        }
+    ],
+    "total_indices": 21
+}
