@@ -1,69 +1,339 @@
-# NSE Intraday Analysis Prompt
+# 📊 NSE FUTURES INTRADAY ANALYSIS - HIGH PROBABILITY SETUPS
 
-I have NSE derivatives market data from the previous trading day. Please analyze this data and recommend the TOP 5 stocks for intraday trading today.
+## 🎯 OBJECTIVE:
+Analyze NSE derivatives data and identify **TOP 3-5 FUTURES** with **HIGH-PROBABILITY INTRADAY SETUPS** based on **institutional positioning, price action, and risk-reward dynamics**.
 
-## Data Available:
+---
 
+## 📂 DATA SOURCES:
 
-### Global Market Data:
-{https://raw.githubusercontent.com/vwebbaker/nse-intraday-data/refs/heads/main/global/global_indices_20251116_220212.json}
-### NSE Snapshot:
+### 1. NSE Derivatives Snapshot (Previous Day EOD):
 {URL will be automatically updated when you run: python run_analysis_pipeline.py}
 
-### Global Market Data:
+### 2. Global Market Sentiment (Overnight):
 {URL will be automatically updated when you run: python run_analysis_pipeline.py}
 
-### Pre-open Market Data (9:00-9:08 AM):
+### 3. Pre-Open Market Data (9:00-9:08 AM):
 {URL will be automatically updated when you run: python run_analysis_pipeline.py}
 
-## Analysis Criteria:
+---
 
-### 1. FII Activity Analysis
-- Check if FII is net long or short in index/stock futures
-- Identify stocks where FII built significant positions
-- Look for divergence between FII and retail positions
+## 🧠 ANALYSIS FRAMEWORK - MULTI-FACTOR CONFLUENCE
 
-### 2. Participant Behavior
-- Analyze participant-wise OI changes
-- Check which category (Client/DII/FII/Pro) is most active
-- Identify institutional flow patterns
+**I am NOT looking for fixed patterns. I want INTELLIGENT REASONING based on:**
 
-### 3. Volatility Screening
-- Rank stocks by implied volatility
-- Select high-volatility stocks for momentum trading
-- Avoid stocks with abnormally low volatility
+### 🏦 1. INSTITUTIONAL POSITIONING (Smart Money)
 
-### 4. Open Interest Analysis
-- Stocks with increasing OI + increasing price = Strong bullish
-- Stocks with increasing OI + decreasing price = Strong bearish
-- Look for unusual OI buildup
+**FII/DII Activity Analysis:**
+- Is FII net LONG or SHORT in index futures? What's the conviction level?
+- Which stocks show **aggressive FII accumulation** or **distribution**?
+- Is there **divergence** between FII (smart money) and Client (retail)?
+- **Key Question:** Are institutions positioned for a directional move?
 
-### 5. Market Activity Patterns
-- Check previous day's settlement prices
-- Identify support/resistance levels
-- Look for stocks near key price levels
+**Participant-Wise OI Breakdown:**
+- Which category (FII/DII/Pro/Client) is **most active**?
+- Are **Proprietary traders** (Pro) aligned with FII or against them?
+- Is retail (Client) on the **wrong side** of the trade (contrarian signal)?
 
-## Output Format:
+**Why This Matters:**
+FII/DII are informed players. When they build large positions, it signals **institutional conviction**. When retail opposes them, probability increases.
 
-For each recommended stock, provide:
+---
 
-1. **Stock Name & Symbol**
-2. **Trade Direction** (Long/Short)
-3. **Entry Range** (Price levels)
-4. **Stop Loss**
-5. **Target** (Intraday)
-6. **Reasoning** (Why this stock?)
-   - FII position
-   - OI trend
-   - Volatility
-   - Key levels
+### 📈 2. OPEN INTEREST + PRICE ACTION DYNAMICS
 
-7. **Risk Rating** (Low/Medium/High)
+**OI Build-Up Analysis:**
+- **Increasing OI + Rising Price** = Fresh Long Build-Up (Bullish)
+- **Increasing OI + Falling Price** = Fresh Short Build-Up (Bearish)
+- **Decreasing OI + Rising Price** = Short Covering (Temporary bullish)
+- **Decreasing OI + Falling Price** = Long Unwinding (Temporary bearish)
 
-## Additional Insights:
-- Market sentiment (Bullish/Bearish/Neutral)
-- Sectors showing strength
-- Any stocks in ban period to avoid
-- Overall market conviction level
+**Unusual OI Activity:**
+- Which stocks show **abnormal OI spikes** (>20% increase)?
+- Is OI concentrated at specific strike prices (Max Pain theory)?
+- Are we seeing **rollover activity** (current month to next month)?
 
-Please provide actionable intraday trading recommendations based on this data.
+**Volume Patterns:**
+- High volume + High OI = **Strong conviction**
+- Low volume + High OI = **Trapped positions** (opportunity for reversal)
+
+**Why This Matters:**
+OI reveals **commitment**. High OI with price movement = strong trend. Unusual OI = upcoming volatility.
+
+---
+
+### ⚡ 3. VOLATILITY SCREENING (Risk & Opportunity)
+
+**Implied Volatility (IV) Rank:**
+- **High IV stocks** = More intraday movement = Better for scalping
+- **Rising IV** = Anticipation of big move (event, news, expiry)
+- **Falling IV** = Post-event cooldown (avoid)
+
+**Volatility vs. OI Correlation:**
+- High volatility + High OI = **Institutional interest** (good)
+- High volatility + Low OI = **Speculative pump** (risky)
+
+**Ban List Check:**
+- Avoid stocks in **F&O ban period** (restricted trading)
+
+**Why This Matters:**
+Volatility = movement = profit potential. But we want **clean volatility** backed by institutional OI, not retail speculation.
+
+---
+
+### 🌍 4. GLOBAL MARKET CONTEXT (Overnight Cues)
+
+**Global Indices Sentiment:**
+- Are **US markets** (Dow, S&P, Nasdaq) bullish/bearish?
+- Did **Asian markets** (Nikkei, Hang Seng) follow or diverge?
+- What's **Gift Nifty** indicating (pre-market futures)?
+
+**Sectoral Rotation:**
+- Which sectors are **outperforming globally** (Tech, Energy, Metals)?
+- Is there a **risk-on** (growth stocks) or **risk-off** (defensive) mood?
+
+**Commodities Impact:**
+- **Crude Oil** movement → Oil & Gas, Auto stocks
+- **Gold** movement → Metal stocks, safe-haven sentiment
+- **Dollar Index** → IT exporters, Pharma
+
+**Why This Matters:**
+Indian markets don't trade in isolation. Global sentiment creates **gap-ups/downs** and sectoral bias. Align with global flow for higher probability.
+
+---
+
+### 🕐 5. PRE-OPEN MARKET SIGNALS (9:00-9:08 AM)
+
+**Gap Analysis:**
+- **Gap-Up stocks** (>1% up) → Look for **continuation** if backed by OI
+- **Gap-Down stocks** (>1% down) → Look for **reversal** if oversold
+
+**Pre-Open Order Book:**
+- Which stocks show **strong buying interest** (bid > ask)?
+- Are **large orders** visible (institutional participation)?
+
+**Pre-Market Volume:**
+- High pre-market volume = **Strong conviction** for the gap
+
+**Why This Matters:**
+Pre-open reveals **overnight sentiment** and institutional intent. Gaps backed by OI rarely fill immediately.
+
+---
+
+### 📊 6. PRICE ACTION & TECHNICAL CONFLUENCE
+
+**Key Levels (EOD Settlement Prices):**
+- Is the stock near **support/resistance** from previous day?
+- Are we at **round numbers** (psychological levels like ₹100, ₹500)?
+- Is there a **swing high/low** nearby?
+
+**Trend Context:**
+- What's the **overall trend** (1-week, 1-month)?
+- Are we in a **trending phase** or **range-bound**?
+- Is the stock at **extremes** (overbought/oversold)?
+
+**Intraday Setup Potential:**
+- **Breakout setups:** Stock consolidating near resistance + OI buildup
+- **Breakdown setups:** Stock weak near support + Short buildup
+- **Reversal setups:** Overdone move + OI unwinding
+
+**Why This Matters:**
+Price action gives **entry timing**. We want stocks at **decision points** (support/resistance) backed by institutional OI.
+
+---
+
+## 🎯 HIGH-PROBABILITY SETUP CRITERIA (MUST SATISFY 3+ FACTORS)
+
+**A stock qualifies for recommendation ONLY if it shows:**
+
+✅ **Factor 1:** FII/DII net positioning in same direction as trade  
+✅ **Factor 2:** OI + Price action aligned (build-up/unwinding)  
+✅ **Factor 3:** High volatility (intraday movement potential)  
+✅ **Factor 4:** Global sentiment supports the direction  
+✅ **Factor 5:** Pre-open confirms the setup (gap/volume)  
+✅ **Factor 6:** Clear entry/exit levels (technical confluence)  
+
+**If 3+ factors align → HIGH PROBABILITY**  
+**If 5+ factors align → VERY HIGH PROBABILITY**
+
+---
+
+## 📋 OUTPUT FORMAT
+
+⚠️ **CRITICAL: Symbol Format for Automated Watchlist Generation**
+
+**STEP 1: START WITH THIS EXACT FORMAT (MANDATORY):**
+
+```
+🎯 RECOMMENDED SYMBOLS (for automated watchlist):
+SYMBOL: TATASTEEL
+SYMBOL: RELIANCE
+SYMBOL: INFY
+```
+
+**STEP 2: DETAILED ANALYSIS FOR EACH STOCK**
+
+---
+
+### 📈 STOCK #1: [STOCK NAME]
+
+**🔖 SYMBOL:** [NSE SYMBOL]  
+**📍 TRADE DIRECTION:** LONG / SHORT  
+**💰 FUTURES CONTRACT:** Current Month (Nov 2025)  
+**📊 LOT SIZE:** [X shares per lot]  
+
+---
+
+**🎯 ENTRY STRATEGY:**
+
+| Parameter | Value | Reasoning |
+|-----------|-------|-----------|
+| **Entry Zone** | ₹XXX - ₹XXX | Why this level? (support/resistance/breakout) |
+| **Stop Loss** | ₹XXX | Risk per lot: ₹X,XXX |
+| **Target 1** | ₹XXX | Conservative (60% probability) |
+| **Target 2** | ₹XXX | Aggressive (40% probability) |
+| **Risk:Reward** | 1:2 or better | Minimum acceptable ratio |
+| **Position Size** | Max 2-3 lots | Based on risk management |
+
+---
+
+**🧠 REASONING (HIGH-PROBABILITY FACTORS):**
+
+**✅ Factor 1: Institutional Positioning**
+- FII: [Net Long/Short] → [X cr buildup/reduction]
+- DII: [Net Long/Short] → [Y cr activity]
+- Retail: [Opposite/Aligned with institutions]
+- **Conclusion:** [Smart money is positioned for X direction]
+
+**✅ Factor 2: OI + Price Dynamics**
+- Previous Day OI: [X lakhs] → Today OI: [Y lakhs] (**+Z% change**)
+- Price Action: [Up/Down by X%] with [Increasing/Decreasing] OI
+- **Interpretation:** [Fresh Long/Short buildup OR Unwinding/Covering]
+
+**✅ Factor 3: Volatility Edge**
+- Implied Volatility: [X%] → [High/Medium for intraday moves]
+- Previous Day Range: [₹X - ₹Y] → Expected Range Today: [₹A - ₹B]
+- **Opportunity:** [Scalping potential / Directional move expected]
+
+**✅ Factor 4: Global Context**
+- Global Markets: [Bullish/Bearish/Neutral] → [Impact on sector]
+- Gift Nifty: [+/-X%] → [Indicates gap up/down]
+- Sectoral Sentiment: [Sector is outperforming/underperforming]
+- **Alignment:** [Trade direction matches global flow]
+
+**✅ Factor 5: Pre-Open Confirmation**
+- Gap: [+/-X%] → [Gap up/down in our trade direction]
+- Pre-Open Volume: [High/Low] → [Institutional interest visible]
+- Order Book: [Strong buying/selling pressure]
+- **Signal:** [Confirms our hypothesis]
+
+**✅ Factor 6: Technical Setup**
+- Key Levels: [Support at ₹X, Resistance at ₹Y]
+- Previous Day Close: [₹X] → [Near decision point]
+- Setup Type: [Breakout/Breakdown/Reversal/Continuation]
+- **Trigger:** [Price action catalyst for entry]
+
+---
+
+**⚠️ RISK FACTORS:**
+- [List 2-3 things that could go wrong]
+- [Example: If global markets reverse, exit immediately]
+- [Example: Watch for OI unwinding - may signal reversal]
+
+---
+
+**🎯 TRADE PLAN:**
+
+**Bullish Scenario (70% probability):**
+- Entry: [₹X] → Target 1: [₹Y] → Target 2: [₹Z]
+- Exit 50% at Target 1, trail stop for remaining
+
+**Bearish Scenario (30% probability):**
+- If price breaks below [₹X], exit all positions
+- Do not average down - respect stop loss
+
+**Time Management:**
+- Best entry window: [9:15-9:45 AM / 10:00-10:30 AM]
+- Exit by: [2:30-3:00 PM] (close all intraday positions)
+
+---
+
+**💡 OVERALL CONVICTION LEVEL:** ⭐⭐⭐⭐⭐ (5/5)
+
+**Probability Score:** [High/Very High/Moderate]  
+**Confluence Score:** [X/6 factors aligned]
+
+---
+
+[REPEAT FOR STOCKS #2, #3, #4, #5]
+
+---
+
+## 🌐 MARKET OVERVIEW
+
+**📊 Overall Market Sentiment:** [Bullish/Bearish/Neutral/Range-Bound]
+
+**🎯 Trading Bias for Today:**
+- **Primary Direction:** [Long/Short/Neutral]
+- **Conviction Level:** [High/Moderate/Low]
+- **Key Levels to Watch:** Nifty [X], Bank Nifty [Y]
+
+**⚡ Sectoral Strength:**
+1. **Outperforming Sectors:** [IT, Banking, Metals, etc.]
+2. **Underperforming Sectors:** [Pharma, FMCG, etc.]
+3. **Sector Rotation:** [Is money flowing from X to Y?]
+
+**🚨 Caution Zones:**
+- **F&O Ban List:** [List stocks to AVOID]
+- **Low OI Stocks:** [List stocks with weak institutional interest]
+- **Event Risk:** [Any earnings, policy decisions, data releases today?]
+
+**💰 Capital Allocation:**
+- **Aggressive Trader:** Focus on Stock #1, #2 (highest conviction)
+- **Conservative Trader:** Focus on Stock #3, #4 (safer setups)
+- **Max Risk:** Do not risk more than 2% of capital per trade
+
+---
+
+## 🎓 FINAL NOTES
+
+**✅ What I Want from AI:**
+1. **INTELLIGENT REASONING** - Not fixed patterns
+2. **CONFLUENCE OF FACTORS** - Multiple signals aligning
+3. **RISK-AWARE THINKING** - Always highlight what can go wrong
+4. **PRACTICAL SETUPS** - Clear entry/exit with justification
+5. **FUTURES-ONLY FOCUS** - No cash/options recommendations
+6. **HONEST CONVICTION** - If market is unclear, say it clearly
+
+**🚫 What I DON'T Want:**
+- Generic recommendations without reasoning
+- Stocks without clear institutional positioning
+- Low-volatility, sideways stocks
+- Stocks in F&O ban
+- Overly complex multi-leg strategies
+
+---
+
+## 🔥 EXPECTED DELIVERABLE:
+
+**By the end of this analysis, I should have:**
+1. ✅ 3-5 **FUTURES contracts** with HIGH-PROBABILITY setups
+2. ✅ Clear **ENTRY, STOP LOSS, TARGET** levels with reasoning
+3. ✅ Understanding of **WHY** each stock is selected (confluence)
+4. ✅ **RISK MANAGEMENT** plan for each trade
+5. ✅ **MARKET CONTEXT** - overall sentiment and bias
+6. ✅ **AUTOMATED WATCHLIST** - Symbols extracted for live monitoring
+
+---
+
+**⏰ DEADLINE:** This analysis must be ready by **9:10 AM IST** for market open at 9:15 AM.
+
+**🎯 SUCCESS METRIC:** High probability setups = 60%+ win rate with 1:2+ risk:reward.
+
+---
+
+**🚀 LET'S FIND THE BEST FUTURES SETUPS FOR TODAY!**
+
+---
+
+**📌 Note:** This prompt is designed to extract **intelligent, reasoning-based analysis** from AI. Not looking for fixed patterns - looking for **CONFLUENCE OF FACTORS** that create high-probability opportunities in futures market.

@@ -1,0 +1,110 @@
+======================================================================
+📊 AI STOCK RECOMMENDATIONS
+Generated: 2025-11-16 22:49:21 IST
+======================================================================
+
+Based on the **latest available data and analysis criteria**, here is a structured NSE intraday recommendation for **Monday, 17 November 2025**. **Core signals are synthesized from global cues, OI/volatility screens, participant activity, and risk factors.** Stocks with missing or 404 data were excluded, but the synthesis leverages global indices, derivatives summaries, OI/price change scans, and volatility lists.
+
+***
+
+### **Market Sentiment (Global & Domestic)**
+- **Global cues:** Mildly *negative to neutral* for Asia and Europe, *US flat to soft*, but India holding up, especially Nifty and Bank Nifty.
+- **Global volatility (VIX):** Down ~0.85%, signaling no panic, aiding intraday stability.
+- **Indian sector trend:** Nifty (0.12%), Bank Nifty (0.23%), broad-based resilience; Nifty IT -1.03% (avoid pure IT longs).[1]
+
+***
+
+## **TOP 5 Stocks for Intraday Trading**
+
+| Stock             | Direction | Entry Range      | Stop Loss | Target    | Reasoning & Comments | Risk |
+|-------------------|-----------|------------------|-----------|-----------|----------------------|------|
+| **Power Grid**    | Long      | 272.5-273.5      | 270       | 276-278   | OI ↑ + Price ↑, F&O build up, FII defensive flows, not in ban, stable utility | Low  |
+| **Dixon Tech**    | Long      | 15400-15500      | 15200     | 15700     | High OI/Price ↑, momentum in manufacturing, high intraday volatility | Med  |
+| **Tata Steel**    | Long      | 174-176          | 171       | 179-181   | Multiple OI surges, metals strength, global cues | Med  |
+| **TVS Motor**     | Long      | 3385-3410        | 3355      | 3450-3470 | OI build-up, price breakout, auto sector strength, participant-wise accumulation | Med  |
+| **IIFL**          | Long      | 547-552          | 535       | 565-570   | OI spike, FII flows, backing uptrending NBFC/Finance | Med  |
+
+***
+
+### **Details & Insights**
+
+#### **Why these picks?**
+
+- **FII/DII Activity**:  Recent data suggests FII built net positions in defensive utilities, select manufacturing (Dixon), and NBFCs while DIIs supported large-cap financials and autos. Major divergence seen between FIIs (mild net selling but sector rotation) and strong DII support.[2][3]
+- **Participant Wise OI**:  Stocks above show highest long OI build-up with aligned price action (bullish confirmation).[4][5][6]
+- **Volatility Screen**:  Dixon, Tata Steel, TVS all rank in top volatility band, suitable for intraday momentum.[7][8]
+- **Sectoral Strength**:  Metals, Autos, Power, Manufacturing outperformed; avoid IT due to sectoral drag.
+- **Ban List Check**:  No active ban triggers for these stocks as per recent F&O MWPL lists.[9][10]
+- **Intraday Structure**:  All picks show OI/price action at/above key support breaks with room to run; defined references offer actionable opportunities.
+
+***
+
+### **ADDITIONAL INSIGHTS**
+
+- **Overall Market Conviction**: Moderate to strong for long trades, given sector/stock selection and defensive character of flows.
+- **Ban Period Stocks to Avoid**: NBCC, LTF, KAYNES, EXIDEIND—ban-flagged per last MWPL update; **do not trade F&O in these.**[9]
+- **Sectoral Leaders**: Utilities (Power Grid), Manufacturing (Dixon), Metals (Tata Steel), Autos (TVS Motor), Financials (IIFL).
+- **Sentiment**: Bullish for select stocks, but maintain discipline—risk is *medium* due to overall higher global volatility and Friday soft closing in western/Asian indices.
+
+***
+
+### **Summary Table**
+
+| Stock        | Sector         | Entry      | Stop   | Target | Comments          | Risk  |
+|--------------|---------------|------------|--------|--------|-------------------|-------|
+| Power Grid   | Utilities      | 272.5-273.5| 270    | 276-278| FII, OI up        | Low   |
+| Dixon Tech   | Manufacturing  | 15400-15500| 15200  | 15700  | Vol. + OI buy     | Med   |
+| Tata Steel   | Metals         | 174-176    | 171    | 179-181| Sector breakout   | Med   |
+| TVS Motor    | Autos          | 3385-3410  | 3355   | 3450-3470| OI/Volume surge | Med   |
+| IIFL         | Finance/NBFC   | 547-552    | 535    | 565-570| FII + OI build    | Med   |
+
+***
+
+**Disclaimer:** Intraday trends can change quickly; review live OI and participant data at open, especially for gap-ups/downs or global macro changes.
+
+**For any on-the-fly changes, consider adjusting stop losses or partial profits at nearest support/resistance, and reconfirm ban-period status before order placement.**
+
+***
+
+*If you want more granular tick-level levels, preopen data, or a deep-dive in participant breakdown by stock, just share/get the latest JSON files as provided by your pipeline!*
+
+[1](https://github.com/vwebbaker/nse-intraday-data/tree/main/snapshots)
+[2](https://www.nseindia.com/reports/fii-dii)
+[3](https://web.stockedge.com/fii-activity)
+[4](https://www.moneycontrol.com/stocks/fno/marketstats/futures/oi_inc_p_inc/index.php)
+[5](https://www.moneycontrol.com/stocks/fno/marketstats/futures/high_oi/index.php)
+[6](https://www.topstockresearch.com/rt/Screener/FuturesAndOptions/Futures/IncreaseinOpenInterest/IncreaseinOINearMonthExpiryDate)
+[7](https://www.tickertape.in/blog/most-volatile-stocks-in-nse/)
+[8](https://www.screener.in/screens/313326/high-volatility-stocks-a/)
+[9](https://www.niftytrader.in/ban-list)
+[10](https://www.5paisa.com/nse-ban-list)
+[11](https://raw.githubusercontent.com/vwebbaker/nse-intraday-data/refs/heads/main/snapshots/nse_snapshot_20251116_003319.json)
+[12](https://raw.githubusercontent.com/vwebbaker/nse-intraday-data/refs/heads/main/preopen/preopen_20251116_124550.json)
+[13](https://github.com/deshwalmahesh/NSE-Stock-Scanner)
+[14](https://www.nseindia.com/market-data/analysis-and-tools-derivatives-market-snapshot)
+[15](https://chronicleclub.in/storage/uploads/1744091754-bse.pdf)
+[16](https://www.scribd.com/document/784736271/BS-Hyderabad-25-10-2024)
+[17](https://nlp.biu.ac.il/~ravfogs/resources/embeddings-alignment/glove_vocab.250k.txt)
+[18](https://www.nseindia.com/market-data/equity-derivatives-watch)
+[19](https://www.nseindia.com/get-quotes/derivatives?symbol=NIFTY&identifier=OPTIDXNIFTY18-11-2025CE26000.00)
+[20](https://www.hindustantimes.com/business/nse-bans-five-stocks-for-f-o-trading-for-november-18-see-list-and-details-101731899092356.html)
+[21](https://www.nseindia.com/all-reports-derivatives)
+[22](https://groww.in/fii-dii-data)
+[23](https://www.nseindia.com/market-data/oi-spurts)
+[24](https://nsearchives.nseindia.com/content/fo/fo_secban.csv)
+[25](https://www.nseindia.com/static/all-reports/historical-equities-fii-fpi-dii-trading-activity)
+[26](https://www.niftytrader.in/participant-wise-oi)
+[27](https://www.nseindia.com/reports/price-band-changes)
+[28](https://www.5paisa.com/share-market-today/fii-dii)
+[29](https://www.nseindia.com/static/research/publications-reports-nse-market-insights)
+[30](https://www.nseindia.com/get-quotes/derivatives?symbol=NIFTY&identifier=FUTIDXNIFTY25-11-2025XX0.00)
+[31](https://www.nseindia.com/get-quotes/derivatives?symbol=NIFTY&identifier=OPTIDXNIFTY11-11-2025CE25700.00)
+[32](https://www.nseindia.com/market-data/most-active-equities)
+[33](https://www.nseindia.com/all-reports)
+[34](https://finance.yahoo.com/markets/options/highest-implied-volatility/)
+[35](http://swcapital.in/Derivatives/FutureHighestInOI)
+[36](https://www.nseindia.com/market-data/most-active-contracts)
+[37](https://groww.in/futures-and-options/top-gainers)
+[38](https://web.sensibull.com/fii-dii-data/fno)
+[39](https://www.hdfcsec.com/market/derivatives)
+[40](https://www.nseindia.com/products-services/equity-derivatives-list-underlyings-information)

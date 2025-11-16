@@ -45,6 +45,16 @@ SYMBOL_MAP = {
     'HEROMOTOCO': 'HERMOT',
     'HERO MOTOCORP': 'HERMOT',
     'HERO': 'HERMOT',
+    'POWERGRID': 'POWGRI',
+    'POWER GRID': 'POWGRI',
+    'DIXON': 'DIXON',
+    'DIXON TECH': 'DIXON',
+    'DIXON TECHNOLOGIES': 'DIXON',
+    'TVSMOTOR': 'TVSMOT',
+    'TVS MOTOR': 'TVSMOT',
+    'TVS': 'TVSMOT',
+    'IIFL': 'IIFL',
+    'IIFL FINANCE': 'IIFL',
 }
 
 def normalize_symbol(symbol_or_name):
@@ -82,6 +92,10 @@ def extract_symbols_from_text(text):
     """
     import re
     
+    # Pattern 0: SYMBOL: TATASTEEL (PRIORITY - Automated format from prompt)
+    pattern0 = r'SYMBOL:\s+([A-Z][A-Z0-9]+)'
+    matches0 = re.findall(pattern0, text)
+    
     # Pattern 1: **Stock Name & Symbol:** BSE Ltd
     pattern1 = r'\*\*Stock Name & Symbol:\*\*\s+([A-Z][A-Za-z0-9 &]+?)(?:\n|$)'
     matches1 = re.findall(pattern1, text, re.MULTILINE)
@@ -98,8 +112,16 @@ def extract_symbols_from_text(text):
     pattern4 = r'STOCK #\d+:\s+([A-Z][A-Za-z0-9 ]+?)\s+\('
     matches4 = re.findall(pattern4, text)
     
-    # Combine all matches
-    all_symbols = matches1 + matches2 + matches3 + matches4
+    # Pattern 5: | **Power Grid**    | Long  (Markdown table format)
+    pattern5 = r'\|\s*\*\*([A-Z][A-Za-z0-9 ]+?)\*\*\s*\|'
+    matches5 = re.findall(pattern5, text)
+    
+    # Pattern 6: | Power Grid   | Utilities  (table without **)
+    pattern6 = r'\|\s+([A-Z][A-Za-z0-9 ]+?)\s+\|\s+(?:Utilities|Manufacturing|Metals|Autos|Finance|NBFC|Banking|IT|Pharma|FMCG)'
+    matches6 = re.findall(pattern6, text)
+    
+    # Combine all matches (Pattern 0 first for priority)
+    all_symbols = matches0 + matches1 + matches2 + matches3 + matches4 + matches5 + matches6
     
     # Normalize symbols
     normalized = []

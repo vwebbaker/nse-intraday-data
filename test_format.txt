@@ -1,0 +1,23 @@
+# Test AI Response with New Format
+
+🎯 RECOMMENDED SYMBOLS (for automated watchlist):
+SYMBOL: TATASTEEL
+SYMBOL: RELIANCE
+SYMBOL: INFY
+SYMBOL: HDFCBANK
+SYMBOL: ICICIBANK
+
+## Detailed Analysis:
+
+### Stock 1: TATA STEEL
+**Trade Direction:** LONG
+**Entry:** 850-855
+**Target:** 870
+**Stop Loss:** 840
+
+### Stock 2: RELIANCE INDUSTRIES
+**Trade Direction:** LONG
+**Entry:** 2850-2860
+**Target:** 2920
+**Stop Loss:** 2820
+
