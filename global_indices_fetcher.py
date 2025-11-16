@@ -316,18 +316,19 @@ class GlobalIndicesFetcher:
             with open(prompt_file, "r", encoding="utf-8") as f:
                 lines = f.readlines()
             
-            # Find and replace old global indices URL
+            # Find Global Market Sentiment section and update URL
             updated = False
             for i, line in enumerate(lines):
-                # Check if line contains old global indices URL
-                if 'raw.githubusercontent.com/vwebbaker/nse-intraday-data/refs/heads/main/global/global_indices_' in line:
-                    # Keep brackets if they exist in original
-                    if '{' in line and '}' in line:
-                        lines[i] = '{' + github_url + '}\n'
-                    else:
-                        lines[i] = '{' + github_url + '}\n'  # Always add brackets for consistency
-                    updated = True
-                    break
+                # Look for Global Market Sentiment header
+                if 'Global Market' in line and ('Sentiment' in line or 'Data' in line or 'Overnight' in line):
+                    # Check next few lines for URL or placeholder
+                    for j in range(i+1, min(i+5, len(lines))):
+                        if '{' in lines[j] or 'URL will be' in lines[j]:
+                            lines[j] = '{' + github_url + '}\n'
+                            updated = True
+                            break
+                    if updated:
+                        break
             
             # If no old URL found, add new section
             if not updated:

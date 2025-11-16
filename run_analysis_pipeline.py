@@ -43,18 +43,19 @@ def update_analysis_prompt_url(snapshot_filename):
         with open(prompt_file, "r", encoding="utf-8") as f:
             lines = f.readlines()
         
-        # Find and replace old NSE snapshot URL (line-by-line to preserve brackets)
+        # Find NSE Derivatives Snapshot section and update URL
         updated = False
         for i, line in enumerate(lines):
-            # Check if line contains old NSE snapshot URL
-            if 'raw.githubusercontent.com/vwebbaker/nse-intraday-data/refs/heads/main/snapshots/nse_snapshot_' in line:
-                # Keep brackets format
-                if '{' in line and '}' in line:
-                    lines[i] = '{' + github_raw_url + '}\n'
-                else:
-                    lines[i] = '{' + github_raw_url + '}\n'  # Always add brackets
-                updated = True
-                break
+            # Look for NSE Derivatives Snapshot header
+            if 'NSE Derivatives Snapshot' in line or 'NSE DERIVATIVES SNAPSHOT' in line.upper():
+                # Check next few lines for URL or placeholder
+                for j in range(i+1, min(i+5, len(lines))):
+                    if '{' in lines[j] or 'URL will be' in lines[j]:
+                        lines[j] = '{' + github_raw_url + '}\n'
+                        updated = True
+                        break
+                if updated:
+                    break
         
         if updated:
             # Write updated prompt
@@ -89,16 +90,19 @@ def update_preopen_url_in_prompt(preopen_filename):
         with open(prompt_file, "r", encoding="utf-8") as f:
             lines = f.readlines()
         
-        # Find and replace old pre-open URL
+        # Find Pre-open Market Data section and update URL
         updated = False
         for i, line in enumerate(lines):
-            # Check if line contains old pre-open URL
-            if 'raw.githubusercontent.com/vwebbaker/nse-intraday-data/refs/heads/main/preopen/preopen_' in line or \
-               'raw.githubusercontent.com/vwebbaker/nse-intraday-data/main/preopen/latest_preopen_snapshot.json' in line:
-                # Keep brackets format
-                lines[i] = '{' + github_raw_url + '}\n'
-                updated = True
-                break
+            # Look for Pre-open Market Data header
+            if 'Pre-Open Market Data' in line or 'Pre-open Market Data' in line or 'PRE-OPEN' in line.upper():
+                # Check next few lines for URL or placeholder
+                for j in range(i+1, min(i+5, len(lines))):
+                    if '{' in lines[j] or 'URL will be' in lines[j]:
+                        lines[j] = '{' + github_raw_url + '}\n'
+                        updated = True
+                        break
+                if updated:
+                    break
         
         # If no URL found, add it after Global Market Data
         if not updated:
