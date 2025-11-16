@@ -9,7 +9,8 @@ SYMBOL_MAP = {
     'TATA STEEL': 'TATSTE',
     'RELIANCE': 'RELIND',
     'RELIANCE INDUSTRIES': 'RELIND',
-    'INFOSYS': 'INFY',
+    'INFOSYS': 'INFTEC',
+    'INFY': 'INFTEC',
     'TCS': 'TCS',
     'TATA CONSULTANCY': 'TCS',
     'HDFCBANK': 'HDFBAN',
@@ -92,9 +93,25 @@ def extract_symbols_from_text(text):
     """
     import re
     
-    # Pattern 0: SYMBOL: TATASTEEL (PRIORITY - Automated format from prompt)
-    pattern0 = r'SYMBOL:\s+([A-Z][A-Z0-9]+)'
-    matches0 = re.findall(pattern0, text)
+    # Pattern 0a: - SYMBOLS: TATASTEEL, RELIANCE, INFY (Comma-separated list)
+    pattern0a = r'SYMBOLS?:\s+([A-Z][A-Z0-9,\s]+)'
+    matches0a_raw = re.findall(pattern0a, text)
+    matches0a = []
+    for match in matches0a_raw:
+        # Split by comma and clean
+        symbols = [s.strip() for s in match.split(',') if s.strip()]
+        matches0a.extend(symbols)
+    
+    # Pattern 0b: SYMBOL: TATASTEEL (with colon)
+    pattern0b = r'SYMBOL:\s+([A-Z][A-Z0-9]+)'
+    matches0b = re.findall(pattern0b, text)
+    
+    # Pattern 0c: SYMBOL TATASTEEL (without colon)
+    pattern0c = r'^\s*SYMBOL\s+([A-Z][A-Z0-9]+)\s*$'
+    matches0c = re.findall(pattern0c, text, re.MULTILINE)
+    
+    # Combine all SYMBOL patterns (highest priority)
+    matches0 = matches0a + matches0b + matches0c
     
     # Pattern 1: **Stock Name & Symbol:** BSE Ltd
     pattern1 = r'\*\*Stock Name & Symbol:\*\*\s+([A-Z][A-Za-z0-9 &]+?)(?:\n|$)'
