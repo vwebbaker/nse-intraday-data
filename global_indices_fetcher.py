@@ -172,10 +172,11 @@ class GlobalIndicesFetcher:
                 if index_name == "Gift Nifty":
                     print(f"   Fetching {index_name:20s}...", end=" ")
                     gift_data = self.fetch_gift_nifty()
-                    if gift_data:
+                    if gift_data and gift_data.get('current') is not None:
                         self.all_data[region][index_name] = gift_data
-                        status = "🟢" if gift_data.get('change_pct', 0) >= 0 else "🔴"
-                        print(f"{status} {gift_data['current']:>12,.2f}  ({gift_data.get('change_pct', 0):>+6.2f}%)")
+                        change_pct = gift_data.get('change_pct') or 0
+                        status = "🟢" if change_pct >= 0 else "🔴"
+                        print(f"{status} {gift_data['current']:>12,.2f}  ({change_pct:>+6.2f}%)")
                     else:
                         print(f"❌ Failed")
                     continue
