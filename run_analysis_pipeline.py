@@ -41,24 +41,32 @@ def update_analysis_prompt_url(snapshot_filename):
         
         # Read current prompt
         with open(prompt_file, "r", encoding="utf-8") as f:
-            prompt_content = f.read()
+            lines = f.readlines()
         
-        # Replace old URL with new URL using regex
-        updated_prompt = re.sub(
-            r'https://raw\.githubusercontent\.com/vwebbaker/nse-intraday-data/refs/heads/main/snapshots/nse_snapshot_\d{8}_\d{6}\.json',
-            github_raw_url,
-            prompt_content
-        )
+        # Find and replace old NSE snapshot URL (line-by-line to preserve brackets)
+        updated = False
+        for i, line in enumerate(lines):
+            # Check if line contains old NSE snapshot URL
+            if 'raw.githubusercontent.com/vwebbaker/nse-intraday-data/refs/heads/main/snapshots/nse_snapshot_' in line:
+                # Keep brackets format
+                if '{' in line and '}' in line:
+                    lines[i] = '{' + github_raw_url + '}\n'
+                else:
+                    lines[i] = '{' + github_raw_url + '}\n'  # Always add brackets
+                updated = True
+                break
         
-        # Write updated prompt
-        with open(prompt_file, "w", encoding="utf-8") as f:
-            f.write(updated_prompt)
-        
-        print(f"\n✓ Updated analysis prompt with latest snapshot URL")
-        print(f"  File: {prompt_file}")
-        print(f"  URL: {github_raw_url}")
-        
-        return True
+        if updated:
+            # Write updated prompt
+            with open(prompt_file, "w", encoding="utf-8") as f:
+                f.writelines(lines)
+            
+            print(f"  ✓ Updated NSE snapshot URL")
+            print(f"    URL: {github_raw_url}")
+            return True
+        else:
+            print(f"  ⚠ Could not find NSE snapshot URL to update")
+            return False
         
     except Exception as e:
         print(f"\n✗ Error updating analysis prompt: {e}")
@@ -144,6 +152,15 @@ def main():
     if not run_script("snapshot_and_publish.py", "Create NSE Snapshot & Publish"):
         print("✗ Pipeline failed at NSE snapshot creation")
         return
+    
+    # Step 2.5: Update NSE Snapshot URL in analysis_prompt.txt
+    snapshots_dir = Path("snapshots")
+    snapshot_files = sorted(snapshots_dir.glob("nse_snapshot_*.json"))
+    if snapshot_files:
+        latest_snapshot = snapshot_files[-1]
+        snapshot_filename = latest_snapshot.name
+        print(f"\n✓ Updating NSE snapshot URL: {snapshot_filename}")
+        update_analysis_prompt_url(snapshot_filename)
     
     # Step 3: Run Global Indices Fetcher
     print("\n" + "="*70)
