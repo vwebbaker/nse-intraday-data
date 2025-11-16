@@ -366,4 +366,30 @@ class OptimizedTickMonitor:
                 # Auto-stop at market close
                 current_time = datetime.now().time()
                 if current_time >= MARKET_END:
-                    print(f"\n⏰
+                    print(f"\n⏰ Market closed at {MARKET_END.strftime('%H:%M')}. Stopping...")
+                    break
+                    
+        except KeyboardInterrupt:
+            print("\n\n⏹️  Monitoring stopped by user")
+        except Exception as e:
+            print(f"\n\n❌ Error: {e}")
+            import traceback
+            traceback.print_exc()
+        finally:
+            # Final CSV writes
+            print("\n\n📊 Final data write...")
+            for token, pending in self.pending_writes.items():
+                if pending:
+                    self._append_to_csv_batch(token, pending)
+                    symbol = self.stock_info[token]
+                    print(f"   ✓ {symbol}: {len(pending)} ticks written")
+            
+            print(f"\n✅ Monitoring session complete")
+            print(f"   Total ticks: {self.total_processed:,}")
+            duration = (datetime.now() - self.session_start).seconds
+            print(f"   Duration: {duration//3600}h {(duration%3600)//60}m {duration%60}s")
+
+
+if __name__ == "__main__":
+    monitor = OptimizedTickMonitor()
+    monitor.run()

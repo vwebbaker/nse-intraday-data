@@ -40,6 +40,11 @@ SYMBOL_MAP = {
     'KOTAKBANK': 'KOTMAH',
     'AXISBANK': 'AXIBAN',
     'INDUSINDBK': 'INDBA',
+    'BSE': 'BSE',
+    'BSEIND': 'BSE',
+    'HEROMOTOCO': 'HERMOT',
+    'HERO MOTOCORP': 'HERMOT',
+    'HERO': 'HERMOT',
 }
 
 def normalize_symbol(symbol_or_name):
@@ -77,23 +82,41 @@ def extract_symbols_from_text(text):
     """
     import re
     
-    # Pattern 1: **Symbol: TATASTEEL**
-    pattern1 = r'\*\*(?:Symbol|Stock)[:\s]+([A-Z0-9& ]+)\*\*'
-    matches1 = re.findall(pattern1, text, re.IGNORECASE)
+    # Pattern 1: **Stock Name & Symbol:** BSE Ltd
+    pattern1 = r'\*\*Stock Name & Symbol:\*\*\s+([A-Z][A-Za-z0-9 &]+?)(?:\n|$)'
+    matches1 = re.findall(pattern1, text, re.MULTILINE)
     
-    # Pattern 2: Stock Name & Symbol section
-    pattern2 = r'(?:Stock Name|Symbol)[:\s]+([A-Z0-9& ]+)'
-    matches2 = re.findall(pattern2, text, re.IGNORECASE)
+    # Pattern 2: **Symbol: TATASTEEL**
+    pattern2 = r'\*\*(?:Symbol)[:\s]+([A-Z0-9]+)\*\*'
+    matches2 = re.findall(pattern2, text)
     
-    # Combine and normalize
-    all_symbols = matches1 + matches2
-    normalized = [normalize_symbol(s.strip()) for s in all_symbols]
+    # Pattern 3: Stock Name: TATASTEEL (without **)
+    pattern3 = r'(?:Stock Name|Symbol)[:\s]+([A-Z][A-Za-z0-9 &]+?)(?:\n|,|\()'
+    matches3 = re.findall(pattern3, text)
+    
+    # Pattern 4: STOCK #1: BSE (LONG)
+    pattern4 = r'STOCK #\d+:\s+([A-Z][A-Za-z0-9 ]+?)\s+\('
+    matches4 = re.findall(pattern4, text)
+    
+    # Combine all matches
+    all_symbols = matches1 + matches2 + matches3 + matches4
+    
+    # Normalize symbols
+    normalized = []
+    for s in all_symbols:
+        s = s.strip()
+        # Remove common suffixes
+        s = s.replace(' Ltd', '').replace(' LIMITED', '').replace(' LTD', '')
+        s = s.strip()
+        
+        if s and len(s) > 1:  # Must have at least 2 chars
+            normalized.append(normalize_symbol(s))
     
     # Remove duplicates, preserve order
     seen = set()
     result = []
     for sym in normalized:
-        if sym not in seen and len(sym) > 2:
+        if sym not in seen and len(sym) >= 2:
             seen.add(sym)
             result.append(sym)
     

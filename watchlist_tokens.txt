@@ -1,5 +1,7 @@
 # Generated Watchlist - Futures Tokens
-# Date: 2025-11-16 21:38:27
+# Date: 2025-11-16 22:17:55
 
-49115:TATSTE
+48599:BSE
+49134:TRENT
 49078:RELIND
+49119:TCS
