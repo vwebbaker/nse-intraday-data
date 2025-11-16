@@ -1,7 +1,7 @@
 {
-  "timestamp": "2025-11-16T22:36:03.270154",
+  "timestamp": "2025-11-16T23:21:33.285076",
   "date": "2025-11-16",
-  "time": "22:36:03 IST",
+  "time": "23:21:33 IST",
   "indices": {
     "US": {
       "Dow Jones": {
@@ -138,8 +138,8 @@
         "day_low": 4032.6
       },
       "Bitcoin": {
-        "current": 94156.77,
-        "change_pct": -1.46,
+        "current": 94090.88,
+        "change_pct": -1.53,
         "day_high": 96553.16,
         "day_low": 94061.26
       }
@@ -150,6 +150,6 @@
     "EUROPE": -0.85,
     "ASIA": -2.04,
     "INDIA": -0.09,
-    "COMMODITIES": -0.43
+    "COMMODITIES": -0.45
   }
 }

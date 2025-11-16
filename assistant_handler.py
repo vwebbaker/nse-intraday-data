@@ -16,7 +16,7 @@ class AssistantHandler:
     def send_to_assistant(self, prompt_file="analysis_prompt.txt"):
         """Send analysis prompt to assistant"""
         
-        prompt = Path(prompt_file).read_text()
+        prompt = Path(prompt_file).read_text(encoding='utf-8')
         
         # Copy to clipboard
         pyperclip.copy(prompt)
