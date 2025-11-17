@@ -48,6 +48,7 @@ SYMBOL_MAP = {
     'HEROMOTOCO': 'HERMOT',
     'HERO MOTOCORP': 'HERMOT',
     'HERO': 'HERMOT',
+    'MCX': 'MCX',
     'POWERGRID': 'POWGRI',
     'POWER GRID': 'POWGRI',
     'DIXON': 'DIXON',
@@ -112,8 +113,12 @@ def extract_symbols_from_text(text):
     pattern0c = r'^SYMBOL\s+([A-Z][A-Z0-9]+)\s*$'
     matches0c = re.findall(pattern0c, text, re.MULTILINE)
     
+    # Pattern 0d: **🔖 SYMBOL:** RELIANCE (markdown bold with emoji)
+    pattern0d = r'\*\*[^\*]*SYMBOL[^\*]*:\*\*\s*([A-Z][A-Z0-9]+)'
+    matches0d = re.findall(pattern0d, text)
+    
     # Combine all SYMBOL patterns (highest priority)
-    matches0 = matches0a + matches0b + matches0c
+    matches0 = matches0a + matches0b + matches0c + matches0d
     
     # Pattern 1: **Stock Name & Symbol:** BSE Ltd
     pattern1 = r'\*\*Stock Name & Symbol:\*\*\s+([A-Z][A-Za-z0-9 &]+?)(?:\n|$)'
