@@ -2,3 +2,39 @@
 2025-11-17 09:26:04,748 - {'message': 'Stock NFO!49078 subscribed successfully'}
 2025-11-17 09:26:04,851 - {'message': 'Stock NFO!49119 subscribed successfully'}
 2025-11-17 09:26:04,953 - {'message': 'Stock NFO!48898 subscribed successfully'}
+2025-11-17 09:48:57,676 - {'message': 'Stock NFO!48898 subscribed successfully'}
+2025-11-17 09:48:57,778 - {'message': 'Stock NFO!49078 subscribed successfully'}
+2025-11-17 09:48:57,880 - {'message': 'Stock NFO!49119 subscribed successfully'}
+2025-11-17 09:48:57,981 - {'message': 'Stock NFO!49134 subscribed successfully'}
+2025-11-17 11:39:15,482 - {'message': 'Stock NFO!48898 subscribed successfully'}
+2025-11-17 11:39:15,585 - {'message': 'Stock NFO!49078 subscribed successfully'}
+2025-11-17 11:39:15,688 - {'message': 'Stock NFO!49119 subscribed successfully'}
+2025-11-17 11:39:15,790 - {'message': 'Stock NFO!49134 subscribed successfully'}
+2025-11-17 11:42:42,004 - {'message': 'Stock NFO!48898 subscribed successfully'}
+2025-11-17 11:42:42,206 - {'message': 'Stock NFO!49078 subscribed successfully'}
+2025-11-17 11:42:42,409 - {'message': 'Stock NFO!49119 subscribed successfully'}
+2025-11-17 11:42:42,612 - {'message': 'Stock NFO!49134 subscribed successfully'}
+2025-11-17 11:48:33,890 - Exception while subscribing to feeds can only concatenate str (not "bool") to str
+2025-11-17 11:48:33,992 - Exception while subscribing to feeds can only concatenate str (not "bool") to str
+2025-11-17 11:48:34,094 - Exception while subscribing to feeds can only concatenate str (not "bool") to str
+2025-11-17 11:48:34,195 - Exception while subscribing to feeds can only concatenate str (not "bool") to str
+2025-11-17 11:53:14,184 - Exception while subscribing to feeds can only concatenate str (not "bool") to str
+2025-11-17 11:53:14,286 - Exception while subscribing to feeds can only concatenate str (not "bool") to str
+2025-11-17 11:53:14,388 - Exception while subscribing to feeds can only concatenate str (not "bool") to str
+2025-11-17 11:53:14,490 - Exception while subscribing to feeds can only concatenate str (not "bool") to str
+2025-11-17 12:03:59,367 - {'message': 'Stock 48898 subscribed successfully'}
+2025-11-17 12:04:00,369 - {'message': 'Stock 49078 subscribed successfully'}
+2025-11-17 12:04:01,372 - {'message': 'Stock 49119 subscribed successfully'}
+2025-11-17 12:04:02,374 - {'message': 'Stock 49134 subscribed successfully'}
+2025-11-17 12:07:55,743 - {'message': 'Stock 4.1!48898 subscribed successfully'}
+2025-11-17 12:07:56,747 - {'message': 'Stock 4.1!49078 subscribed successfully'}
+2025-11-17 12:07:57,749 - {'message': 'Stock 4.1!49119 subscribed successfully'}
+2025-11-17 12:07:58,751 - {'message': 'Stock 4.1!49134 subscribed successfully'}
+2025-11-17 12:12:38,406 - {'message': 'Stock 4.1!48898 subscribed successfully'}
+2025-11-17 12:12:39,407 - {'message': 'Stock 4.1!49078 subscribed successfully'}
+2025-11-17 12:12:40,410 - {'message': 'Stock 4.1!49119 subscribed successfully'}
+2025-11-17 12:12:41,411 - {'message': 'Stock 4.1!49134 subscribed successfully'}
+2025-11-17 13:56:12,955 - {'message': 'Stock 4.1!48898 subscribed successfully'}
+2025-11-17 13:56:13,957 - {'message': 'Stock 4.1!49078 subscribed successfully'}
+2025-11-17 13:56:14,959 - {'message': 'Stock 4.1!49119 subscribed successfully'}
+2025-11-17 13:56:15,961 - {'message': 'Stock 4.1!49134 subscribed successfully'}

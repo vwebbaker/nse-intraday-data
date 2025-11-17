@@ -1,0 +1,37 @@
+{
+  "timestamp": "2025-11-17T19:05:38.000153",
+  "indices": {
+    "Dow Jones": {
+      "symbol": "^DJI",
+      "status": "fetching..."
+    },
+    "S&P 500": {
+      "symbol": "^GSPC",
+      "status": "fetching..."
+    },
+    "Nasdaq": {
+      "symbol": "^IXIC",
+      "status": "fetching..."
+    },
+    "Nikkei": {
+      "symbol": "^N225",
+      "status": "fetching..."
+    },
+    "Hang Seng": {
+      "symbol": "^HSI",
+      "status": "fetching..."
+    },
+    "FTSE 100": {
+      "symbol": "^FTSE",
+      "status": "fetching..."
+    },
+    "DAX": {
+      "symbol": "^GDAXI",
+      "status": "fetching..."
+    },
+    "Gift Nifty": {
+      "symbol": "NIFTY_50_NOV_FUT.NS",
+      "status": "fetching..."
+    }
+  }
+}

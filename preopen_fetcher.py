@@ -1,417 +1,277 @@
-import requests
-from bs4 import BeautifulSoup
+# preopen_fetcher.py (CORRECTED VERSION)
 import json
-from datetime import datetime
-from pathlib import Path
-import pandas as pd
+import os
 import subprocess
+from datetime import datetime
+import requests
+from pathlib import Path
 
-class PreopenFetcher:
-    
-    def __init__(self, data_folder="preopen"):
-        self.data_folder = Path(data_folder)
-        self.data_folder.mkdir(exist_ok=True)
+class SnapshotPublisher:
+    def __init__(self, repo_path="."):  # Changed default to current directory
+        self.repo_path = Path(repo_path).resolve()
+        self.github_base_url = "https://raw.githubusercontent.com/vwebbaker/nse-intraday-data/refs/heads/main"
+        self.timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
         
-        # NSE headers
-        self.headers = {
-            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
-            'Accept': 'application/json,text/html,application/xhtml+xml',
+        # Validate we're in the right directory
+        if not (self.repo_path / ".git").exists():
+            print(f"⚠️  WARNING: No .git folder found in {self.repo_path}")
+            print(f"   Make sure you're running from the git repository root")
+    
+    def fetch_nse_derivatives(self):
+        """Fetch NSE derivatives snapshot"""
+        url = "https://www.nseindia.com/api/equity-stockIndices?index=SECURITIES%20IN%20F%26O"
+        headers = {
+            'User-Agent': 'Mozilla/5.0',
+            'Accept': 'application/json',
             'Accept-Language': 'en-US,en;q=0.9',
-            'Accept-Encoding': 'gzip, deflate, br',
-            'Connection': 'keep-alive',
-            'Referer': 'https://www.nseindia.com/'
         }
         
-        self.session = requests.Session()
-    
-    def init_nse_session(self):
-        """Initialize NSE session with cookies"""
         try:
-            url = "https://www.nseindia.com/"
-            response = self.session.get(url, headers=self.headers, timeout=10)
-            return response.status_code == 200
+            session = requests.Session()
+            session.get("https://www.nseindia.com", headers=headers)
+            response = session.get(url, headers=headers, timeout=10)
+            response.raise_for_status()
+            
+            data = response.json()
+            filename = f"nse_snapshot_{self.timestamp}.json"
+            filepath = self.repo_path / "snapshots" / filename  # Direct path, no nesting
+            
+            filepath.parent.mkdir(parents=True, exist_ok=True)
+            with open(filepath, 'w', encoding='utf-8') as f:
+                json.dump(data, f, indent=2, ensure_ascii=False)
+            
+            print(f"✅ NSE Derivatives snapshot saved: {filename}")
+            return f"{self.github_base_url}/snapshots/{filename}"
+            
         except Exception as e:
-            print(f"⚠️ NSE session init failed: {e}")
-            return False
+            print(f"❌ Error fetching NSE derivatives: {e}")
+            return None
+    
+    def fetch_global_indices(self):
+        """Fetch global indices data"""
+        indices = {
+            'Dow Jones': '^DJI',
+            'S&P 500': '^GSPC',
+            'Nasdaq': '^IXIC',
+            'Nikkei': '^N225',
+            'Hang Seng': '^HSI',
+            'FTSE 100': '^FTSE',
+            'DAX': '^GDAXI',
+            'Gift Nifty': 'NIFTY_50_NOV_FUT.NS'
+        }
+        
+        global_data = {
+            'timestamp': datetime.now().isoformat(),
+            'indices': {}
+        }
+        
+        try:
+            for name, symbol in indices.items():
+                global_data['indices'][name] = {
+                    'symbol': symbol,
+                    'status': 'fetching...'
+                }
+            
+            filename = f"global_indices_{self.timestamp}.json"
+            filepath = self.repo_path / "global" / filename
+            
+            filepath.parent.mkdir(parents=True, exist_ok=True)
+            with open(filepath, 'w', encoding='utf-8') as f:
+                json.dump(global_data, f, indent=2, ensure_ascii=False)
+            
+            print(f"✅ Global indices snapshot saved: {filename}")
+            return f"{self.github_base_url}/global/{filename}"
+            
+        except Exception as e:
+            print(f"❌ Error fetching global indices: {e}")
+            return None
     
     def fetch_preopen_data(self):
-        """
-        Fetch pre-open data from NSE API (handles compressed response)
-        The page uses AJAX to load data from: /api/market-data-pre-open?key=ALL
-        """
-        try:
-            # Initialize session first
-            print("   Initializing NSE session...", end=" ")
-            if not self.init_nse_session():
-                print("❌ Failed")
-                return None
-            print("✓")
-            
-            # NSE Pre-open API endpoint (actual endpoint the webpage uses)
-            api_url = "https://www.nseindia.com/api/market-data-pre-open?key=ALL"
-            
-            print("   Fetching pre-open data...", end=" ")
-            
-            # Update headers to accept JSON
-            api_headers = self.headers.copy()
-            api_headers['Accept'] = 'application/json, text/plain, */*'
-            api_headers['Accept-Encoding'] = 'gzip, deflate, br'
-            
-            response = self.session.get(api_url, headers=api_headers, timeout=15)
-            
-            if response.status_code == 200:
-                print("✓")
-                
-                # Response should auto-decode if it's gzip
-                # But let's check encoding
-                print("   Parsing response...", end=" ")
-                
-                try:
-                    # Check if response is compressed
-                    content_encoding = response.headers.get('Content-Encoding', '')
-                    
-                    if 'gzip' in content_encoding or 'br' in content_encoding:
-                        # requests automatically decompresses gzip/deflate
-                        # For brotli, we might need brotli library
-                        print(f"(compressed: {content_encoding}) ", end="")
-                    
-                    # Try to parse JSON
-                    data = response.json()
-                    
-                    # Validate data structure
-                    if 'data' not in data:
-                        print(f"❌ Invalid structure")
-                        print(f"   Response keys: {list(data.keys())[:5]}")
-                        
-                        # Check if market is closed
-                        if 'errors' in data or 'message' in data:
-                            print(f"   Message: {data.get('message', data.get('errors'))}")
-                        
-                        return None
-                    
-                    if not data['data']:
-                        print("⚠️  Empty (Market closed)")
-                        return None
-                    
-                    print(f"✓ ({len(data['data'])} stocks)")
-                    return data
-                    
-                except json.JSONDecodeError as e:
-                    print(f"❌ JSON decode error - Trying Brotli decompression...")
-                    
-                    # NSE often returns Brotli compressed data
-                    # Try to decompress regardless of magic bytes
-                    try:
-                        import brotli
-                        decompressed = brotli.decompress(response.content)
-                        data = json.loads(decompressed)
-                        print("   ✓ Brotli decompression successful!")
-                        
-                        if 'data' in data and data['data']:
-                            print(f"   ✓ ({len(data['data'])} stocks)")
-                            return data
-                        else:
-                            print("   ⚠️  No data in response")
-                            return None
-                            
-                    except ImportError:
-                        print("   ❌ brotli library not installed")
-                        print("   Run: pip install brotli")
-                        return None
-                    except Exception as br_error:
-                        print(f"   ❌ Brotli decompression failed: {br_error}")
-                        raw_content = response.content[:50]
-                        print(f"   First bytes (hex): {raw_content.hex()[:40]}")
-                        return None
-                        
-            elif response.status_code == 403:
-                print("❌ Access denied (403)")
-                print("   💡 NSE may have blocked requests. Try again later.")
-                return None
-            else:
-                print(f"❌ Status {response.status_code}")
-                return None
-                
-        except Exception as e:
-            print(f"❌ {e}")
-            import traceback
-            traceback.print_exc()
-            return None
-    
-    def parse_preopen_data(self, raw_data):
-        """
-        Parse and structure pre-open data
-        Extract: gainers, losers, most active
-        """
-        if not raw_data or 'data' not in raw_data:
-            print("⚠️ No data to parse")
-            return None
+        """Fetch NSE pre-open market data"""
+        url = "https://www.nseindia.com/api/market-data-pre-open?key=ALL"
+        headers = {
+            'User-Agent': 'Mozilla/5.0',
+            'Accept': 'application/json',
+            'Accept-Language': 'en-US,en;q=0.9',
+        }
         
         try:
-            print("   Parsing pre-open data...", end=" ")
+            session = requests.Session()
+            session.get("https://www.nseindia.com", headers=headers)
+            response = session.get(url, headers=headers, timeout=10)
+            response.raise_for_status()
             
-            preopen_stocks = []
+            data = response.json()
+            filename = f"preopen_{self.timestamp}.json"
+            filepath = self.repo_path / "preopen" / filename
             
-            for item in raw_data['data']:
-                metadata = item.get('metadata', {})
-                detail = item.get('detail', {})
-                preOpenMarket = detail.get('preOpenMarket', {})
-                
-                stock_info = {
-                    'symbol': metadata.get('symbol', ''),
-                    'series': metadata.get('series', ''),
-                    'iep': detail.get('IEP', 0),  # Indicative Equilibrium Price
-                    'prev_close': detail.get('lastPrice', 0),
-                    'change': detail.get('change', 0),
-                    'change_pct': detail.get('pChange', 0),
-                    'final_quantity': detail.get('finalQuantity', 0),
-                    'final_value': detail.get('value', 0),
-                    'total_buy_qty': detail.get('totalBuyQuantity', 0),
-                    'total_sell_qty': detail.get('totalSellQuantity', 0),
-                    'atoBuyQty': preOpenMarket.get('atoBuyQty', 0),
-                    'atoSellQty': preOpenMarket.get('atoSellQty', 0),
-                }
-                
-                # Calculate buy/sell pressure
-                total_qty = stock_info['total_buy_qty'] + stock_info['total_sell_qty']
-                if total_qty > 0:
-                    stock_info['buy_pressure'] = round(
-                        (stock_info['total_buy_qty'] / total_qty) * 100, 2
-                    )
-                else:
-                    stock_info['buy_pressure'] = 50.0
-                
-                preopen_stocks.append(stock_info)
+            filepath.parent.mkdir(parents=True, exist_ok=True)
+            with open(filepath, 'w', encoding='utf-8') as f:
+                json.dump(data, f, indent=2, ensure_ascii=False)
             
-            # Sort by change percentage
-            preopen_stocks.sort(key=lambda x: x['change_pct'], reverse=True)
-            
-            # Categorize
-            gainers = [s for s in preopen_stocks if s['change_pct'] > 0]
-            losers = [s for s in preopen_stocks if s['change_pct'] < 0]
-            
-            # Most active by value
-            most_active = sorted(
-                preopen_stocks, 
-                key=lambda x: x['final_value'], 
-                reverse=True
-            )
-            
-            print(f"✓ ({len(preopen_stocks)} stocks)")
-            
-            result = {
-                'timestamp': datetime.now().isoformat(),
-                'date': datetime.now().strftime("%Y-%m-%d"),
-                'time': datetime.now().strftime("%H:%M:%S IST"),
-                'total_stocks': len(preopen_stocks),
-                'advances': len(gainers),
-                'declines': len(losers),
-                'top_gainers': gainers[:20],
-                'top_losers': losers[:20],
-                'most_active': most_active[:20],
-                'all_stocks': preopen_stocks
-            }
-            
-            return result
+            print(f"✅ Pre-open data snapshot saved: {filename}")
+            return f"{self.github_base_url}/preopen/{filename}"
             
         except Exception as e:
-            print(f"❌ Parse error: {e}")
+            print(f"❌ Error fetching pre-open data: {e}")
             return None
     
-    def save_data(self, parsed_data):
-        """Save pre-open data to JSON and CSV"""
-        if not parsed_data:
-            return None, None
-        
-        print("   Saving data...", end=" ")
-        
-        timestamp_str = datetime.now().strftime("%Y%m%d_%H%M%S")
-        
-        # JSON file with full data
-        json_file = self.data_folder / f"preopen_{timestamp_str}.json"
-        with open(json_file, 'w', encoding='utf-8') as f:
-            json.dump(parsed_data, f, indent=2, ensure_ascii=False)
-        
-        # Latest snapshot (fixed name for assistant)
-        latest_json = self.data_folder / "latest_preopen_snapshot.json"
-        with open(latest_json, 'w', encoding='utf-8') as f:
-            json.dump(parsed_data, f, indent=2, ensure_ascii=False)
-        
-        # CSV for top gainers/losers
-        df_gainers = pd.DataFrame(parsed_data['top_gainers'][:10])
-        df_losers = pd.DataFrame(parsed_data['top_losers'][:10])
-        
-        csv_file = self.data_folder / f"preopen_{timestamp_str}.csv"
-        
-        with open(csv_file, 'w', encoding='utf-8') as f:
-            f.write("=== TOP 10 GAINERS (Pre-open) ===\n")
-            if not df_gainers.empty:
-                df_gainers.to_csv(f, index=False)
-            f.write("\n=== TOP 10 LOSERS (Pre-open) ===\n")
-            if not df_losers.empty:
-                df_losers.to_csv(f, index=False)
-        
-        print("✓")
-        
-        return json_file, csv_file
-    
-    def publish_to_github(self, json_file):
-        """Publish to GitHub"""
+    def git_publish(self):
+        """Publish snapshots to GitHub"""
         try:
-            print("   Publishing to GitHub...", end=" ")
+            original_dir = os.getcwd()
+            os.chdir(self.repo_path)
             
-            latest_file = self.data_folder / "latest_preopen_snapshot.json"
+            # Check git status first
+            result = subprocess.run(['git', 'status', '--porcelain'], 
+                                  capture_output=True, text=True, check=True)
             
-            subprocess.run(["git", "add", str(latest_file)], check=True, cwd=".")
-            subprocess.run(["git", "add", str(json_file)], check=True, cwd=".")
+            if not result.stdout.strip():
+                print(f"ℹ️  No changes to commit")
+                os.chdir(original_dir)
+                return True
             
-            commit_msg = f"Pre-open data - {datetime.now().strftime('%Y-%m-%d %H:%M IST')}"
-            subprocess.run(["git", "commit", "-m", commit_msg], check=True, cwd=".")
-            subprocess.run(["git", "push"], check=True, cwd=".")
+            # Git commands
+            subprocess.run(['git', 'add', '.'], check=True)
+            commit_msg = f"Snapshot update: {self.timestamp}"
+            subprocess.run(['git', 'commit', '-m', commit_msg], check=True)
+            subprocess.run(['git', 'push'], check=True)
             
-            # Generate URL
-            github_user = "vwebbaker"  # Your username
-            repo_name = "nse-intraday-data"
-            
-            raw_url = f"https://raw.githubusercontent.com/{github_user}/{repo_name}/main/preopen/latest_preopen_snapshot.json"
-            
-            print("✓")
-            print(f"\n   📍 URL: {raw_url}")
-            
-            return raw_url
+            print(f"✅ Git publish successful: {commit_msg}")
+            os.chdir(original_dir)
+            return True
             
         except subprocess.CalledProcessError as e:
-            print(f"❌ Git error: {e}")
-            return None
+            print(f"❌ Git publish failed: {e}")
+            os.chdir(original_dir)
+            return False
+    
+    def update_analysis_prompt(self, urls):
+        """Update analysis_prompt.txt with new URLs"""
+        prompt_path = self.repo_path / "analysis_prompt.txt"
+        
+        if not prompt_path.exists():
+            print(f"❌ analysis_prompt.txt not found at: {prompt_path}")
+            return False
+        
+        try:
+            with open(prompt_path, 'r', encoding='utf-8') as f:
+                content = f.read()
+            
+            # Replace URLs in the data sources section
+            import re
+            
+            replacements = {
+                'nse_snapshot': urls.get('nse_snapshot', 'NOT_AVAILABLE'),
+                'global_indices': urls.get('global_indices', 'NOT_AVAILABLE'),
+                'preopen': urls.get('preopen', 'NOT_AVAILABLE')
+            }
+            
+            # Update NSE Derivatives Snapshot
+            content = re.sub(
+                r'### 1\. NSE Derivatives Snapshot.*?\n\{[^}]*\}',
+                f"### 1. NSE Derivatives Snapshot (Previous Day EOD):\n{{{replacements['nse_snapshot']}}}",
+                content,
+                flags=re.DOTALL
+            )
+            
+            # Update Global Market Sentiment
+            content = re.sub(
+                r'### 2\. Global Market Sentiment.*?\n\{[^}]*\}',
+                f"### 2. Global Market Sentiment (Overnight):\n{{{replacements['global_indices']}}}",
+                content,
+                flags=re.DOTALL
+            )
+            
+            # Update Pre-Open Market Data
+            content = re.sub(
+                r'### 3\. Pre-Open Market Data.*?\n\{[^}]*\}',
+                f"### 3. Pre-Open Market Data (9:00-9:08 AM):\n{{{replacements['preopen']}}}",
+                content,
+                flags=re.DOTALL
+            )
+            
+            # Add/Update timestamp at the top
+            timestamp_header = f"# 📊 LAST UPDATED: {datetime.now().strftime('%Y-%m-%d %H:%M:%S IST')}\n\n"
+            if '# 📊 LAST UPDATED:' in content:
+                content = re.sub(
+                    r'# 📊 LAST UPDATED:.*?\n\n',
+                    timestamp_header,
+                    content,
+                    count=1,
+                    flags=re.DOTALL
+                )
+            else:
+                content = timestamp_header + content
+            
+            # Save updated content
+            with open(prompt_path, 'w', encoding='utf-8') as f:
+                f.write(content)
+            
+            print(f"✅ analysis_prompt.txt updated successfully!")
+            print(f"\n📋 Updated URLs:")
+            print(f"   NSE Snapshot: {replacements['nse_snapshot']}")
+            print(f"   Global Indices: {replacements['global_indices']}")
+            print(f"   Pre-Open Data: {replacements['preopen']}")
+            
+            return True
+            
         except Exception as e:
-            print(f"❌ {e}")
-            return None
+            print(f"❌ Error updating analysis_prompt.txt: {e}")
+            import traceback
+            traceback.print_exc()
+            return False
     
-    def print_summary(self, parsed_data):
-        """Print pre-open summary"""
-        if not parsed_data:
-            return
+    def run_full_pipeline(self):
+        """Execute complete snapshot + publish + update pipeline"""
+        print("\n" + "="*60)
+        print("🚀 STARTING SNAPSHOT PUBLISHER PIPELINE")
+        print("="*60)
+        print(f"📁 Working directory: {self.repo_path}")
+        print(f"⏰ Timestamp: {self.timestamp}")
+        print("="*60 + "\n")
         
-        print("\n" + "="*70)
-        print("📊 NSE PRE-OPEN MARKET SUMMARY (9:08 AM)")
-        print("="*70)
-        print(f"Total Stocks: {parsed_data['total_stocks']}")
-        print(f"Advances: {parsed_data['advances']} | Declines: {parsed_data['declines']}")
-        
-        adv_dec_ratio = parsed_data['advances'] / max(parsed_data['declines'], 1)
-        
-        if adv_dec_ratio > 2.0:
-            sentiment = "🟢 STRONG BULLISH"
-        elif adv_dec_ratio > 1.2:
-            sentiment = "🟢 BULLISH"
-        elif adv_dec_ratio > 0.8:
-            sentiment = "⚪ NEUTRAL"
-        elif adv_dec_ratio > 0.5:
-            sentiment = "🔴 BEARISH"
-        else:
-            sentiment = "🔴 STRONG BEARISH"
-        
-        print(f"Market Sentiment: {sentiment}")
-        
-        print("\n🟢 TOP 5 GAINERS:")
-        print("-" * 70)
-        for stock in parsed_data['top_gainers'][:5]:
-            print(f"  {stock['symbol']:15s}  IEP: ₹{stock['iep']:>10.2f}  "
-                  f"Change: {stock['change_pct']:>+6.2f}%  "
-                  f"Buy: {stock['buy_pressure']:>5.1f}%")
-        
-        print("\n🔴 TOP 5 LOSERS:")
-        print("-" * 70)
-        for stock in parsed_data['top_losers'][:5]:
-            print(f"  {stock['symbol']:15s}  IEP: ₹{stock['iep']:>10.2f}  "
-                  f"Change: {stock['change_pct']:>+6.2f}%  "
-                  f"Buy: {stock['buy_pressure']:>5.1f}%")
-        
-        print("\n💰 TOP 5 MOST ACTIVE (by value):")
-        print("-" * 70)
-        for stock in parsed_data['most_active'][:5]:
-            value_cr = stock['final_value'] / 10000000  # Convert to crores
-            print(f"  {stock['symbol']:15s}  Value: ₹{value_cr:>8.2f} Cr  "
-                  f"Change: {stock['change_pct']:>+6.2f}%")
-        
-        print("\n" + "="*70)
-    
-    def run_preopen_routine(self, publish_github=True):
-        """Complete pre-open routine"""
-        print("\n" + "🕐"*40)
-        print("      PRE-OPEN MARKET DATA - 9:08 AM IST")
-        print("🕐"*40 + "\n")
-        
-        # Fetch data
-        print("📍 Fetching NSE Pre-open Data")
-        print("-" * 70)
-        raw_data = self.fetch_preopen_data()
-        
-        if not raw_data:
-            print("\n" + "="*70)
-            print("⚠️  PRE-OPEN DATA NOT AVAILABLE")
-            print("="*70)
-            print("\nPossible reasons:")
-            print("  • Market is closed (Weekend/Holiday)")
-            print("  • Pre-open session hasn't started (Before 9:00 AM)")
-            print("  • Pre-open session has ended (After 9:15 AM)")
-            print("  • NSE API is temporarily unavailable")
-            print("\n💡 Pre-open data is available only:")
-            print("   Monday-Friday, 9:00 AM - 9:08 AM IST")
-            print("="*70 + "\n")
-            return None
-        
-        # Parse data
-        parsed_data = self.parse_preopen_data(raw_data)
-        
-        if not parsed_data:
-            print("\n✗ Failed to parse pre-open data")
-            return None
-        
-        # Save data
-        json_file, csv_file = self.save_data(parsed_data)
-        
-        if json_file:
-            print(f"   JSON: {json_file}")
-        if csv_file:
-            print(f"   CSV: {csv_file}")
-        
-        # Print summary
-        self.print_summary(parsed_data)
-        
-        # Publish to GitHub
-        github_url = None
-        if publish_github and json_file:
-            print("\n📤 Publishing to GitHub")
-            print("-" * 70)
-            github_url = self.publish_to_github(json_file)
-        
-        print("\n" + "="*70)
-        print("✅ PRE-OPEN ROUTINE COMPLETE")
-        print("="*70 + "\n")
-        
-        return {
-            'json_file': json_file,
-            'csv_file': csv_file,
-            'github_url': github_url,
-            'parsed_data': parsed_data
+        # Step 1: Fetch all snapshots
+        print("📡 STEP 1: Fetching snapshots...")
+        urls = {
+            'nse_snapshot': self.fetch_nse_derivatives(),
+            'global_indices': self.fetch_global_indices(),
+            'preopen': self.fetch_preopen_data()
         }
-
-
-def main():
-    """Main execution"""
-    print("\n" + "="*70)
-    print("🕐 NSE PRE-OPEN DATA FETCHER")
-    print("="*70)
-    print(f"Started: {datetime.now().strftime('%Y-%m-%d %H:%M:%S IST')}")
-    print("="*70 + "\n")
-    
-    fetcher = PreopenFetcher()
-    result = fetcher.run_preopen_routine(publish_github=True)
-    
-    if result and result.get('github_url'):
-        print(f"🌐 GitHub URL: {result['github_url']}\n")
+        
+        # Step 2: Update analysis prompt FIRST (before git push)
+        print("\n📝 STEP 2: Updating analysis_prompt.txt...")
+        prompt_updated = self.update_analysis_prompt(urls)
+        
+        # Step 3: Publish to Git
+        print("\n📤 STEP 3: Publishing to GitHub...")
+        git_success = self.git_publish()
+        
+        if not git_success:
+            print("⚠️  Git publish failed, but files are saved locally")
+        
+        print("\n" + "="*60)
+        print("✅ PIPELINE COMPLETED!")
+        print("="*60)
+        
+        # Summary
+        print("\n📊 SUMMARY:")
+        print(f"   Timestamp: {self.timestamp}")
+        print(f"   Snapshots created: {sum(1 for url in urls.values() if url)}/3")
+        print(f"   Prompt updated: {'Yes' if prompt_updated else 'No'}")
+        print(f"   Git published: {'Yes' if git_success else 'No'}")
+        
+        return urls
 
 
 if __name__ == "__main__":
-    main()
+    import argparse
+    
+    parser = argparse.ArgumentParser(description='NSE Snapshot Publisher')
+    parser.add_argument('--repo-path', default='.', 
+                       help='Path to git repository (default: current directory)')
+    
+    args = parser.parse_args()
+    
+    publisher = SnapshotPublisher(repo_path=args.repo_path)
+    publisher.run_full_pipeline()
