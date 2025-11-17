@@ -8,10 +8,10 @@ Analyze NSE derivatives data and identify **TOP 3-5 FUTURES** with **HIGH-PROBAB
 ## 📂 DATA SOURCES:
 
 ### 1. NSE Derivatives Snapshot (Previous Day EOD):
-{https://raw.githubusercontent.com/vwebbaker/nse-intraday-data/refs/heads/main/snapshots/nse_snapshot_20251117_092321.json}
+{https://raw.githubusercontent.com/vwebbaker/nse-intraday-data/refs/heads/main/snapshots/nse_snapshot_20251117_093405.json}
 
 ### 2. Global Market Sentiment (Overnight):
-{https://raw.githubusercontent.com/vwebbaker/nse-intraday-data/refs/heads/main/global/global_indices_20251117_092335.json}
+{https://raw.githubusercontent.com/vwebbaker/nse-intraday-data/refs/heads/main/global/global_indices_20251117_093414.json}
 
 ### 3. Pre-Open Market Data (9:00-9:08 AM):
 {URL will be automatically updated when you run: python run_analysis_pipeline.py}
