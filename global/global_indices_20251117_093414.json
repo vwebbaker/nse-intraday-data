@@ -1,0 +1,155 @@
+{
+  "timestamp": "2025-11-17T09:34:14.783644",
+  "date": "2025-11-17",
+  "time": "09:34:14 IST",
+  "indices": {
+    "US": {
+      "Dow Jones": {
+        "current": 47147.48,
+        "change_pct": -0.65,
+        "day_high": 47380.07,
+        "day_low": 46863.05
+      },
+      "S&P 500": {
+        "current": 6734.11,
+        "change_pct": -0.05,
+        "day_high": 6774.31,
+        "day_low": 6646.87
+      },
+      "NASDAQ": {
+        "current": 22900.59,
+        "change_pct": 0.13,
+        "day_high": 23073.18,
+        "day_low": 22436.79
+      },
+      "Russell 2000": {
+        "current": 2388.23,
+        "change_pct": 0.22,
+        "day_high": 2400.45,
+        "day_low": 2345.1
+      },
+      "VIX": {
+        "current": 19.83,
+        "change_pct": -0.85,
+        "day_high": 23.03,
+        "day_low": 19.56
+      }
+    },
+    "EUROPE": {
+      "FTSE 100": {
+        "current": 9698.4,
+        "change_pct": -1.11,
+        "day_high": 9807.7,
+        "day_low": 9610.5
+      },
+      "DAX": {
+        "current": 23876.55,
+        "change_pct": -0.69,
+        "day_high": 23992.12,
+        "day_low": 23609.06
+      },
+      "CAC 40": {
+        "current": 8170.09,
+        "change_pct": -0.76,
+        "day_high": 8202.48,
+        "day_low": 8084.23
+      },
+      "Euro Stoxx 50": {
+        "current": 5693.77,
+        "change_pct": -0.85,
+        "day_high": 5731.16,
+        "day_low": 5631.18
+      }
+    },
+    "ASIA": {
+      "Nikkei 225": {
+        "current": 50207.45,
+        "change_pct": -0.34,
+        "day_high": 50398.16,
+        "day_low": 49845.86
+      },
+      "Hang Seng": {
+        "current": 26345.79,
+        "change_pct": -0.85,
+        "day_high": 26531.8,
+        "day_low": 26325.22
+      },
+      "Shanghai": {
+        "current": 3973.31,
+        "change_pct": -0.43,
+        "day_high": 3992.4,
+        "day_low": 3961.74
+      },
+      "KOSPI": {
+        "current": 4067.81,
+        "change_pct": 1.4,
+        "day_high": 4086.42,
+        "day_low": 4045.4
+      },
+      "Taiwan": {
+        "current": 27514.15,
+        "change_pct": 0.43,
+        "day_high": 27723.77,
+        "day_low": 27504.0
+      }
+    },
+    "INDIA": {
+      "Gift Nifty": {
+        "current": 26041.5,
+        "change_pct": 0.14,
+        "source": "Groww.in"
+      },
+      "Nifty 50": {
+        "current": 25973.2,
+        "change_pct": 0.24,
+        "day_high": 25978.9,
+        "day_low": 25906.35
+      },
+      "Bank Nifty": {
+        "current": 58895.75,
+        "change_pct": 0.65,
+        "day_high": 58905.8,
+        "day_low": 58605.3
+      },
+      "Sensex": {
+        "current": 84656.05,
+        "change_pct": 0.11,
+        "day_high": 84788.61,
+        "day_low": 84581.08
+      },
+      "Nifty IT": {
+        "current": 36324.4,
+        "change_pct": 0.06,
+        "day_high": 36380.0,
+        "day_low": 36243.25
+      }
+    },
+    "COMMODITIES": {
+      "Crude Oil": {
+        "current": 59.52,
+        "change_pct": -0.95,
+        "day_high": 59.84,
+        "day_low": 59.34
+      },
+      "Gold": {
+        "current": 4084.6,
+        "change_pct": -0.07,
+        "day_high": 4107.6,
+        "day_low": 4062.6
+      },
+      "Bitcoin": {
+        "current": 95457.77,
+        "change_pct": -0.1,
+        "day_high": 95457.77,
+        "day_low": 93811.55
+      }
+    }
+  },
+  "regional_sentiment": {
+    "US": -0.24,
+    "EUROPE": -0.85,
+    "ASIA": 0.04,
+    "INDIA": 0.24,
+    "COMMODITIES": -0.37
+  }
+}
