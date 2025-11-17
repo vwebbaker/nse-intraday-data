@@ -85,16 +85,20 @@ def main():
     print_header("📊 PHASE 1: PRE-MARKET DATA COLLECTION")
     
     print("This phase collects:")
-    print("  • NSE EOD derivatives data (Previous day positions)")
-    print("  • NSE F&O participant-wise data (FII/DII/Client)")
-    print("  • Global market indices (Overnight sentiment)")
+    print("  • NSE EOD data (FII/DII positions, OI, Volume, Bhavcopy)")
+    print("  • NSE F&O derivatives list")
+    print("  • Global market indices (Overnight sentiment from Groww)")
     print("  • Pre-open market data (Gap up/down stocks)")
-    print("  • Updates analysis_prompt.txt with fresh URLs")
+    print("  • Updates analysis_prompt.txt with fresh Pre-Open URL")
     print("  • Publishes all data to GitHub")
     print()
     
-    # Run the master data fetcher (your updated script)
-    if not run_script("preopen_fetcher.py", "Complete Data Collection Pipeline"):
+    # Step 1A: Download NSE EOD Archives Data
+    if not run_script("nse_data_fetcher.py", "NSE EOD Archives Download", critical=False):
+        print("⚠️  NSE EOD download failed, but continuing with other data...")
+    
+    # Step 1B: Fetch real-time data (Derivatives, Global, Pre-Open)
+    if not run_script("preopen_fetcher.py", "Real-Time Data Fetch & Git Publish"):
         return
     
     # Verify data files
@@ -117,6 +121,12 @@ def main():
     # Display what was collected
     print("\n📦 Data Collection Summary:")
     print("-" * 80)
+    
+    # Check for NSE EOD data
+    nse_data_path = Path("nse_data")
+    if nse_data_path.exists():
+        eod_files = list(nse_data_path.glob('*'))
+        print(f"   ✓ NSE EOD files: {len(eod_files)} downloaded")
     
     # Check for latest snapshots
     snapshot_folders = ['snapshots', 'global', 'preopen', 'data']
@@ -270,6 +280,7 @@ def main():
     files_to_check = [
         ("analysis_prompt.txt", "Analysis prompt"),
         ("watchlist_tokens.txt", "Watchlist"),
+        ("nse_data", "NSE EOD data folder"),
         ("recommendations", "AI recommendations folder"),
         ("tick_data", "Live tick data folder"),
         ("snapshots", "Market snapshots folder"),
@@ -294,7 +305,8 @@ def main():
     print("="*80 + "\n")
     
     print("💡 Next Steps:")
-    print("   • Review tick_data/ for market movements")
+    print("   • Review nse_data/ for EOD archives")
+    print("   • Check tick_data/ for intraday movements")
     print("   • Analyze AI recommendations vs. actual performance")
     print("   • Update strategies based on results")
     print()
