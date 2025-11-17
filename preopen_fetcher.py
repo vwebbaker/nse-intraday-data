@@ -1,4 +1,4 @@
-# preopen_fetcher.py (CORRECTED VERSION)
+# preopen_fetcher.py (CORRECTED - Only Pre-Open URL Update)
 import json
 import os
 import subprocess
@@ -7,12 +7,11 @@ import requests
 from pathlib import Path
 
 class SnapshotPublisher:
-    def __init__(self, repo_path="."):  # Changed default to current directory
+    def __init__(self, repo_path="."):
         self.repo_path = Path(repo_path).resolve()
         self.github_base_url = "https://raw.githubusercontent.com/vwebbaker/nse-intraday-data/refs/heads/main"
         self.timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
         
-        # Validate we're in the right directory
         if not (self.repo_path / ".git").exists():
             print(f"⚠️  WARNING: No .git folder found in {self.repo_path}")
             print(f"   Make sure you're running from the git repository root")
@@ -34,7 +33,7 @@ class SnapshotPublisher:
             
             data = response.json()
             filename = f"nse_snapshot_{self.timestamp}.json"
-            filepath = self.repo_path / "snapshots" / filename  # Direct path, no nesting
+            filepath = self.repo_path / "snapshots" / filename
             
             filepath.parent.mkdir(parents=True, exist_ok=True)
             with open(filepath, 'w', encoding='utf-8') as f:
@@ -122,7 +121,6 @@ class SnapshotPublisher:
             original_dir = os.getcwd()
             os.chdir(self.repo_path)
             
-            # Check git status first
             result = subprocess.run(['git', 'status', '--porcelain'], 
                                   capture_output=True, text=True, check=True)
             
@@ -131,7 +129,6 @@ class SnapshotPublisher:
                 os.chdir(original_dir)
                 return True
             
-            # Git commands
             subprocess.run(['git', 'add', '.'], check=True)
             commit_msg = f"Snapshot update: {self.timestamp}"
             subprocess.run(['git', 'commit', '-m', commit_msg], check=True)
@@ -147,7 +144,7 @@ class SnapshotPublisher:
             return False
     
     def update_analysis_prompt(self, urls):
-        """Update analysis_prompt.txt with new URLs"""
+        """Update analysis_prompt.txt with ONLY Pre-Open URL (not NSE/Global)"""
         prompt_path = self.repo_path / "analysis_prompt.txt"
         
         if not prompt_path.exists():
@@ -158,35 +155,14 @@ class SnapshotPublisher:
             with open(prompt_path, 'r', encoding='utf-8') as f:
                 content = f.read()
             
-            # Replace URLs in the data sources section
             import re
             
-            replacements = {
-                'nse_snapshot': urls.get('nse_snapshot', 'NOT_AVAILABLE'),
-                'global_indices': urls.get('global_indices', 'NOT_AVAILABLE'),
-                'preopen': urls.get('preopen', 'NOT_AVAILABLE')
-            }
+            # ONLY update Pre-Open Market Data section
+            preopen_url = urls.get('preopen', 'NOT_AVAILABLE')
             
-            # Update NSE Derivatives Snapshot
-            content = re.sub(
-                r'### 1\. NSE Derivatives Snapshot.*?\n\{[^}]*\}',
-                f"### 1. NSE Derivatives Snapshot (Previous Day EOD):\n{{{replacements['nse_snapshot']}}}",
-                content,
-                flags=re.DOTALL
-            )
-            
-            # Update Global Market Sentiment
-            content = re.sub(
-                r'### 2\. Global Market Sentiment.*?\n\{[^}]*\}',
-                f"### 2. Global Market Sentiment (Overnight):\n{{{replacements['global_indices']}}}",
-                content,
-                flags=re.DOTALL
-            )
-            
-            # Update Pre-Open Market Data
             content = re.sub(
                 r'### 3\. Pre-Open Market Data.*?\n\{[^}]*\}',
-                f"### 3. Pre-Open Market Data (9:00-9:08 AM):\n{{{replacements['preopen']}}}",
+                f"### 3. Pre-Open Market Data (9:00-9:08 AM):\n{{{preopen_url}}}",
                 content,
                 flags=re.DOTALL
             )
@@ -209,10 +185,9 @@ class SnapshotPublisher:
                 f.write(content)
             
             print(f"✅ analysis_prompt.txt updated successfully!")
-            print(f"\n📋 Updated URLs:")
-            print(f"   NSE Snapshot: {replacements['nse_snapshot']}")
-            print(f"   Global Indices: {replacements['global_indices']}")
-            print(f"   Pre-Open Data: {replacements['preopen']}")
+            print(f"\n📋 Updated URL:")
+            print(f"   Pre-Open Data: {preopen_url}")
+            print(f"\nℹ️  NSE Derivatives & Global URLs unchanged (manual update required)")
             
             return True
             
@@ -239,8 +214,8 @@ class SnapshotPublisher:
             'preopen': self.fetch_preopen_data()
         }
         
-        # Step 2: Update analysis prompt FIRST (before git push)
-        print("\n📝 STEP 2: Updating analysis_prompt.txt...")
+        # Step 2: Update analysis prompt (ONLY Pre-Open URL)
+        print("\n📝 STEP 2: Updating analysis_prompt.txt (Pre-Open URL only)...")
         prompt_updated = self.update_analysis_prompt(urls)
         
         # Step 3: Publish to Git
@@ -258,7 +233,7 @@ class SnapshotPublisher:
         print("\n📊 SUMMARY:")
         print(f"   Timestamp: {self.timestamp}")
         print(f"   Snapshots created: {sum(1 for url in urls.values() if url)}/3")
-        print(f"   Prompt updated: {'Yes' if prompt_updated else 'No'}")
+        print(f"   Prompt updated: {'Yes (Pre-Open only)' if prompt_updated else 'No'}")
         print(f"   Git published: {'Yes' if git_success else 'No'}")
         
         return urls
