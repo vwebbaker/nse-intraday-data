@@ -133,7 +133,10 @@ class OptimizedTickMonitor:
         with open(config.WATCHLIST_FILE, 'r') as f:
             for line in f:
                 line = line.strip()
-                if line and ':' in line:
+                # Skip empty lines and comments
+                if not line or line.startswith('#'):
+                    continue
+                if ':' in line:
                     token, symbol = line.split(':', 1)
                     watchlist.append({
                         'token': token.strip(),

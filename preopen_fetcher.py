@@ -97,39 +97,31 @@ class PreopenFetcher:
                     return data
                     
                 except json.JSONDecodeError as e:
-                    print(f"❌ JSON decode error")
+                    print(f"❌ JSON decode error - Trying Brotli decompression...")
                     
-                    # Try to diagnose the issue
-                    raw_content = response.content[:100]
-                    
-                    # Check if it's actually brotli compressed
-                    if raw_content[:2] == b'\xce\xb2':  # Brotli magic number (rough check)
-                        print("   ⚠️  Response is Brotli compressed")
-                        print("   💡 Install brotli: pip install brotli")
+                    # NSE often returns Brotli compressed data
+                    # Try to decompress regardless of magic bytes
+                    try:
+                        import brotli
+                        decompressed = brotli.decompress(response.content)
+                        data = json.loads(decompressed)
+                        print("   ✓ Brotli decompression successful!")
                         
-                        # Try to decompress with brotli
-                        try:
-                            import brotli
-                            decompressed = brotli.decompress(response.content)
-                            data = json.loads(decompressed)
-                            print("   ✓ Brotli decompression successful!")
+                        if 'data' in data and data['data']:
+                            print(f"   ✓ ({len(data['data'])} stocks)")
+                            return data
+                        else:
+                            print("   ⚠️  No data in response")
+                            return None
                             
-                            if 'data' in data and data['data']:
-                                return data
-                            else:
-                                print("   ⚠️  No data in response")
-                                return None
-                                
-                        except ImportError:
-                            print("   ❌ brotli library not installed")
-                            print("   Run: pip install brotli")
-                            return None
-                        except Exception as br_error:
-                            print(f"   ❌ Brotli decompression failed: {br_error}")
-                            return None
-                    else:
+                    except ImportError:
+                        print("   ❌ brotli library not installed")
+                        print("   Run: pip install brotli")
+                        return None
+                    except Exception as br_error:
+                        print(f"   ❌ Brotli decompression failed: {br_error}")
+                        raw_content = response.content[:50]
                         print(f"   First bytes (hex): {raw_content.hex()[:40]}")
-                        print(f"   First chars: {str(raw_content[:50])}")
                         return None
                         
             elif response.status_code == 403:
