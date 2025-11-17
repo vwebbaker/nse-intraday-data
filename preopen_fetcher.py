@@ -1,10 +1,12 @@
-# preopen_fetcher.py (CORRECTED - Only Pre-Open URL Update)
+# preopen_fetcher.py - Complete Data Fetcher with Groww Global Indices
 import json
 import os
 import subprocess
 from datetime import datetime
 import requests
 from pathlib import Path
+from bs4 import BeautifulSoup
+
 
 class SnapshotPublisher:
     def __init__(self, repo_path="."):
@@ -26,8 +28,9 @@ class SnapshotPublisher:
         }
         
         try:
+            print("\n📊 Fetching NSE Derivatives (F&O stocks)...")
             session = requests.Session()
-            session.get("https://www.nseindia.com", headers=headers)
+            session.get("https://www.nseindia.com", headers=headers, timeout=10)
             response = session.get(url, headers=headers, timeout=10)
             response.raise_for_status()
             
@@ -39,7 +42,10 @@ class SnapshotPublisher:
             with open(filepath, 'w', encoding='utf-8') as f:
                 json.dump(data, f, indent=2, ensure_ascii=False)
             
+            stocks_count = len(data.get('data', []))
             print(f"✅ NSE Derivatives snapshot saved: {filename}")
+            print(f"   Stocks count: {stocks_count}")
+            
             return f"{self.github_base_url}/snapshots/{filename}"
             
         except Exception as e:
@@ -47,30 +53,82 @@ class SnapshotPublisher:
             return None
     
     def fetch_global_indices(self):
-        """Fetch global indices data"""
-        indices = {
-            'Dow Jones': '^DJI',
-            'S&P 500': '^GSPC',
-            'Nasdaq': '^IXIC',
-            'Nikkei': '^N225',
-            'Hang Seng': '^HSI',
-            'FTSE 100': '^FTSE',
-            'DAX': '^GDAXI',
-            'Gift Nifty': 'NIFTY_50_NOV_FUT.NS'
-        }
-        
-        global_data = {
-            'timestamp': datetime.now().isoformat(),
-            'indices': {}
+        """Fetch REAL global indices data from Groww.in"""
+        url = "https://groww.in/indices/global-indices"
+        headers = {
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
+            'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9',
         }
         
         try:
-            for name, symbol in indices.items():
-                global_data['indices'][name] = {
-                    'symbol': symbol,
-                    'status': 'fetching...'
-                }
+            print("\n🌍 Fetching Global Indices from Groww.in...")
             
+            session = requests.Session()
+            response = session.get(url, headers=headers, timeout=15)
+            response.raise_for_status()
+            
+            soup = BeautifulSoup(response.text, 'html.parser')
+            
+            global_data = {
+                'timestamp': datetime.now().isoformat(),
+                'fetch_time': datetime.now().strftime('%Y-%m-%d %H:%M:%S IST'),
+                'source': 'Groww.in',
+                'indices': {}
+            }
+            
+            # Find all table rows
+            rows = soup.find_all('tr')
+            
+            for row in rows:
+                cells = row.find_all('td')
+                if len(cells) >= 7:
+                    try:
+                        # Extract index name
+                        name_cell = cells[0]
+                        index_name = name_cell.get_text(strip=True).split('\n')[0]
+                        
+                        # Skip if no valid name
+                        if not index_name or len(index_name) < 2:
+                            continue
+                        
+                        # Extract data
+                        price = cells[1].get_text(strip=True).replace(',', '')
+                        change_text = cells[2].get_text(strip=True)
+                        high = cells[3].get_text(strip=True).replace(',', '')
+                        low = cells[4].get_text(strip=True).replace(',', '')
+                        open_price = cells[5].get_text(strip=True).replace(',', '')
+                        prev_close = cells[6].get_text(strip=True).replace(',', '')
+                        
+                        # Parse change and percentage
+                        change_val = ''
+                        change_pct = ''
+                        if '(' in change_text and ')' in change_text:
+                            parts = change_text.split('(')
+                            change_val = parts[0].strip()
+                            change_pct = parts[1].replace(')', '').replace('%', '').strip()
+                        else:
+                            change_val = change_text
+                            change_pct = '0'
+                        
+                        global_data['indices'][index_name] = {
+                            'price': price,
+                            'change': change_val,
+                            'change_percent': change_pct,
+                            'high': high,
+                            'low': low,
+                            'open': open_price,
+                            'prev_close': prev_close,
+                            'status': 'success'
+                        }
+                        
+                        # Display with color indicator
+                        indicator = "🟢" if change_pct.replace('-', '').replace('+', '') and float(change_pct) >= 0 else "🔴"
+                        print(f"   {indicator} {index_name:20} {price:>12} ({change_pct:>6}%)")
+                        
+                    except Exception as e:
+                        continue
+            
+            # Save to file
             filename = f"global_indices_{self.timestamp}.json"
             filepath = self.repo_path / "global" / filename
             
@@ -78,11 +136,15 @@ class SnapshotPublisher:
             with open(filepath, 'w', encoding='utf-8') as f:
                 json.dump(global_data, f, indent=2, ensure_ascii=False)
             
-            print(f"✅ Global indices snapshot saved: {filename}")
+            print(f"\n✅ Global indices saved: {filename}")
+            print(f"   Total indices: {len(global_data['indices'])}")
+            
             return f"{self.github_base_url}/global/{filename}"
             
         except Exception as e:
-            print(f"❌ Error fetching global indices: {e}")
+            print(f"❌ Error fetching global indices from Groww: {e}")
+            import traceback
+            traceback.print_exc()
             return None
     
     def fetch_preopen_data(self):
@@ -95,12 +157,15 @@ class SnapshotPublisher:
         }
         
         try:
+            print("\n📈 Fetching Pre-Open Market Data from NSE...")
             session = requests.Session()
-            session.get("https://www.nseindia.com", headers=headers)
+            session.get("https://www.nseindia.com", headers=headers, timeout=10)
             response = session.get(url, headers=headers, timeout=10)
             response.raise_for_status()
             
             data = response.json()
+            
+            # Save JSON
             filename = f"preopen_{self.timestamp}.json"
             filepath = self.repo_path / "preopen" / filename
             
@@ -108,7 +173,10 @@ class SnapshotPublisher:
             with open(filepath, 'w', encoding='utf-8') as f:
                 json.dump(data, f, indent=2, ensure_ascii=False)
             
+            records_count = len(data.get('data', []))
             print(f"✅ Pre-open data snapshot saved: {filename}")
+            print(f"   Records: {records_count}")
+            
             return f"{self.github_base_url}/preopen/{filename}"
             
         except Exception as e:
@@ -118,6 +186,8 @@ class SnapshotPublisher:
     def git_publish(self):
         """Publish snapshots to GitHub"""
         try:
+            print("\n📤 Publishing to GitHub...")
+            
             original_dir = os.getcwd()
             os.chdir(self.repo_path)
             
@@ -125,16 +195,17 @@ class SnapshotPublisher:
                                   capture_output=True, text=True, check=True)
             
             if not result.stdout.strip():
-                print(f"ℹ️  No changes to commit")
+                print("ℹ️  No changes to commit")
                 os.chdir(original_dir)
                 return True
             
             subprocess.run(['git', 'add', '.'], check=True)
-            commit_msg = f"Snapshot update: {self.timestamp}"
+            commit_msg = f"Data update: {self.timestamp}"
             subprocess.run(['git', 'commit', '-m', commit_msg], check=True)
             subprocess.run(['git', 'push'], check=True)
             
-            print(f"✅ Git publish successful: {commit_msg}")
+            print(f"✅ Git publish successful!")
+            print(f"   Commit: {commit_msg}")
             os.chdir(original_dir)
             return True
             
@@ -152,6 +223,8 @@ class SnapshotPublisher:
             return False
         
         try:
+            print("\n📝 Updating analysis_prompt.txt...")
+            
             with open(prompt_path, 'r', encoding='utf-8') as f:
                 content = f.read()
             
@@ -180,7 +253,6 @@ class SnapshotPublisher:
             else:
                 content = timestamp_header + content
             
-            # Save updated content
             with open(prompt_path, 'w', encoding='utf-8') as f:
                 f.write(content)
             
@@ -199,54 +271,75 @@ class SnapshotPublisher:
     
     def run_full_pipeline(self):
         """Execute complete snapshot + publish + update pipeline"""
-        print("\n" + "="*60)
-        print("🚀 STARTING SNAPSHOT PUBLISHER PIPELINE")
-        print("="*60)
-        print(f"📁 Working directory: {self.repo_path}")
+        print("\n" + "="*70)
+        print("🚀 COMPLETE DATA FETCHER PIPELINE")
+        print("="*70)
+        print(f"📁 Repository: {self.repo_path}")
         print(f"⏰ Timestamp: {self.timestamp}")
-        print("="*60 + "\n")
+        print("="*70)
         
         # Step 1: Fetch all snapshots
-        print("📡 STEP 1: Fetching snapshots...")
-        urls = {
-            'nse_snapshot': self.fetch_nse_derivatives(),
-            'global_indices': self.fetch_global_indices(),
-            'preopen': self.fetch_preopen_data()
-        }
+        import time
+        
+        urls = {}
+        
+        urls['nse_snapshot'] = self.fetch_nse_derivatives()
+        time.sleep(1)  # Rate limiting
+        
+        urls['global_indices'] = self.fetch_global_indices()
+        time.sleep(1)
+        
+        urls['preopen'] = self.fetch_preopen_data()
         
         # Step 2: Update analysis prompt (ONLY Pre-Open URL)
-        print("\n📝 STEP 2: Updating analysis_prompt.txt (Pre-Open URL only)...")
-        prompt_updated = self.update_analysis_prompt(urls)
+        prompt_updated = False
+        if urls.get('preopen'):
+            prompt_updated = self.update_analysis_prompt(urls)
         
         # Step 3: Publish to Git
-        print("\n📤 STEP 3: Publishing to GitHub...")
         git_success = self.git_publish()
         
-        if not git_success:
-            print("⚠️  Git publish failed, but files are saved locally")
-        
-        print("\n" + "="*60)
-        print("✅ PIPELINE COMPLETED!")
-        print("="*60)
-        
         # Summary
-        print("\n📊 SUMMARY:")
-        print(f"   Timestamp: {self.timestamp}")
-        print(f"   Snapshots created: {sum(1 for url in urls.values() if url)}/3")
-        print(f"   Prompt updated: {'Yes (Pre-Open only)' if prompt_updated else 'No'}")
-        print(f"   Git published: {'Yes' if git_success else 'No'}")
+        print("\n" + "="*70)
+        print("📊 PIPELINE SUMMARY")
+        print("="*70)
+        print(f"✅ NSE Derivatives: {'Success' if urls.get('nse_snapshot') else 'Failed'}")
+        print(f"✅ Global Indices (Groww): {'Success' if urls.get('global_indices') else 'Failed'}")
+        print(f"✅ Pre-Open Data: {'Success' if urls.get('preopen') else 'Failed'}")
+        print(f"✅ Prompt Updated: {'Yes (Pre-Open only)' if prompt_updated else 'No'}")
+        print(f"✅ Git Published: {'Yes' if git_success else 'No'}")
+        print("="*70)
         
-        return urls
+        if all([urls.get('nse_snapshot'), urls.get('global_indices'), urls.get('preopen'), git_success]):
+            print("\n🎉 PIPELINE COMPLETED SUCCESSFULLY!")
+            print("📈 All data ready for AI analysis!")
+            return True
+        else:
+            print("\n⚠️  PIPELINE COMPLETED WITH WARNINGS")
+            return False
 
 
 if __name__ == "__main__":
     import argparse
     
-    parser = argparse.ArgumentParser(description='NSE Snapshot Publisher')
+    parser = argparse.ArgumentParser(description='NSE & Global Data Fetcher')
     parser.add_argument('--repo-path', default='.', 
                        help='Path to git repository (default: current directory)')
     
     args = parser.parse_args()
     
+    # Install check
+    try:
+        from bs4 import BeautifulSoup
+    except ImportError:
+        print("⚠️  beautifulsoup4 not installed!")
+        print("   Run: pip install beautifulsoup4")
+        exit(1)
+    
     publisher = SnapshotPublisher(repo_path=args.repo_path)
-    publisher.run_full_pipeline()
+    success = publisher.run_full_pipeline()
+    
+    if success:
+        print("\n✓ Ready for analysis - Check analysis_prompt.txt")
+    else:
+        print("\n✗ Some operations failed - Check logs above")
