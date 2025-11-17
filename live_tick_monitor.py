@@ -13,6 +13,7 @@ from datetime import datetime, time
 import time as time_module
 import os
 import json
+import subprocess
 from pathlib import Path
 import trading_config as config
 
@@ -24,6 +25,7 @@ MAX_BUFFER_SIZE = 600          # Last 10 min per stock
 BATCH_WRITE_SIZE = 60          # Write every 60 ticks (~1 min)
 PRINT_FREQUENCY = 10           # Status update every 10 ticks
 SNAPSHOT_INTERVAL = 60         # Snapshot every 60 seconds
+GIT_PUBLISH_INTERVAL = 300     # Git publish every 5 minutes (300 sec)
 
 # Market hours
 MARKET_START = time(9, 15, 0)
@@ -87,6 +89,7 @@ class OptimizedTickMonitor:
         # Global counters
         self.total_processed = 0
         self.last_snapshot_time = time_module.time()
+        self.last_git_publish_time = time_module.time()
         
         # Directories
         Path(config.SNAPSHOT_DIR).mkdir(exist_ok=True)
@@ -305,6 +308,44 @@ class OptimizedTickMonitor:
                 json.dump(snapshot, f, indent=2)
             
             print(f"   💾 Snapshot saved: {filename}")
+            
+            # Check if it's time to publish to Git (every 5 minutes)
+            current_time = time_module.time()
+            if current_time - self.last_git_publish_time >= GIT_PUBLISH_INTERVAL:
+                self._publish_to_git(filepath, filename)
+                self.last_git_publish_time = current_time
+    
+    def _publish_to_git(self, filepath, filename):
+        """Publish snapshot to GitHub"""
+        try:
+            # Stage files
+            subprocess.run(["git", "add", filepath], check=True, cwd=".", capture_output=True)
+            
+            # Also stage latest_snapshot.json
+            latest_path = os.path.join(config.SNAPSHOT_DIR, "latest_snapshot.json")
+            subprocess.run(["git", "add", latest_path], check=True, cwd=".", capture_output=True)
+            
+            # Commit
+            commit_msg = f"Live snapshot: {filename}"
+            subprocess.run(["git", "commit", "-m", commit_msg], check=True, cwd=".", capture_output=True)
+            
+            # Push
+            subprocess.run(["git", "push"], check=True, cwd=".", capture_output=True)
+            
+            # Generate GitHub URL
+            github_url = f"https://raw.githubusercontent.com/{config.GITHUB_USERNAME}/{config.GITHUB_REPO}/main/{filepath.replace(os.sep, '/')}"
+            
+            # Save URL to file
+            with open("latest_live_snapshot_url.txt", "w") as f:
+                f.write(github_url + "\n")
+                f.write(f"Updated: {datetime.now().isoformat()}\n")
+            
+            print(f"   📤 Published to Git: {filename}")
+            
+        except subprocess.CalledProcessError as e:
+            print(f"   ⚠️  Git publish failed: {e.stderr.decode() if e.stderr else str(e)}")
+        except Exception as e:
+            print(f"   ⚠️  Git publish error: {e}")
     
     def _on_error(self, error):
         """WebSocket error callback"""

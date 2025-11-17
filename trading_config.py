@@ -10,9 +10,9 @@ BREEZE_API_SECRET = "6395Hw+0c5j5449g339q63v19uhw16i8"
 BREEZE_SESSION_TOKEN = "53713024"  #⚠️ UPDATE DAILY
 
 # GitHub Configuration
-GITHUB_USERNAME = "your_github_username"
-GITHUB_REPO = "nse-trading-data"
-GITHUB_TOKEN = "your_github_personal_access_token"  # Optional for private repos
+GITHUB_USERNAME = "vwebbaker"
+GITHUB_REPO = "nse-intraday-data"
+GITHUB_TOKEN = ""  # Optional for private repos (not needed for public)
 
 # File Paths
 WATCHLIST_FILE = "watchlist_tokens.txt"

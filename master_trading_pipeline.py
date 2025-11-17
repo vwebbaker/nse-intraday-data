@@ -164,7 +164,7 @@ def main():
     print("-" * 80)
     
     try:
-        import config
+        import trading_config as config
         if config.BREEZE_SESSION_TOKEN == "update_daily_before_market" or config.BREEZE_SESSION_TOKEN == "53684931":
             print("\n⚠️  WARNING: Update BREEZE_SESSION_TOKEN in config.py!")
             print("   Get fresh session token from ICICI Breeze before 9:15 AM")

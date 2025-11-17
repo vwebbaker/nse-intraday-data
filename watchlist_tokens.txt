@@ -1,5 +1,7 @@
 # Generated Watchlist - Futures Tokens
-# Date: 2025-11-17 00:30:39
+# Date: 2025-11-17 00:38:01
 
-48599:BSE
+49134:TRENT
+49078:RELIND
+49119:TCS
 48898:MCX
