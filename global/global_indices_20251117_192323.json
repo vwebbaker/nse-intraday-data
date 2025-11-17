@@ -1,0 +1,38 @@
+{
+  "timestamp": "2025-11-17T19:23:25.708494",
+  "fetch_time": "2025-11-17 19:23:25 IST",
+  "indices": {
+    "Dow Jones": {
+      "symbol": "^DJI",
+      "status": "placeholder - integrate Yahoo Finance or other API"
+    },
+    "S&P 500": {
+      "symbol": "^GSPC",
+      "status": "placeholder - integrate Yahoo Finance or other API"
+    },
+    "Nasdaq": {
+      "symbol": "^IXIC",
+      "status": "placeholder - integrate Yahoo Finance or other API"
+    },
+    "Nikkei 225": {
+      "symbol": "^N225",
+      "status": "placeholder - integrate Yahoo Finance or other API"
+    },
+    "Hang Seng": {
+      "symbol": "^HSI",
+      "status": "placeholder - integrate Yahoo Finance or other API"
+    },
+    "FTSE 100": {
+      "symbol": "^FTSE",
+      "status": "placeholder - integrate Yahoo Finance or other API"
+    },
+    "DAX": {
+      "symbol": "^GDAXI",
+      "status": "placeholder - integrate Yahoo Finance or other API"
+    },
+    "Gift Nifty": {
+      "symbol": "NIFTY_50_FUT.NS",
+      "status": "placeholder - integrate Yahoo Finance or other API"
+    }
+  }
+}
