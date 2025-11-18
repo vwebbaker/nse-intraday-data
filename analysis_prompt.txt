@@ -1,4 +1,4 @@
-# 📊 LAST UPDATED: 2025-11-17 22:37:23 IST
+# 📊 LAST UPDATED: 2025-11-18 09:08:52 IST
 
 # 📊 NSE FUTURES INTRADAY ANALYSIS - HIGH PROBABILITY SETUPS
 
@@ -16,7 +16,7 @@ Analyze NSE derivatives data and identify **TOP 3-5 FUTURES** with **HIGH-PROBAB
 {https://raw.githubusercontent.com/vwebbaker/nse-intraday-data/refs/heads/main/global/global_indices_20251117_190537.json}
 
 ### 3. Pre-Open Market Data (9:00-9:08 AM):
-{https://raw.githubusercontent.com/vwebbaker/nse-intraday-data/refs/heads/main/preopen/preopen_20251117_223718.json}
+{https://raw.githubusercontent.com/vwebbaker/nse-intraday-data/refs/heads/main/preopen/preopen_20251118_090809.json}
 
 ---
 

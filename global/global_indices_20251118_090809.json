@@ -1,0 +1,107 @@
+{
+  "timestamp": "2025-11-18T09:08:11.077617",
+  "fetch_time": "2025-11-18 09:08:11 IST",
+  "source": "Groww.in",
+  "indices": {
+    "GIFT NIFTY18 Nov, 09:07 AM": {
+      "price": "26011.00",
+      "change": "-5.00",
+      "change_percent": "0.02",
+      "high": "26015.50",
+      "low": "25980.50",
+      "open": "26000.00",
+      "prev_close": "26016.00",
+      "status": "success"
+    },
+    "Dow Futures18 Nov, 09:07 AM": {
+      "price": "46559.10",
+      "change": "-31.40",
+      "change_percent": "0.07",
+      "high": "46695.30",
+      "low": "46538.50",
+      "open": "46662.00",
+      "prev_close": "46590.50",
+      "status": "success"
+    },
+    "Dow18 Nov, 02:34 AM": {
+      "price": "46611.25",
+      "change": "-557.23",
+      "change_percent": "1.18",
+      "high": "47223.56",
+      "low": "46451.27",
+      "open": "47089.06",
+      "prev_close": "47168.48",
+      "status": "success"
+    },
+    "S&P18 Nov, 09:07 AM": {
+      "price": "6697.00",
+      "change": "-7.00",
+      "change_percent": "0.10",
+      "high": "6720.25",
+      "low": "6692.25",
+      "open": "6708.50",
+      "prev_close": "6704.00",
+      "status": "success"
+    },
+    "NIKKEI18 Nov, 08:15 AM": {
+      "price": "49432.56",
+      "change": "-891.35",
+      "change_percent": "1.77",
+      "high": "49971.55",
+      "low": "49107.31",
+      "open": "49812.95",
+      "prev_close": "50323.91",
+      "status": "success"
+    },
+    "HANG SENG18 Nov, 09:07 AM": {
+      "price": "26036.25",
+      "change": "-348.04",
+      "change_percent": "1.32",
+      "high": "26185.00",
+      "low": "25987.50",
+      "open": "26172.27",
+      "prev_close": "26384.29",
+      "status": "success"
+    },
+    "DAX18 Nov, 04:30 AM": {
+      "price": "23590.52",
+      "change": "-286.03",
+      "change_percent": "1.20",
+      "high": "23928.48",
+      "low": "23529.73",
+      "open": "23890.48",
+      "prev_close": "23876.55",
+      "status": "success"
+    },
+    "CAC18 Nov, 04:30 AM": {
+      "price": "8119.02",
+      "change": "-51.07",
+      "change_percent": "0.63",
+      "high": "8176.10",
+      "low": "8109.82",
+      "open": "8155.93",
+      "prev_close": "8170.09",
+      "status": "success"
+    },
+    "KOSPI18 Nov, 09:07 AM": {
+      "price": "3988.35",
+      "change": "-100.90",
+      "change_percent": "2.47",
+      "high": "4072.41",
+      "low": "3987.95",
+      "open": "4044.47",
+      "prev_close": "4089.25",
+      "status": "success"
+    },
+    "FTSE 10018 Nov, 03:47 AM": {
+      "price": "9675.43",
+      "change": "-22.94",
+      "change_percent": "0.24",
+      "high": "9707.67",
+      "low": "9667.91",
+      "open": "9698.35",
+      "prev_close": "9698.37",
+      "status": "success"
+    }
+  }
+}
