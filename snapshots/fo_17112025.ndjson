@@ -1,7 +1,6 @@
-{"Total volume summary of Futures and Options by product type:                                        ":"Traded Value (Rs. Crs.)       "}
-{"Total volume summary of Futures and Options by product type:                                        ":"          19200.31"}
-{"Total volume summary of Futures and Options by product type:                                        ":"          83988.24"}
-{"Total volume summary of Futures and Options by product type:                                        ":"       22966768.81"}
-{"Total volume summary of Futures and Options by product type:                                        ":"         545044.42"}
-{"Total volume summary of Futures and Options by product type:                                        ":"              0.00"}
-{"Total volume summary of Futures and Options by product type:                                        ":"       23615001.78"}
+{"Product        ":"Index Futures  ","No of Contracts     ":97020,"Traded Value (Rs. Crs.)       ":19200.31}
+{"Product        ":"Stock Futures  ","No of Contracts     ":1229185,"Traded Value (Rs. Crs.)       ":83988.24}
+{"Product        ":"Index Options  ","No of Contracts     ":117702965,"Traded Value (Rs. Crs.)       ":22966768.8099999987}
+{"Product        ":"Stock Options  ","No of Contracts     ":7667310,"Traded Value (Rs. Crs.)       ":545044.42}
+{"Product        ":"Vol Futures    ","No of Contracts     ":0,"Traded Value (Rs. Crs.)       ":0.0}
+{"Product        ":"F&O Total      ","No of Contracts     ":126696480,"Traded Value (Rs. Crs.)       ":23615001.7800000012}
