@@ -1,0 +1,1660 @@
+{
+  "fao_participant_oi_14112025.csv": [
+    {
+      "Participant wise Open Interest (no. of contracts) in Equity Derivatives as on Nov 14": "Client Type",
+      " 2025\"\"": "Future Index Long",
+      "Unnamed: 2": "Future Index Short",
+      "Unnamed: 3": "Future Stock Long",
+      "Unnamed: 4": "Future Stock Short       ",
+      "Unnamed: 5": "Option Index Call Long",
+      "Unnamed: 6": "Option Index Put Long",
+      "Unnamed: 7": "Option Index Call Short",
+      "Unnamed: 8": "Option Index Put Short",
+      "Unnamed: 9": "Option Stock Call Long",
+      "Unnamed: 10": "Option Stock Put Long",
+      "Unnamed: 11": "Option Stock Call Short",
+      "Unnamed: 12": "Option Stock Put Short",
+      "Unnamed: 13": "Total Long Contracts      ",
+      "Unnamed: 14": "Total Short Contracts",
+      "Unnamed: 15": NaN
+    },
+    {
+      "Participant wise Open Interest (no. of contracts) in Equity Derivatives as on Nov 14": "Client",
+      " 2025\"\"": "192042",
+      "Unnamed: 2": "85993",
+      "Unnamed: 3": "2946772",
+      "Unnamed: 4": "333607",
+      "Unnamed: 5": "2775008",
+      "Unnamed: 6": "2265318",
+      "Unnamed: 7": "2816933",
+      "Unnamed: 8": "2689526",
+      "Unnamed: 9": "2551717",
+      "Unnamed: 10": "973170",
+      "Unnamed: 11": "1563584",
+      "Unnamed: 12": "1242368",
+      "Unnamed: 13": "11704027",
+      "Unnamed: 14": "8732011",
+      "Unnamed: 15": NaN
+    },
+    {
+      "Participant wise Open Interest (no. of contracts) in Equity Derivatives as on Nov 14": "DII",
+      " 2025\"\"": "91529",
+      "Unnamed: 2": "37524",
+      "Unnamed: 3": "208766",
+      "Unnamed: 4": "4674539",
+      "Unnamed: 5": "2381",
+      "Unnamed: 6": "24427",
+      "Unnamed: 7": "0",
+      "Unnamed: 8": "0",
+      "Unnamed: 9": "1697",
+      "Unnamed: 10": "13273",
+      "Unnamed: 11": "197044",
+      "Unnamed: 12": "439",
+      "Unnamed: 13": "342073",
+      "Unnamed: 14": "4909546",
+      "Unnamed: 15": NaN
+    },
+    {
+      "Participant wise Open Interest (no. of contracts) in Equity Derivatives as on Nov 14": "FII",
+      " 2025\"\"": "24415",
+      "Unnamed: 2": "194034",
+      "Unnamed: 3": "3637417",
+      "Unnamed: 4": "2320732",
+      "Unnamed: 5": "573126",
+      "Unnamed: 6": "701210",
+      "Unnamed: 7": "552924",
+      "Unnamed: 8": "434520",
+      "Unnamed: 9": "112276",
+      "Unnamed: 10": "150914",
+      "Unnamed: 11": "160030",
+      "Unnamed: 12": "109146",
+      "Unnamed: 13": "5199358",
+      "Unnamed: 14": "3771386",
+      "Unnamed: 15": NaN
+    },
+    {
+      "Participant wise Open Interest (no. of contracts) in Equity Derivatives as on Nov 14": "Pro",
+      " 2025\"\"": "48971",
+      "Unnamed: 2": "39406",
+      "Unnamed: 3": "895576",
+      "Unnamed: 4": "359653",
+      "Unnamed: 5": "1066791",
+      "Unnamed: 6": "1101323",
+      "Unnamed: 7": "1047449",
+      "Unnamed: 8": "968231",
+      "Unnamed: 9": "1009839",
+      "Unnamed: 10": "1073019",
+      "Unnamed: 11": "1754871",
+      "Unnamed: 12": "858423",
+      "Unnamed: 13": "5195519",
+      "Unnamed: 14": "5028033",
+      "Unnamed: 15": NaN
+    },
+    {
+      "Participant wise Open Interest (no. of contracts) in Equity Derivatives as on Nov 14": "TOTAL",
+      " 2025\"\"": "356957",
+      "Unnamed: 2": "356957",
+      "Unnamed: 3": "7688531",
+      "Unnamed: 4": "7688531",
+      "Unnamed: 5": "4417306",
+      "Unnamed: 6": "4092277",
+      "Unnamed: 7": "4417306",
+      "Unnamed: 8": "4092277",
+      "Unnamed: 9": "3675529",
+      "Unnamed: 10": "2210376",
+      "Unnamed: 11": "3675529",
+      "Unnamed: 12": "2210376",
+      "Unnamed: 13": "22440976",
+      "Unnamed: 14": "22440976",
+      "Unnamed: 15": NaN
+    }
+  ],
+  "fao_participant_oi_17112025.csv": [
+    {
+      "Participant wise Open Interest (no. of contracts) in Equity Derivatives as on Nov 17": "Client Type",
+      " 2025\"\"": "Future Index Long",
+      "Unnamed: 2": "Future Index Short",
+      "Unnamed: 3": "Future Stock Long",
+      "Unnamed: 4": "Future Stock Short       ",
+      "Unnamed: 5": "Option Index Call Long",
+      "Unnamed: 6": "Option Index Put Long",
+      "Unnamed: 7": "Option Index Call Short",
+      "Unnamed: 8": "Option Index Put Short",
+      "Unnamed: 9": "Option Stock Call Long",
+      "Unnamed: 10": "Option Stock Put Long",
+      "Unnamed: 11": "Option Stock Call Short",
+      "Unnamed: 12": "Option Stock Put Short",
+      "Unnamed: 13": "Total Long Contracts      ",
+      "Unnamed: 14": "Total Short Contracts",
+      "Unnamed: 15": NaN
+    },
+    {
+      "Participant wise Open Interest (no. of contracts) in Equity Derivatives as on Nov 17": "Client",
+      " 2025\"\"": "193086",
+      "Unnamed: 2": "87158",
+      "Unnamed: 3": "2977915",
+      "Unnamed: 4": "339055",
+      "Unnamed: 5": "2767801",
+      "Unnamed: 6": "2941862",
+      "Unnamed: 7": "2806773",
+      "Unnamed: 8": "3226034",
+      "Unnamed: 9": "2606285",
+      "Unnamed: 10": "1029964",
+      "Unnamed: 11": "1603801",
+      "Unnamed: 12": "1273929",
+      "Unnamed: 13": "12516913",
+      "Unnamed: 14": "9336750",
+      "Unnamed: 15": NaN
+    },
+    {
+      "Participant wise Open Interest (no. of contracts) in Equity Derivatives as on Nov 17": "DII",
+      " 2025\"\"": "91204",
+      "Unnamed: 2": "37524",
+      "Unnamed: 3": "210192",
+      "Unnamed: 4": "4677748",
+      "Unnamed: 5": "2381",
+      "Unnamed: 6": "24427",
+      "Unnamed: 7": "0",
+      "Unnamed: 8": "0",
+      "Unnamed: 9": "1697",
+      "Unnamed: 10": "13273",
+      "Unnamed: 11": "206618",
+      "Unnamed: 12": "84",
+      "Unnamed: 13": "343174",
+      "Unnamed: 14": "4921974",
+      "Unnamed: 15": NaN
+    },
+    {
+      "Participant wise Open Interest (no. of contracts) in Equity Derivatives as on Nov 17": "FII",
+      " 2025\"\"": "26702",
+      "Unnamed: 2": "195987",
+      "Unnamed: 3": "3644935",
+      "Unnamed: 4": "2347324",
+      "Unnamed: 5": "563586",
+      "Unnamed: 6": "766693",
+      "Unnamed: 7": "532151",
+      "Unnamed: 8": "535731",
+      "Unnamed: 9": "115765",
+      "Unnamed: 10": "154233",
+      "Unnamed: 11": "164242",
+      "Unnamed: 12": "114027",
+      "Unnamed: 13": "5271914",
+      "Unnamed: 14": "3889462",
+      "Unnamed: 15": NaN
+    },
+    {
+      "Participant wise Open Interest (no. of contracts) in Equity Derivatives as on Nov 17": "Pro",
+      " 2025\"\"": "47270",
+      "Unnamed: 2": "37593",
+      "Unnamed: 3": "913265",
+      "Unnamed: 4": "382180",
+      "Unnamed: 5": "1004093",
+      "Unnamed: 6": "1205078",
+      "Unnamed: 7": "998937",
+      "Unnamed: 8": "1176295",
+      "Unnamed: 9": "1050008",
+      "Unnamed: 10": "1092947",
+      "Unnamed: 11": "1799094",
+      "Unnamed: 12": "902377",
+      "Unnamed: 13": "5312661",
+      "Unnamed: 14": "5296476",
+      "Unnamed: 15": NaN
+    },
+    {
+      "Participant wise Open Interest (no. of contracts) in Equity Derivatives as on Nov 17": "TOTAL",
+      " 2025\"\"": "358262",
+      "Unnamed: 2": "358262",
+      "Unnamed: 3": "7746307",
+      "Unnamed: 4": "7746307",
+      "Unnamed: 5": "4337861",
+      "Unnamed: 6": "4938060",
+      "Unnamed: 7": "4337861",
+      "Unnamed: 8": "4938060",
+      "Unnamed: 9": "3773755",
+      "Unnamed: 10": "2290417",
+      "Unnamed: 11": "3773755",
+      "Unnamed: 12": "2290417",
+      "Unnamed: 13": "23444662",
+      "Unnamed: 14": "23444662",
+      "Unnamed: 15": NaN
+    }
+  ],
+  "fao_participant_vol_14112025.csv": [
+    {
+      "Participant wise Trading Volume (no. of contracts) in Equity Derivatives as on Nov 14": "Client Type",
+      " 2025\"\"": "Future Index Long",
+      "Unnamed: 2": "Future Index Short",
+      "Unnamed: 3": "Future Stock Long",
+      "Unnamed: 4": "Future Stock Short       ",
+      "Unnamed: 5": "Option Index Call Long",
+      "Unnamed: 6": "Option Index Put Long",
+      "Unnamed: 7": "Option Index Call Short",
+      "Unnamed: 8": "Option Index Put Short",
+      "Unnamed: 9": "Option Stock Call Long",
+      "Unnamed: 10": "Option Stock Put Long",
+      "Unnamed: 11": "Option Stock Call Short",
+      "Unnamed: 12": "Option Stock Put Short",
+      "Unnamed: 13": "Total Long Contracts      ",
+      "Unnamed: 14": "Total Short Contracts",
+      "Unnamed: 15": NaN
+    },
+    {
+      "Participant wise Trading Volume (no. of contracts) in Equity Derivatives as on Nov 14": "Client",
+      " 2025\"\"": "86787",
+      "Unnamed: 2": "77657",
+      "Unnamed: 3": "405645",
+      "Unnamed: 4": "378696",
+      "Unnamed: 5": "24176476",
+      "Unnamed: 6": "22099990",
+      "Unnamed: 7": "24267931",
+      "Unnamed: 8": "22262337",
+      "Unnamed: 9": "1668634",
+      "Unnamed: 10": "671455",
+      "Unnamed: 11": "1608727",
+      "Unnamed: 12": "684095",
+      "Unnamed: 13": "49108987",
+      "Unnamed: 14": "49279443",
+      "Unnamed: 15": NaN
+    },
+    {
+      "Participant wise Trading Volume (no. of contracts) in Equity Derivatives as on Nov 14": "DII",
+      " 2025\"\"": "4384",
+      "Unnamed: 2": "299",
+      "Unnamed: 3": "68241",
+      "Unnamed: 4": "80068",
+      "Unnamed: 5": "0",
+      "Unnamed: 6": "3400",
+      "Unnamed: 7": "0",
+      "Unnamed: 8": "18100",
+      "Unnamed: 9": "0",
+      "Unnamed: 10": "0",
+      "Unnamed: 11": "5786",
+      "Unnamed: 12": "20",
+      "Unnamed: 13": "76025",
+      "Unnamed: 14": "104273",
+      "Unnamed: 15": NaN
+    },
+    {
+      "Participant wise Trading Volume (no. of contracts) in Equity Derivatives as on Nov 14": "FII",
+      " 2025\"\"": "13121",
+      "Unnamed: 2": "22793",
+      "Unnamed: 3": "281623",
+      "Unnamed: 4": "289273",
+      "Unnamed: 5": "4937504",
+      "Unnamed: 6": "4980730",
+      "Unnamed: 7": "4932469",
+      "Unnamed: 8": "4933927",
+      "Unnamed: 9": "301477",
+      "Unnamed: 10": "170941",
+      "Unnamed: 11": "307220",
+      "Unnamed: 12": "171341",
+      "Unnamed: 13": "10685396",
+      "Unnamed: 14": "10657023",
+      "Unnamed: 15": NaN
+    },
+    {
+      "Participant wise Trading Volume (no. of contracts) in Equity Derivatives as on Nov 14": "Pro",
+      " 2025\"\"": "53399",
+      "Unnamed: 2": "56942",
+      "Unnamed: 3": "516055",
+      "Unnamed: 4": "523527",
+      "Unnamed: 5": "35706755",
+      "Unnamed: 6": "32152208",
+      "Unnamed: 7": "35620335",
+      "Unnamed: 8": "32021964",
+      "Unnamed: 9": "3211146",
+      "Unnamed: 10": "1823090",
+      "Unnamed: 11": "3259524",
+      "Unnamed: 12": "1810030",
+      "Unnamed: 13": "73462653",
+      "Unnamed: 14": "73292322",
+      "Unnamed: 15": NaN
+    },
+    {
+      "Participant wise Trading Volume (no. of contracts) in Equity Derivatives as on Nov 14": "TOTAL",
+      " 2025\"\"": "157691",
+      "Unnamed: 2": "157691",
+      "Unnamed: 3": "1271564",
+      "Unnamed: 4": "1271564",
+      "Unnamed: 5": "64820735",
+      "Unnamed: 6": "59236328",
+      "Unnamed: 7": "64820735",
+      "Unnamed: 8": "59236328",
+      "Unnamed: 9": "5181257",
+      "Unnamed: 10": "2665486",
+      "Unnamed: 11": "5181257",
+      "Unnamed: 12": "2665486",
+      "Unnamed: 13": "133333061",
+      "Unnamed: 14": "133333061",
+      "Unnamed: 15": NaN
+    }
+  ],
+  "fao_participant_vol_17112025.csv": [
+    {
+      "Participant wise Trading Volume (no. of contracts) in Equity Derivatives as on Nov 17": "Client Type",
+      " 2025\"\"": "Future Index Long",
+      "Unnamed: 2": "Future Index Short",
+      "Unnamed: 3": "Future Stock Long",
+      "Unnamed: 4": "Future Stock Short       ",
+      "Unnamed: 5": "Option Index Call Long",
+      "Unnamed: 6": "Option Index Put Long",
+      "Unnamed: 7": "Option Index Call Short",
+      "Unnamed: 8": "Option Index Put Short",
+      "Unnamed: 9": "Option Stock Call Long",
+      "Unnamed: 10": "Option Stock Put Long",
+      "Unnamed: 11": "Option Stock Call Short",
+      "Unnamed: 12": "Option Stock Put Short",
+      "Unnamed: 13": "Total Long Contracts      ",
+      "Unnamed: 14": "Total Short Contracts",
+      "Unnamed: 15": NaN
+    },
+    {
+      "Participant wise Trading Volume (no. of contracts) in Equity Derivatives as on Nov 17": "Client",
+      " 2025\"\"": "54457",
+      "Unnamed: 2": "54578",
+      "Unnamed: 3": "398826",
+      "Unnamed: 4": "373131",
+      "Unnamed: 5": "23310270",
+      "Unnamed: 6": "20950390",
+      "Unnamed: 7": "23307317",
+      "Unnamed: 8": "20810354",
+      "Unnamed: 9": "1770350",
+      "Unnamed: 10": "646663",
+      "Unnamed: 11": "1755999",
+      "Unnamed: 12": "621430",
+      "Unnamed: 13": "47130956",
+      "Unnamed: 14": "46922809",
+      "Unnamed: 15": NaN
+    },
+    {
+      "Participant wise Trading Volume (no. of contracts) in Equity Derivatives as on Nov 17": "DII",
+      " 2025\"\"": "415",
+      "Unnamed: 2": "740",
+      "Unnamed: 3": "97752",
+      "Unnamed: 4": "99535",
+      "Unnamed: 5": "0",
+      "Unnamed: 6": "0",
+      "Unnamed: 7": "0",
+      "Unnamed: 8": "0",
+      "Unnamed: 9": "0",
+      "Unnamed: 10": "355",
+      "Unnamed: 11": "9574",
+      "Unnamed: 12": "0",
+      "Unnamed: 13": "98522",
+      "Unnamed: 14": "109849",
+      "Unnamed: 15": NaN
+    },
+    {
+      "Participant wise Trading Volume (no. of contracts) in Equity Derivatives as on Nov 17": "FII",
+      " 2025\"\"": "13164",
+      "Unnamed: 2": "12830",
+      "Unnamed: 3": "258874",
+      "Unnamed: 4": "277948",
+      "Unnamed: 5": "3638039",
+      "Unnamed: 6": "4239728",
+      "Unnamed: 7": "3626806",
+      "Unnamed: 8": "4275456",
+      "Unnamed: 9": "295732",
+      "Unnamed: 10": "148829",
+      "Unnamed: 11": "296455",
+      "Unnamed: 12": "150391",
+      "Unnamed: 13": "8594366",
+      "Unnamed: 14": "8639886",
+      "Unnamed: 15": NaN
+    },
+    {
+      "Participant wise Trading Volume (no. of contracts) in Equity Derivatives as on Nov 17": "Pro",
+      " 2025\"\"": "28984",
+      "Unnamed: 2": "28872",
+      "Unnamed: 3": "473733",
+      "Unnamed: 4": "478571",
+      "Unnamed: 5": "32543413",
+      "Unnamed: 6": "33021125",
+      "Unnamed: 7": "32557599",
+      "Unnamed: 8": "33125433",
+      "Unnamed: 9": "3226256",
+      "Unnamed: 10": "1579125",
+      "Unnamed: 11": "3230310",
+      "Unnamed: 12": "1603151",
+      "Unnamed: 13": "70872636",
+      "Unnamed: 14": "71023936",
+      "Unnamed: 15": NaN
+    },
+    {
+      "Participant wise Trading Volume (no. of contracts) in Equity Derivatives as on Nov 17": "TOTAL",
+      " 2025\"\"": "97020",
+      "Unnamed: 2": "97020",
+      "Unnamed: 3": "1229185",
+      "Unnamed: 4": "1229185",
+      "Unnamed: 5": "59491722",
+      "Unnamed: 6": "58211243",
+      "Unnamed: 7": "59491722",
+      "Unnamed: 8": "58211243",
+      "Unnamed: 9": "5292338",
+      "Unnamed: 10": "2374972",
+      "Unnamed: 11": "5292338",
+      "Unnamed: 12": "2374972",
+      "Unnamed: 13": "126696480",
+      "Unnamed: 14": "126696480",
+      "Unnamed: 15": NaN
+    }
+  ],
+  "FOVOLT_14112025.csv": [
+    {
+      "SYMBOL": "1018GS2026",
+      " SERIES": " GS",
+      " DATE1": " 14-Nov-2025",
+      " PREV_CLOSE": 105.2,
+      " OPEN_PRICE": 104.11,
+      " HIGH_PRICE": 104.11,
+      " LOW_PRICE": 104.11,
+      " LAST_PRICE": 104.11,
+      " CLOSE_PRICE": 104.11,
+      " AVG_PRICE": 104.11,
+      " TTL_TRD_QNTY": 1,
+      " TURNOVER_LACS": 0.0,
+      " NO_OF_TRADES": 1,
+      " DELIV_QTY": " 1",
+      " DELIV_PER": " 100.00"
+    },
+    {
+      "SYMBOL": "20MICRONS",
+      " SERIES": " EQ",
+      " DATE1": " 14-Nov-2025",
+      " PREV_CLOSE": 197.95,
+      " OPEN_PRICE": 197.9,
+      " HIGH_PRICE": 199.06,
+      " LOW_PRICE": 191.6,
+      " LAST_PRICE": 194.5,
+      " CLOSE_PRICE": 193.63,
+      " AVG_PRICE": 196.23,
+      " TTL_TRD_QNTY": 95278,
+      " TURNOVER_LACS": 186.97,
+      " NO_OF_TRADES": 2549,
+      " DELIV_QTY": " 56622",
+      " DELIV_PER": " 59.43"
+    },
+    {
+      "SYMBOL": "21STCENMGM",
+      " SERIES": " EQ",
+      " DATE1": " 14-Nov-2025",
+      " PREV_CLOSE": 44.16,
+      " OPEN_PRICE": 43.27,
+      " HIGH_PRICE": 43.27,
+      " LOW_PRICE": 43.27,
+      " LAST_PRICE": 43.27,
+      " CLOSE_PRICE": 43.27,
+      " AVG_PRICE": 43.27,
+      " TTL_TRD_QNTY": 2175,
+      " TURNOVER_LACS": 0.94,
+      " NO_OF_TRADES": 72,
+      " DELIV_QTY": " 2175",
+      " DELIV_PER": " 100.00"
+    },
+    {
+      "SYMBOL": "360ONE",
+      " SERIES": " EQ",
+      " DATE1": " 14-Nov-2025",
+      " PREV_CLOSE": 1085.6,
+      " OPEN_PRICE": 1087.0,
+      " HIGH_PRICE": 1089.8,
+      " LOW_PRICE": 1059.0,
+      " LAST_PRICE": 1064.9,
+      " CLOSE_PRICE": 1065.4,
+      " AVG_PRICE": 1067.2,
+      " TTL_TRD_QNTY": 601566,
+      " TURNOVER_LACS": 6419.91,
+      " NO_OF_TRADES": 21944,
+      " DELIV_QTY": " 385722",
+      " DELIV_PER": " 64.12"
+    },
+    {
+      "SYMBOL": "3IINFOLTD",
+      " SERIES": " EQ",
+      " DATE1": " 14-Nov-2025",
+      " PREV_CLOSE": 18.25,
+      " OPEN_PRICE": 18.3,
+      " HIGH_PRICE": 18.44,
+      " LOW_PRICE": 18.03,
+      " LAST_PRICE": 18.11,
+      " CLOSE_PRICE": 18.2,
+      " AVG_PRICE": 18.22,
+      " TTL_TRD_QNTY": 525329,
+      " TURNOVER_LACS": 95.74,
+      " NO_OF_TRADES": 1575,
+      " DELIV_QTY": " 336911",
+      " DELIV_PER": " 64.13"
+    },
+    {
+      "SYMBOL": "3MINDIA",
+      " SERIES": " EQ",
+      " DATE1": " 14-Nov-2025",
+      " PREV_CLOSE": 36075.0,
+      " OPEN_PRICE": 36175.0,
+      " HIGH_PRICE": 36210.0,
+      " LOW_PRICE": 35565.0,
+      " LAST_PRICE": 35600.0,
+      " CLOSE_PRICE": 35910.0,
+      " AVG_PRICE": 35953.07,
+      " TTL_TRD_QNTY": 5710,
+      " TURNOVER_LACS": 2052.92,
+      " NO_OF_TRADES": 1808,
+      " DELIV_QTY": " 3796",
+      " DELIV_PER": " 66.48"
+    },
+    {
+      "SYMBOL": "3PLAND",
+      " SERIES": " EQ",
+      " DATE1": " 14-Nov-2025",
+      " PREV_CLOSE": 40.38,
+      " OPEN_PRICE": 40.25,
+      " HIGH_PRICE": 41.88,
+      " LOW_PRICE": 40.1,
+      " LAST_PRICE": 40.9,
+      " CLOSE_PRICE": 40.65,
+      " AVG_PRICE": 40.61,
+      " TTL_TRD_QNTY": 8732,
+      " TURNOVER_LACS": 3.55,
+      " NO_OF_TRADES": 132,
+      " DELIV_QTY": " 4184",
+      " DELIV_PER": " 47.92"
+    },
+    {
+      "SYMBOL": "591GS2028",
+      " SERIES": " GS",
+      " DATE1": " 14-Nov-2025",
+      " PREV_CLOSE": 101.0,
+      " OPEN_PRICE": 100.93,
+      " HIGH_PRICE": 100.93,
+      " LOW_PRICE": 100.93,
+      " LAST_PRICE": 100.93,
+      " CLOSE_PRICE": 100.93,
+      " AVG_PRICE": 100.93,
+      " TTL_TRD_QNTY": 100,
+      " TURNOVER_LACS": 0.1,
+      " NO_OF_TRADES": 1,
+      " DELIV_QTY": " 100",
+      " DELIV_PER": " 100.00"
+    },
+    {
+      "SYMBOL": "5PAISA",
+      " SERIES": " EQ",
+      " DATE1": " 14-Nov-2025",
+      " PREV_CLOSE": 289.1,
+      " OPEN_PRICE": 290.6,
+      " HIGH_PRICE": 292.0,
+      " LOW_PRICE": 287.65,
+      " LAST_PRICE": 290.5,
+      " CLOSE_PRICE": 289.15,
+      " AVG_PRICE": 289.55,
+      " TTL_TRD_QNTY": 39395,
+      " TURNOVER_LACS": 114.07,
+      " NO_OF_TRADES": 1613,
+      " DELIV_QTY": " 18371",
+      " DELIV_PER": " 46.63"
+    },
+    {
+      "SYMBOL": "601GS2030",
+      " SERIES": " GS",
+      " DATE1": " 14-Nov-2025",
+      " PREV_CLOSE": 100.5,
+      " OPEN_PRICE": 101.35,
+      " HIGH_PRICE": 101.35,
+      " LOW_PRICE": 101.25,
+      " LAST_PRICE": 101.25,
+      " CLOSE_PRICE": 101.25,
+      " AVG_PRICE": 101.25,
+      " TTL_TRD_QNTY": 2410,
+      " TURNOVER_LACS": 2.44,
+      " NO_OF_TRADES": 3,
+      " DELIV_QTY": " 2410",
+      " DELIV_PER": " 100.00"
+    }
+  ],
+  "fo14112025\\fo14112025.csv": [
+    {
+      "INSTRUMENT": "FUTIDX    ",
+      "SYMBOL    ": "BANKNIFTY ",
+      "EXP_DATE  ": "25/11/2025",
+      "OPEN_PRICE ": 58384.0,
+      "HI_PRICE   ": 58690.0,
+      "LO_PRICE   ": 58300.2,
+      "CLOSE_PRICE": 58644.4,
+      "OPEN_INT*      ": 1713110.0,
+      "TRD_VAL           ": 55421082206.0,
+      "TRD_QTY          ": 946715.0,
+      "NO_OF_CONT       ": 27049.0,
+      "NO_OF_TRADE      ": 18524.0
+    },
+    {
+      "INSTRUMENT": "FUTIDX    ",
+      "SYMBOL    ": "BANKNIFTY ",
+      "EXP_DATE  ": "30/12/2025",
+      "OPEN_PRICE ": 58797.2,
+      "HI_PRICE   ": 59029.8,
+      "LO_PRICE   ": 58720.4,
+      "CLOSE_PRICE": 58985.4,
+      "OPEN_INT*      ": 175805.0,
+      "TRD_VAL           ": 4252374952.0,
+      "TRD_QTY          ": 72205.0,
+      "NO_OF_CONT       ": 2063.0,
+      "NO_OF_TRADE      ": 1576.0
+    },
+    {
+      "INSTRUMENT": "FUTIDX    ",
+      "SYMBOL    ": "BANKNIFTY ",
+      "EXP_DATE  ": "27/01/2026",
+      "OPEN_PRICE ": 59200.0,
+      "HI_PRICE   ": 59360.0,
+      "LO_PRICE   ": 59115.2,
+      "CLOSE_PRICE": 59321.8,
+      "OPEN_INT*      ": 43800.0,
+      "TRD_VAL           ": 856739868.0,
+      "TRD_QTY          ": 14460.0,
+      "NO_OF_CONT       ": 482.0,
+      "NO_OF_TRADE      ": 376.0
+    },
+    {
+      "INSTRUMENT": "FUTIDX    ",
+      "SYMBOL    ": "MIDCPNIFTY",
+      "EXP_DATE  ": "25/11/2025",
+      "OPEN_PRICE ": 13859.95,
+      "HI_PRICE   ": 13962.7,
+      "LO_PRICE   ": 13830.15,
+      "CLOSE_PRICE": 13933.8,
+      "OPEN_INT*      ": 3591840.0,
+      "TRD_VAL           ": 9717438850.0,
+      "TRD_QTY          ": 699020.0,
+      "NO_OF_CONT       ": 4993.0,
+      "NO_OF_TRADE      ": 4400.0
+    },
+    {
+      "INSTRUMENT": "FUTIDX    ",
+      "SYMBOL    ": "MIDCPNIFTY",
+      "EXP_DATE  ": "30/12/2025",
+      "OPEN_PRICE ": 13931.5,
+      "HI_PRICE   ": 14022.8,
+      "LO_PRICE   ": 13897.7,
+      "CLOSE_PRICE": 13995.7,
+      "OPEN_INT*      ": 126560.0,
+      "TRD_VAL           ": 999855423.0,
+      "TRD_QTY          ": 71540.0,
+      "NO_OF_CONT       ": 511.0,
+      "NO_OF_TRADE      ": 422.0
+    },
+    {
+      "INSTRUMENT": "FUTIDX    ",
+      "SYMBOL    ": "MIDCPNIFTY",
+      "EXP_DATE  ": "27/01/2026",
+      "OPEN_PRICE ": 14051.65,
+      "HI_PRICE   ": 14073.65,
+      "LO_PRICE   ": 13933.05,
+      "CLOSE_PRICE": 14052.45,
+      "OPEN_INT*      ": 10200.0,
+      "TRD_VAL           ": 41964822.0,
+      "TRD_QTY          ": 3000.0,
+      "NO_OF_CONT       ": 25.0,
+      "NO_OF_TRADE      ": 25.0
+    },
+    {
+      "INSTRUMENT": "FUTSTK    ",
+      "SYMBOL    ": "AMBER     ",
+      "EXP_DATE  ": "25/11/2025",
+      "OPEN_PRICE ": 7110.0,
+      "HI_PRICE   ": 7412.0,
+      "LO_PRICE   ": 7050.0,
+      "CLOSE_PRICE": 7387.0,
+      "OPEN_INT*      ": 1222200.0,
+      "TRD_VAL           ": 3214903950.0,
+      "TRD_QTY          ": 440300.0,
+      "NO_OF_CONT       ": 4403.0,
+      "NO_OF_TRADE      ": 3706.0
+    },
+    {
+      "INSTRUMENT": "FUTSTK    ",
+      "SYMBOL    ": "AMBER     ",
+      "EXP_DATE  ": "30/12/2025",
+      "OPEN_PRICE ": 6930.0,
+      "HI_PRICE   ": 7180.0,
+      "LO_PRICE   ": 6921.5,
+      "CLOSE_PRICE": 7149.5,
+      "OPEN_INT*      ": 379000.0,
+      "TRD_VAL           ": 1200005400.0,
+      "TRD_QTY          ": 169600.0,
+      "NO_OF_CONT       ": 1696.0,
+      "NO_OF_TRADE      ": 1266.0
+    },
+    {
+      "INSTRUMENT": "FUTSTK    ",
+      "SYMBOL    ": "AMBER     ",
+      "EXP_DATE  ": "27/01/2026",
+      "OPEN_PRICE ": 6980.5,
+      "HI_PRICE   ": 7050.0,
+      "LO_PRICE   ": 6889.0,
+      "CLOSE_PRICE": 7036.0,
+      "OPEN_INT*      ": 34800.0,
+      "TRD_VAL           ": 39033000.0,
+      "TRD_QTY          ": 5600.0,
+      "NO_OF_CONT       ": 56.0,
+      "NO_OF_TRADE      ": 49.0
+    },
+    {
+      "INSTRUMENT": "FUTSTK    ",
+      "SYMBOL    ": "DIXON     ",
+      "EXP_DATE  ": "25/11/2025",
+      "OPEN_PRICE ": 15344.0,
+      "HI_PRICE   ": 15631.0,
+      "LO_PRICE   ": 15267.0,
+      "CLOSE_PRICE": 15479.0,
+      "OPEN_INT*      ": 1978300.0,
+      "TRD_VAL           ": 6111334850.0,
+      "TRD_QTY          ": 394200.0,
+      "NO_OF_CONT       ": 7884.0,
+      "NO_OF_TRADE      ": 6729.0
+    }
+  ],
+  "fo14112025\\fo_14112025.csv": [
+    {
+      "Total volume summary of Futures and Options by product type:                                        ": "Traded Value (Rs. Crs.)       "
+    },
+    {
+      "Total volume summary of Futures and Options by product type:                                        ": "          30878.62"
+    },
+    {
+      "Total volume summary of Futures and Options by product type:                                        ": "          87524.89"
+    },
+    {
+      "Total volume summary of Futures and Options by product type:                                        ": "       24159574.33"
+    },
+    {
+      "Total volume summary of Futures and Options by product type:                                        ": "         567091.25"
+    },
+    {
+      "Total volume summary of Futures and Options by product type:                                        ": "              0.00"
+    },
+    {
+      "Total volume summary of Futures and Options by product type:                                        ": "       24845069.09"
+    }
+  ],
+  "fo14112025\\futidx14112025.csv": [
+    {
+      "Index Futures                                                                                       ": "Open interest (Qty.) as at end of trading hrs.    "
+    },
+    {
+      "Index Futures                                                                                       ": "000000001932715"
+    },
+    {
+      "Index Futures                                                                                       ": "000000000041340"
+    },
+    {
+      "Index Futures                                                                                       ": "000000003728600"
+    },
+    {
+      "Index Futures                                                                                       ": "000000000021825"
+    },
+    {
+      "Index Futures                                                                                       ": "000000020474740"
+    }
+  ],
+  "fo14112025\\futivx14112025.csv": [
+    {
+      "Vol Futures                                                                                         ": "No of Contracts                                   "
+    }
+  ],
+  "fo14112025\\futstk14112025.csv": [
+    {
+      "Futures on individual securities                                                                    ": "No of Contracts                                   "
+    },
+    {
+      "Futures on individual securities                                                                    ": "             1223"
+    },
+    {
+      "Futures on individual securities                                                                    ": "             3570"
+    },
+    {
+      "Futures on individual securities                                                                    ": "             1547"
+    },
+    {
+      "Futures on individual securities                                                                    ": "             5310"
+    },
+    {
+      "Futures on individual securities                                                                    ": "            24951"
+    },
+    {
+      "Futures on individual securities                                                                    ": "            11320"
+    },
+    {
+      "Futures on individual securities                                                                    ": "            11041"
+    },
+    {
+      "Futures on individual securities                                                                    ": "             5635"
+    },
+    {
+      "Futures on individual securities                                                                    ": "             6155"
+    }
+  ],
+  "fo14112025\\op14112025.csv": [
+    {
+      "INSTRUMENT": "OPTIDX    ",
+      "SYMBOL    ": "BANKNIFTY ",
+      "EXP_DATE  ": "25/11/2025",
+      "STR_PRICE  ": 46500.0,
+      "OPT_TYPE": "PE      ",
+      "OPEN_PRICE ": 3.95,
+      "HI_PRICE   ": 5.2,
+      "LO_PRICE   ": 3.3,
+      "CLOSE_PRICE": 3.5,
+      "OPEN_INT*      ": 74795.0,
+      "TRD_QTY          ": 13965.0,
+      "NO_OF_CONT       ": 399.0,
+      "NO_OF_TRADE      ": 135.0,
+      "NOTION_VAL        ": 649427357.25,
+      "PR_VAL            ": 54857.25
+    },
+    {
+      "INSTRUMENT": "OPTIDX    ",
+      "SYMBOL    ": "BANKNIFTY ",
+      "EXP_DATE  ": "25/11/2025",
+      "STR_PRICE  ": 47500.0,
+      "OPT_TYPE": "PE      ",
+      "OPEN_PRICE ": 7.05,
+      "HI_PRICE   ": 7.05,
+      "LO_PRICE   ": 4.3,
+      "CLOSE_PRICE": 5.0,
+      "OPEN_INT*      ": 20335.0,
+      "TRD_QTY          ": 5320.0,
+      "NO_OF_CONT       ": 152.0,
+      "NO_OF_TRADE      ": 77.0,
+      "NOTION_VAL        ": 252728729.75,
+      "PR_VAL            ": 28729.75
+    },
+    {
+      "INSTRUMENT": "OPTIDX    ",
+      "SYMBOL    ": "BANKNIFTY ",
+      "EXP_DATE  ": "25/11/2025",
+      "STR_PRICE  ": 48500.0,
+      "OPT_TYPE": "PE      ",
+      "OPEN_PRICE ": 7.75,
+      "HI_PRICE   ": 7.9,
+      "LO_PRICE   ": 4.3,
+      "CLOSE_PRICE": 5.3,
+      "OPEN_INT*      ": 6335.0,
+      "TRD_QTY          ": 6930.0,
+      "NO_OF_CONT       ": 198.0,
+      "NO_OF_TRADE      ": 92.0,
+      "NOTION_VAL        ": 336147120.75,
+      "PR_VAL            ": 42120.75
+    },
+    {
+      "INSTRUMENT": "OPTIDX    ",
+      "SYMBOL    ": "BANKNIFTY ",
+      "EXP_DATE  ": "25/11/2025",
+      "STR_PRICE  ": 48700.0,
+      "OPT_TYPE": "PE      ",
+      "OPEN_PRICE ": 7.9,
+      "HI_PRICE   ": 8.45,
+      "LO_PRICE   ": 4.9,
+      "CLOSE_PRICE": 5.25,
+      "OPEN_INT*      ": 595.0,
+      "TRD_QTY          ": 1050.0,
+      "NO_OF_CONT       ": 30.0,
+      "NO_OF_TRADE      ": 19.0,
+      "NOTION_VAL        ": 51141713.0,
+      "PR_VAL            ": 6713.0
+    },
+    {
+      "INSTRUMENT": "OPTIDX    ",
+      "SYMBOL    ": "BANKNIFTY ",
+      "EXP_DATE  ": "25/11/2025",
+      "STR_PRICE  ": 49100.0,
+      "OPT_TYPE": "PE      ",
+      "OPEN_PRICE ": 7.5,
+      "HI_PRICE   ": 7.8,
+      "LO_PRICE   ": 5.05,
+      "CLOSE_PRICE": 5.8,
+      "OPEN_INT*      ": 2555.0,
+      "TRD_QTY          ": 350.0,
+      "NO_OF_CONT       ": 10.0,
+      "NO_OF_TRADE      ": 10.0,
+      "NOTION_VAL        ": 17187276.75,
+      "PR_VAL            ": 2276.75
+    },
+    {
+      "INSTRUMENT": "OPTIDX    ",
+      "SYMBOL    ": "BANKNIFTY ",
+      "EXP_DATE  ": "25/11/2025",
+      "STR_PRICE  ": 49500.0,
+      "OPT_TYPE": "PE      ",
+      "OPEN_PRICE ": 6.25,
+      "HI_PRICE   ": 6.8,
+      "LO_PRICE   ": 6.25,
+      "CLOSE_PRICE": 6.3,
+      "OPEN_INT*      ": 14105.0,
+      "TRD_QTY          ": 1645.0,
+      "NO_OF_CONT       ": 47.0,
+      "NO_OF_TRADE      ": 21.0,
+      "NOTION_VAL        ": 81438148.75,
+      "PR_VAL            ": 10648.75
+    },
+    {
+      "INSTRUMENT": "OPTIDX    ",
+      "SYMBOL    ": "BANKNIFTY ",
+      "EXP_DATE  ": "25/11/2025",
+      "STR_PRICE  ": 50100.0,
+      "OPT_TYPE": "PE      ",
+      "OPEN_PRICE ": 10.4,
+      "HI_PRICE   ": 11.3,
+      "LO_PRICE   ": 3.4,
+      "CLOSE_PRICE": 5.85,
+      "OPEN_INT*      ": 665.0,
+      "TRD_QTY          ": 1855.0,
+      "NO_OF_CONT       ": 53.0,
+      "NO_OF_TRADE      ": 23.0,
+      "NOTION_VAL        ": 92950298.0,
+      "PR_VAL            ": 14798.0
+    },
+    {
+      "INSTRUMENT": "OPTIDX    ",
+      "SYMBOL    ": "BANKNIFTY ",
+      "EXP_DATE  ": "25/11/2025",
+      "STR_PRICE  ": 50300.0,
+      "OPT_TYPE": "PE      ",
+      "OPEN_PRICE ": 8.75,
+      "HI_PRICE   ": 11.8,
+      "LO_PRICE   ": 6.0,
+      "CLOSE_PRICE": 6.0,
+      "OPEN_INT*      ": 700.0,
+      "TRD_QTY          ": 3990.0,
+      "NO_OF_CONT       ": 114.0,
+      "NO_OF_TRADE      ": 30.0,
+      "NOTION_VAL        ": 200729418.75,
+      "PR_VAL            ": 32418.75
+    },
+    {
+      "INSTRUMENT": "OPTIDX    ",
+      "SYMBOL    ": "BANKNIFTY ",
+      "EXP_DATE  ": "25/11/2025",
+      "STR_PRICE  ": 50500.0,
+      "OPT_TYPE": "PE      ",
+      "OPEN_PRICE ": 5.95,
+      "HI_PRICE   ": 10.4,
+      "LO_PRICE   ": 5.95,
+      "CLOSE_PRICE": 7.3,
+      "OPEN_INT*      ": 16205.0,
+      "TRD_QTY          ": 8855.0,
+      "NO_OF_CONT       ": 253.0,
+      "NO_OF_TRADE      ": 97.0,
+      "NOTION_VAL        ": 447245044.75,
+      "PR_VAL            ": 67544.75
+    },
+    {
+      "INSTRUMENT": "OPTIDX    ",
+      "SYMBOL    ": "BANKNIFTY ",
+      "EXP_DATE  ": "25/11/2025",
+      "STR_PRICE  ": 51300.0,
+      "OPT_TYPE": "PE      ",
+      "OPEN_PRICE ": 9.55,
+      "HI_PRICE   ": 12.95,
+      "LO_PRICE   ": 6.8,
+      "CLOSE_PRICE": 10.2,
+      "OPEN_INT*      ": 980.0,
+      "TRD_QTY          ": 1190.0,
+      "NO_OF_CONT       ": 34.0,
+      "NO_OF_TRADE      ": 22.0,
+      "NOTION_VAL        ": 61058100.25,
+      "PR_VAL            ": 11100.25
+    }
+  ],
+  "fo14112025\\optidx14112025.csv": [
+    {
+      "Index Options                                                                                       ": "Open interest (Qty.) as at end of trading hrs.    "
+    },
+    {
+      "Index Options                                                                                       ": "000000013979585"
+    },
+    {
+      "Index Options                                                                                       ": "000000021218680"
+    },
+    {
+      "Index Options                                                                                       ": "000000000172380"
+    },
+    {
+      "Index Options                                                                                       ": "000000000158990"
+    },
+    {
+      "Index Options                                                                                       ": "000000000202020"
+    },
+    {
+      "Index Options                                                                                       ": "000000000186485"
+    },
+    {
+      "Index Options                                                                                       ": "000000000171990"
+    },
+    {
+      "Index Options                                                                                       ": "000000000150865"
+    },
+    {
+      "Index Options                                                                                       ": "000000000184145"
+    }
+  ],
+  "fo14112025\\optstk14112025.csv": [
+    {
+      "Options on individual securities                                                                    ": "Notional Value (Rs.)     "
+    },
+    {
+      "Options on individual securities                                                                    ": "     1716571550.00"
+    },
+    {
+      "Options on individual securities                                                                    ": "    10378091438.00"
+    },
+    {
+      "Options on individual securities                                                                    ": "     5517743475.00"
+    },
+    {
+      "Options on individual securities                                                                    ": "    29733817365.00"
+    },
+    {
+      "Options on individual securities                                                                    ": "   135491261355.00"
+    },
+    {
+      "Options on individual securities                                                                    ": "    69157697700.00"
+    },
+    {
+      "Options on individual securities                                                                    ": "    65790067494.00"
+    },
+    {
+      "Options on individual securities                                                                    ": "    23901056794.00"
+    },
+    {
+      "Options on individual securities                                                                    ": "    48809649745.00"
+    }
+  ],
+  "fo14112025\\ttfut14112025.csv": [
+    {
+      "The top 10 futures contracts on individual securities traded are as under:                          ": "No of Contracts  "
+    },
+    {
+      "The top 10 futures contracts on individual securities traded are as under:                          ": "            29977"
+    },
+    {
+      "The top 10 futures contracts on individual securities traded are as under:                          ": "            25182"
+    },
+    {
+      "The top 10 futures contracts on individual securities traded are as under:                          ": "            23612"
+    },
+    {
+      "The top 10 futures contracts on individual securities traded are as under:                          ": "            22705"
+    },
+    {
+      "The top 10 futures contracts on individual securities traded are as under:                          ": "            21979"
+    },
+    {
+      "The top 10 futures contracts on individual securities traded are as under:                          ": "            20197"
+    },
+    {
+      "The top 10 futures contracts on individual securities traded are as under:                          ": "            19377"
+    },
+    {
+      "The top 10 futures contracts on individual securities traded are as under:                          ": "            19002"
+    },
+    {
+      "The top 10 futures contracts on individual securities traded are as under:                          ": "            16773"
+    }
+  ],
+  "fo14112025\\ttopt14112025.csv": [
+    {
+      "The top 20 option contracts on individual securities traded are as under:                           ": "Notional Value (Rs.)     "
+    },
+    {
+      "The top 20 option contracts on individual securities traded are as under:                           ": "    50266023363.00"
+    },
+    {
+      "The top 20 option contracts on individual securities traded are as under:                           ": "    45522966033.00"
+    },
+    {
+      "The top 20 option contracts on individual securities traded are as under:                           ": "    14025726634.00"
+    },
+    {
+      "The top 20 option contracts on individual securities traded are as under:                           ": "    18139854350.00"
+    },
+    {
+      "The top 20 option contracts on individual securities traded are as under:                           ": "    20722431075.00"
+    },
+    {
+      "The top 20 option contracts on individual securities traded are as under:                           ": "    14547394840.00"
+    },
+    {
+      "The top 20 option contracts on individual securities traded are as under:                           ": "    14294760880.00"
+    },
+    {
+      "The top 20 option contracts on individual securities traded are as under:                           ": "    17869926570.00"
+    },
+    {
+      "The top 20 option contracts on individual securities traded are as under:                           ": "    17667592775.00"
+    }
+  ],
+  "fo17112025\\fo17112025.csv": [
+    {
+      "INSTRUMENT": "FUTIDX    ",
+      "SYMBOL    ": "BANKNIFTY ",
+      "EXP_DATE  ": "25/11/2025",
+      "OPEN_PRICE ": 58761.2,
+      "HI_PRICE   ": 59067.4,
+      "LO_PRICE   ": 58695.8,
+      "CLOSE_PRICE": 59027.4,
+      "OPEN_INT*      ": 1722945.0,
+      "TRD_VAL           ": 45653230049.0,
+      "TRD_QTY          ": 774165.0,
+      "NO_OF_CONT       ": 22119.0,
+      "NO_OF_TRADE      ": 16097.0
+    },
+    {
+      "INSTRUMENT": "FUTIDX    ",
+      "SYMBOL    ": "BANKNIFTY ",
+      "EXP_DATE  ": "30/12/2025",
+      "OPEN_PRICE ": 59063.4,
+      "HI_PRICE   ": 59419.8,
+      "LO_PRICE   ": 59047.6,
+      "CLOSE_PRICE": 59390.2,
+      "OPEN_INT*      ": 239715.0,
+      "TRD_VAL           ": 9741010153.0,
+      "TRD_QTY          ": 164185.0,
+      "NO_OF_CONT       ": 4691.0,
+      "NO_OF_TRADE      ": 3471.0
+    },
+    {
+      "INSTRUMENT": "FUTIDX    ",
+      "SYMBOL    ": "BANKNIFTY ",
+      "EXP_DATE  ": "27/01/2026",
+      "OPEN_PRICE ": 59320.0,
+      "HI_PRICE   ": 59749.0,
+      "LO_PRICE   ": 59320.0,
+      "CLOSE_PRICE": 59707.6,
+      "OPEN_INT*      ": 56610.0,
+      "TRD_VAL           ": 1878878310.0,
+      "TRD_QTY          ": 31500.0,
+      "NO_OF_CONT       ": 1050.0,
+      "NO_OF_TRADE      ": 806.0
+    },
+    {
+      "INSTRUMENT": "FUTIDX    ",
+      "SYMBOL    ": "MIDCPNIFTY",
+      "EXP_DATE  ": "25/11/2025",
+      "OPEN_PRICE ": 13950.0,
+      "HI_PRICE   ": 14061.0,
+      "LO_PRICE   ": 13921.0,
+      "CLOSE_PRICE": 14044.5,
+      "OPEN_INT*      ": 3581340.0,
+      "TRD_VAL           ": 7437924865.0,
+      "TRD_QTY          ": 530880.0,
+      "NO_OF_CONT       ": 3792.0,
+      "NO_OF_TRADE      ": 3350.0
+    },
+    {
+      "INSTRUMENT": "FUTIDX    ",
+      "SYMBOL    ": "MIDCPNIFTY",
+      "EXP_DATE  ": "30/12/2025",
+      "OPEN_PRICE ": 14005.05,
+      "HI_PRICE   ": 14128.0,
+      "LO_PRICE   ": 14000.0,
+      "CLOSE_PRICE": 14114.0,
+      "OPEN_INT*      ": 139300.0,
+      "TRD_VAL           ": 914725728.0,
+      "TRD_QTY          ": 64960.0,
+      "NO_OF_CONT       ": 464.0,
+      "NO_OF_TRADE      ": 372.0
+    },
+    {
+      "INSTRUMENT": "FUTIDX    ",
+      "SYMBOL    ": "MIDCPNIFTY",
+      "EXP_DATE  ": "27/01/2026",
+      "OPEN_PRICE ": 14089.4,
+      "HI_PRICE   ": 14178.1,
+      "LO_PRICE   ": 14051.05,
+      "CLOSE_PRICE": 14163.7,
+      "OPEN_INT*      ": 12360.0,
+      "TRD_VAL           ": 72850512.0,
+      "TRD_QTY          ": 5160.0,
+      "NO_OF_CONT       ": 43.0,
+      "NO_OF_TRADE      ": 40.0
+    },
+    {
+      "INSTRUMENT": "FUTSTK    ",
+      "SYMBOL    ": "AMBER     ",
+      "EXP_DATE  ": "25/11/2025",
+      "OPEN_PRICE ": 7440.0,
+      "HI_PRICE   ": 7468.0,
+      "LO_PRICE   ": 7302.5,
+      "CLOSE_PRICE": 7402.5,
+      "OPEN_INT*      ": 1231100.0,
+      "TRD_VAL           ": 2011591350.0,
+      "TRD_QTY          ": 272300.0,
+      "NO_OF_CONT       ": 2723.0,
+      "NO_OF_TRADE      ": 2247.0
+    },
+    {
+      "INSTRUMENT": "FUTSTK    ",
+      "SYMBOL    ": "AMBER     ",
+      "EXP_DATE  ": "30/12/2025",
+      "OPEN_PRICE ": 7186.5,
+      "HI_PRICE   ": 7220.0,
+      "LO_PRICE   ": 7082.0,
+      "CLOSE_PRICE": 7154.0,
+      "OPEN_INT*      ": 407000.0,
+      "TRD_VAL           ": 598533100.0,
+      "TRD_QTY          ": 83600.0,
+      "NO_OF_CONT       ": 836.0,
+      "NO_OF_TRADE      ": 703.0
+    },
+    {
+      "INSTRUMENT": "FUTSTK    ",
+      "SYMBOL    ": "AMBER     ",
+      "EXP_DATE  ": "27/01/2026",
+      "OPEN_PRICE ": 7100.0,
+      "HI_PRICE   ": 7107.0,
+      "LO_PRICE   ": 6980.0,
+      "CLOSE_PRICE": 7043.0,
+      "OPEN_INT*      ": 36600.0,
+      "TRD_VAL           ": 44320500.0,
+      "TRD_QTY          ": 6300.0,
+      "NO_OF_CONT       ": 63.0,
+      "NO_OF_TRADE      ": 49.0
+    },
+    {
+      "INSTRUMENT": "FUTSTK    ",
+      "SYMBOL    ": "DIXON     ",
+      "EXP_DATE  ": "25/11/2025",
+      "OPEN_PRICE ": 15548.0,
+      "HI_PRICE   ": 15745.0,
+      "LO_PRICE   ": 15405.0,
+      "CLOSE_PRICE": 15694.0,
+      "OPEN_INT*      ": 1990750.0,
+      "TRD_VAL           ": 6721731100.0,
+      "TRD_QTY          ": 429950.0,
+      "NO_OF_CONT       ": 8599.0,
+      "NO_OF_TRADE      ": 6907.0
+    }
+  ],
+  "fo17112025\\fo_17112025.csv": [
+    {
+      "Total volume summary of Futures and Options by product type:                                        ": "Traded Value (Rs. Crs.)       "
+    },
+    {
+      "Total volume summary of Futures and Options by product type:                                        ": "          19200.31"
+    },
+    {
+      "Total volume summary of Futures and Options by product type:                                        ": "          83988.24"
+    },
+    {
+      "Total volume summary of Futures and Options by product type:                                        ": "       22966768.81"
+    },
+    {
+      "Total volume summary of Futures and Options by product type:                                        ": "         545044.42"
+    },
+    {
+      "Total volume summary of Futures and Options by product type:                                        ": "              0.00"
+    },
+    {
+      "Total volume summary of Futures and Options by product type:                                        ": "       23615001.78"
+    }
+  ],
+  "fo17112025\\futidx17112025.csv": [
+    {
+      "Index Futures                                                                                       ": "Open interest (Qty.) as at end of trading hrs.    "
+    },
+    {
+      "Index Futures                                                                                       ": "000000002019270"
+    },
+    {
+      "Index Futures                                                                                       ": "000000000040040"
+    },
+    {
+      "Index Futures                                                                                       ": "000000003733000"
+    },
+    {
+      "Index Futures                                                                                       ": "000000000022175"
+    },
+    {
+      "Index Futures                                                                                       ": "000000020397910"
+    }
+  ],
+  "fo17112025\\futivx17112025.csv": [
+    {
+      "Vol Futures                                                                                         ": "No of Contracts                                   "
+    }
+  ],
+  "fo17112025\\futstk17112025.csv": [
+    {
+      "Futures on individual securities                                                                    ": "No of Contracts                                   "
+    },
+    {
+      "Futures on individual securities                                                                    ": "              707"
+    },
+    {
+      "Futures on individual securities                                                                    ": "             7803"
+    },
+    {
+      "Futures on individual securities                                                                    ": "             2217"
+    },
+    {
+      "Futures on individual securities                                                                    ": "             2263"
+    },
+    {
+      "Futures on individual securities                                                                    ": "            16134"
+    },
+    {
+      "Futures on individual securities                                                                    ": "             8301"
+    },
+    {
+      "Futures on individual securities                                                                    ": "             4731"
+    },
+    {
+      "Futures on individual securities                                                                    ": "             2332"
+    },
+    {
+      "Futures on individual securities                                                                    ": "             3622"
+    }
+  ],
+  "fo17112025\\op17112025.csv": [
+    {
+      "INSTRUMENT": "OPTIDX    ",
+      "SYMBOL    ": "BANKNIFTY ",
+      "EXP_DATE  ": "25/11/2025",
+      "STR_PRICE  ": 46500.0,
+      "OPT_TYPE": "PE      ",
+      "OPEN_PRICE ": 2.75,
+      "HI_PRICE   ": 3.9,
+      "LO_PRICE   ": 2.7,
+      "CLOSE_PRICE": 2.8,
+      "OPEN_INT*      ": 66010.0,
+      "TRD_QTY          ": 22855.0,
+      "NO_OF_CONT       ": 653.0,
+      "NO_OF_TRADE      ": 193.0,
+      "NOTION_VAL        ": 1062827704.75,
+      "PR_VAL            ": 70204.75
+    },
+    {
+      "INSTRUMENT": "OPTIDX    ",
+      "SYMBOL    ": "BANKNIFTY ",
+      "EXP_DATE  ": "25/11/2025",
+      "STR_PRICE  ": 47500.0,
+      "OPT_TYPE": "PE      ",
+      "OPEN_PRICE ": 3.85,
+      "HI_PRICE   ": 5.25,
+      "LO_PRICE   ": 3.5,
+      "CLOSE_PRICE": 4.05,
+      "OPEN_INT*      ": 20475.0,
+      "TRD_QTY          ": 4865.0,
+      "NO_OF_CONT       ": 139.0,
+      "NO_OF_TRADE      ": 71.0,
+      "NOTION_VAL        ": 231108235.75,
+      "PR_VAL            ": 20735.75
+    },
+    {
+      "INSTRUMENT": "OPTIDX    ",
+      "SYMBOL    ": "BANKNIFTY ",
+      "EXP_DATE  ": "25/11/2025",
+      "STR_PRICE  ": 48500.0,
+      "OPT_TYPE": "CE      ",
+      "OPEN_PRICE ": 10450.0,
+      "HI_PRICE   ": 10450.0,
+      "LO_PRICE   ": 10450.0,
+      "CLOSE_PRICE": 10450.0,
+      "OPEN_INT*      ": 700.0,
+      "TRD_QTY          ": 35.0,
+      "NO_OF_CONT       ": 1.0,
+      "NO_OF_TRADE      ": 1.0,
+      "NOTION_VAL        ": 2063250.0,
+      "PR_VAL            ": 365750.0
+    },
+    {
+      "INSTRUMENT": "OPTIDX    ",
+      "SYMBOL    ": "BANKNIFTY ",
+      "EXP_DATE  ": "25/11/2025",
+      "STR_PRICE  ": 48500.0,
+      "OPT_TYPE": "PE      ",
+      "OPEN_PRICE ": 4.1,
+      "HI_PRICE   ": 7.25,
+      "LO_PRICE   ": 3.0,
+      "CLOSE_PRICE": 4.3,
+      "OPEN_INT*      ": 5985.0,
+      "TRD_QTY          ": 21455.0,
+      "NO_OF_CONT       ": 613.0,
+      "NO_OF_TRADE      ": 191.0,
+      "NOTION_VAL        ": 1040662470.75,
+      "PR_VAL            ": 94970.75
+    },
+    {
+      "INSTRUMENT": "OPTIDX    ",
+      "SYMBOL    ": "BANKNIFTY ",
+      "EXP_DATE  ": "25/11/2025",
+      "STR_PRICE  ": 48700.0,
+      "OPT_TYPE": "PE      ",
+      "OPEN_PRICE ": 4.0,
+      "HI_PRICE   ": 6.0,
+      "LO_PRICE   ": 2.5,
+      "CLOSE_PRICE": 4.35,
+      "OPEN_INT*      ": 490.0,
+      "TRD_QTY          ": 5250.0,
+      "NO_OF_CONT       ": 150.0,
+      "NO_OF_TRADE      ": 68.0,
+      "NOTION_VAL        ": 255698227.75,
+      "PR_VAL            ": 23227.75
+    },
+    {
+      "INSTRUMENT": "OPTIDX    ",
+      "SYMBOL    ": "BANKNIFTY ",
+      "EXP_DATE  ": "25/11/2025",
+      "STR_PRICE  ": 48900.0,
+      "OPT_TYPE": "PE      ",
+      "OPEN_PRICE ": 3.4,
+      "HI_PRICE   ": 5.0,
+      "LO_PRICE   ": 3.4,
+      "CLOSE_PRICE": 4.25,
+      "OPEN_INT*      ": 280.0,
+      "TRD_QTY          ": 1400.0,
+      "NO_OF_CONT       ": 40.0,
+      "NO_OF_TRADE      ": 34.0,
+      "NOTION_VAL        ": 68466175.75,
+      "PR_VAL            ": 6175.75
+    },
+    {
+      "INSTRUMENT": "OPTIDX    ",
+      "SYMBOL    ": "BANKNIFTY ",
+      "EXP_DATE  ": "25/11/2025",
+      "STR_PRICE  ": 49100.0,
+      "OPT_TYPE": "PE      ",
+      "OPEN_PRICE ": 3.5,
+      "HI_PRICE   ": 8.8,
+      "LO_PRICE   ": 3.5,
+      "CLOSE_PRICE": 4.35,
+      "OPEN_INT*      ": 2730.0,
+      "TRD_QTY          ": 4900.0,
+      "NO_OF_CONT       ": 140.0,
+      "NO_OF_TRADE      ": 54.0,
+      "NOTION_VAL        ": 240614349.5,
+      "PR_VAL            ": 24349.5
+    },
+    {
+      "INSTRUMENT": "OPTIDX    ",
+      "SYMBOL    ": "BANKNIFTY ",
+      "EXP_DATE  ": "25/11/2025",
+      "STR_PRICE  ": 49300.0,
+      "OPT_TYPE": "PE      ",
+      "OPEN_PRICE ": 3.6,
+      "HI_PRICE   ": 7.9,
+      "LO_PRICE   ": 2.85,
+      "CLOSE_PRICE": 4.4,
+      "OPEN_INT*      ": 1890.0,
+      "TRD_QTY          ": 4725.0,
+      "NO_OF_CONT       ": 135.0,
+      "NO_OF_TRADE      ": 39.0,
+      "NOTION_VAL        ": 232963969.0,
+      "PR_VAL            ": 21469.0
+    },
+    {
+      "INSTRUMENT": "OPTIDX    ",
+      "SYMBOL    ": "BANKNIFTY ",
+      "EXP_DATE  ": "25/11/2025",
+      "STR_PRICE  ": 49500.0,
+      "OPT_TYPE": "PE      ",
+      "OPEN_PRICE ": 5.45,
+      "HI_PRICE   ": 6.7,
+      "LO_PRICE   ": 4.0,
+      "CLOSE_PRICE": 4.95,
+      "OPEN_INT*      ": 16030.0,
+      "TRD_QTY          ": 16730.0,
+      "NO_OF_CONT       ": 478.0,
+      "NO_OF_TRADE      ": 195.0,
+      "NOTION_VAL        ": 828222139.5,
+      "PR_VAL            ": 87139.5
+    },
+    {
+      "INSTRUMENT": "OPTIDX    ",
+      "SYMBOL    ": "BANKNIFTY ",
+      "EXP_DATE  ": "25/11/2025",
+      "STR_PRICE  ": 49700.0,
+      "OPT_TYPE": "PE      ",
+      "OPEN_PRICE ": 3.85,
+      "HI_PRICE   ": 8.95,
+      "LO_PRICE   ": 2.9,
+      "CLOSE_PRICE": 4.5,
+      "OPEN_INT*      ": 2835.0,
+      "TRD_QTY          ": 12565.0,
+      "NO_OF_CONT       ": 359.0,
+      "NO_OF_TRADE      ": 80.0,
+      "NOTION_VAL        ": 624540924.0,
+      "PR_VAL            ": 60424.0
+    }
+  ],
+  "fo17112025\\optidx17112025.csv": [
+    {
+      "Index Options                                                                                       ": "Open interest (Qty.) as at end of trading hrs.    "
+    },
+    {
+      "Index Options                                                                                       ": "000000015911275"
+    },
+    {
+      "Index Options                                                                                       ": "000000023046105"
+    },
+    {
+      "Index Options                                                                                       ": "000000000180765"
+    },
+    {
+      "Index Options                                                                                       ": "000000000176410"
+    },
+    {
+      "Index Options                                                                                       ": "000000000199940"
+    },
+    {
+      "Index Options                                                                                       ": "000000000257660"
+    },
+    {
+      "Index Options                                                                                       ": "000000000164840"
+    },
+    {
+      "Index Options                                                                                       ": "000000000152165"
+    },
+    {
+      "Index Options                                                                                       ": "000000000235820"
+    }
+  ],
+  "fo17112025\\optstk17112025.csv": [
+    {
+      "Options on individual securities                                                                    ": "Notional Value (Rs.)     "
+    },
+    {
+      "Options on individual securities                                                                    ": "     1161222400.00"
+    },
+    {
+      "Options on individual securities                                                                    ": "    26582523950.00"
+    },
+    {
+      "Options on individual securities                                                                    ": "    10375076900.00"
+    },
+    {
+      "Options on individual securities                                                                    ": "     9373416728.00"
+    },
+    {
+      "Options on individual securities                                                                    ": "    58979168463.00"
+    },
+    {
+      "Options on individual securities                                                                    ": "    41398256220.00"
+    },
+    {
+      "Options on individual securities                                                                    ": "    31978914274.00"
+    },
+    {
+      "Options on individual securities                                                                    ": "     9879569775.00"
+    },
+    {
+      "Options on individual securities                                                                    ": "    29790844855.00"
+    }
+  ],
+  "fo17112025\\ttfut17112025.csv": [
+    {
+      "The top 10 futures contracts on individual securities traded are as under:                          ": "No of Contracts  "
+    },
+    {
+      "The top 10 futures contracts on individual securities traded are as under:                          ": "            41381"
+    },
+    {
+      "The top 10 futures contracts on individual securities traded are as under:                          ": "            29929"
+    },
+    {
+      "The top 10 futures contracts on individual securities traded are as under:                          ": "            29016"
+    },
+    {
+      "The top 10 futures contracts on individual securities traded are as under:                          ": "            18437"
+    },
+    {
+      "The top 10 futures contracts on individual securities traded are as under:                          ": "            17541"
+    },
+    {
+      "The top 10 futures contracts on individual securities traded are as under:                          ": "            15219"
+    },
+    {
+      "The top 10 futures contracts on individual securities traded are as under:                          ": "            14751"
+    },
+    {
+      "The top 10 futures contracts on individual securities traded are as under:                          ": "            14117"
+    },
+    {
+      "The top 10 futures contracts on individual securities traded are as under:                          ": "            13310"
+    }
+  ],
+  "fo17112025\\ttopt17112025.csv": [
+    {
+      "The top 20 option contracts on individual securities traded are as under:                           ": "Notional Value (Rs.)     "
+    },
+    {
+      "The top 20 option contracts on individual securities traded are as under:                           ": "    16986265320.00"
+    },
+    {
+      "The top 20 option contracts on individual securities traded are as under:                           ": "    20907432975.00"
+    },
+    {
+      "The top 20 option contracts on individual securities traded are as under:                           ": "    14672586640.00"
+    },
+    {
+      "The top 20 option contracts on individual securities traded are as under:                           ": "    31422874031.00"
+    },
+    {
+      "The top 20 option contracts on individual securities traded are as under:                           ": "    12702836240.00"
+    },
+    {
+      "The top 20 option contracts on individual securities traded are as under:                           ": "    29894199668.00"
+    },
+    {
+      "The top 20 option contracts on individual securities traded are as under:                           ": "    26062688790.00"
+    },
+    {
+      "The top 20 option contracts on individual securities traded are as under:                           ": "     9689357600.00"
+    },
+    {
+      "The top 20 option contracts on individual securities traded are as under:                           ": "     8113981040.00"
+    }
+  ],
+  "fii_stats_14-Nov-2025.xls": "Error: Missing optional dependency 'xlrd'. Install xlrd >= 2.0.1 for xls Excel support Use pip or conda to install xlrd.",
+  "fii_stats_17-Nov-2025.xls": "Error: Missing optional dependency 'xlrd'. Install xlrd >= 2.0.1 for xls Excel support Use pip or conda to install xlrd."
+}
